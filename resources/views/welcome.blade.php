@@ -22,7 +22,7 @@ Trang chủ
                 </div> <!-- end slider -->
                 <div class="category-archive clearfix category-home">
                     <div class="home-post clearfix">
-                        <h2 class="text-post-gig">{{ trans('menu.tintuc') }}</h2>
+                        <h2 class="text-post-gig">{{ trans('menu.baiviet') }}</h2>
                         <div class="connten-post">
                             @foreach($posts as $post)
                             <div class="col-md-3 col-sm-6 col-xs-6 post-listing">
@@ -51,7 +51,6 @@ Trang chủ
         </div> <!-- end dang sách sản phẩm -->
         <div id="strc1balata" class="pointer-even">
             <div class="container">
-            	<h2 class="text-doi-tac">{{ trans('menu.doitac') }}</h2>
             	<div class="slider-doi-tac">
             		<div class="slidedoitac">
             			 @foreach($thuonghieus as $thuonghieu)
