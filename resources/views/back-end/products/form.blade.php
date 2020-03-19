@@ -8,7 +8,7 @@
 	<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
 		<label class="control-label">Tên sản phẩm(*)</label>
 		<div class="inner">
-			<input type="text" class="form-control" name="name" id="name" 
+			<input type="text" class="form-control" name="name" id="name"
 			value="{{isset($obj) ? $obj->name : old('name')}}" placeholder="Nhập tên sản phẩm" required>
 			<input type="hidden" name="_id" id="_id" value="{{isset($obj) ? $obj->id : ''}}">
 		</div>
@@ -16,7 +16,7 @@
 	<div class="form-group {{ $errors->has('name_en') ? 'has-error' : '' }}">
 		<label class="control-label">Tên sản phẩm (EN)(*)</label>
 		<div class="inner">
-			<input type="text" class="form-control" name="name_en" id="name_en" 
+			<input type="text" class="form-control" name="name_en" id="name_en"
 			value="{{isset($obj) ? $obj->name_en : old('name_en')}}" placeholder="Nhập tên sản phẩm" required>
 		</div>
 	</div>
@@ -26,8 +26,20 @@
 			<input type="text" class="form-control" name="slug" id="slug" value="{{isset($obj) ? $obj->slug : old('slug')}}" required>
 		</div>
 	</div>
-	
+
 	<div class="box box-primary">
+		<div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
+			<label class="control-label">Mô tả ngắn</label>
+			<div>
+				<textarea rows="5" placeholder="" class="form-control my-editor" name="description">{{isset($obj) ? $obj->description : ''}}</textarea>
+			</div>
+		</div>
+		<div class="form-group {{ $errors->has('description_en') ? 'has-error' : '' }}">
+			<label class="control-label">Mô tả ngắn (EN)</label>
+			<div>
+				<textarea rows="5" placeholder="" class="form-control my-editor" name="description_en">{{isset($obj) ? $obj->description_en : ''}}</textarea>
+			</div>
+		</div>
 		<div class="form-group {{ $errors->has('content') ? 'has-error' : '' }}">
 			<label class="control-label">Thông tin chi tiết(*)</label>
 			<div>
@@ -53,7 +65,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 </div>
 <div class="main-post col-md-4">
 	<div class="form-group lb-slug {{ $errors->has('type_id') ? 'has-error' : '' }}">
@@ -91,11 +103,11 @@
 	    <label class="control-label">Hiển thị trang chủ</label>
 	    <div class="inner">
 	        <select class="form-control m-b" name="is_display" id="is_display" required>
-	            <option value="1" {{isset($obj) ? ($obj->is_display == 1 ? 'selected' : '') : 
+	            <option value="1" {{isset($obj) ? ($obj->is_display == 1 ? 'selected' : '') :
 	                (old('is_display') == 1 ? 'selected' : '')}}>
 	                Có
 	            </option>
-	            <option value="0" {{isset($obj) ? ($obj->is_display == 0 ? 'selected' : '') : 
+	            <option value="0" {{isset($obj) ? ($obj->is_display == 0 ? 'selected' : '') :
 	                (old('is_display') == 0 ? 'selected' : '')}}>
 	                Không
 	            </option>
@@ -106,11 +118,11 @@
 	    <label class="control-label">Trạng thái(*)</label>
 	    <div class="inner">
 	        <select class="form-control m-b" name="status" id="status" required>
-	            <option value="1" {{isset($obj) ? ($obj->status == 1 ? 'selected' : '') : 
+	            <option value="1" {{isset($obj) ? ($obj->status == 1 ? 'selected' : '') :
 	                (old('status') == 1 ? 'selected' : '')}}>
 	                Sử dụng
 	            </option>
-	            <option value="0" {{isset($obj) ? ($obj->status == 0 ? 'selected' : '') : 
+	            <option value="0" {{isset($obj) ? ($obj->status == 0 ? 'selected' : '') :
 	                (old('status') == 0 ? 'selected' : '')}}>
 	                Tạm ngưng sử dụng
 	            </option>

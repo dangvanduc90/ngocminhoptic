@@ -31,7 +31,7 @@ Tạo mới sản phẩm
 				</form>
 			</div>
 		</div>
-	</div>		
+	</div>
 </div>
 @endsection
 @section('js')
@@ -59,6 +59,16 @@ Tạo mới sản phẩm
 			filebrowserUploadUrl : ckeditor_path,
 			filebrowserImageBrowseUrl : ckeditor_path,
 		});
+        CKEDITOR.replace('description' ,{
+            filebrowserBrowseUrl : ckeditor_path,
+            filebrowserUploadUrl : ckeditor_path,
+            filebrowserImageBrowseUrl : ckeditor_path,
+        });
+        CKEDITOR.replace('description_en' ,{
+            filebrowserBrowseUrl : ckeditor_path,
+            filebrowserUploadUrl : ckeditor_path,
+            filebrowserImageBrowseUrl : ckeditor_path,
+        });
 	});
 </script>
 @endsection

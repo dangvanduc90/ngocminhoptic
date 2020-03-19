@@ -57,6 +57,11 @@
                       <input type="number" id="qty_product" name="" min="0" max="100"value="1">
                     </div>
                     <button type="button" class="btn btn-default add_cart">{{ trans('menu.themvaogiohang') }}</button>
+                      <div class="clearfix"></div>
+                      <br />
+                      <div class="option-description">
+                          {!! getDescription($obj) !!}
+                      </div>
                   </div>
                 </div> <!-- end -->
               </div>  <!-- end -->

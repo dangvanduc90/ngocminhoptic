@@ -18,14 +18,14 @@ Thay đổi sản phẩm : #{{$obj->sku}}
 			</div>
 			<div class="ibox-content">
 				@include('back-end.partials.alert-msg')
-				<form id="form" class="form-horizontal" role="form" action="{{route('product.update',['id'=>$obj->id])}}" 
+				<form id="form" class="form-horizontal" role="form" action="{{route('product.update',['id'=>$obj->id])}}"
 				enctype="multipart/form-data" method="POST">
 				@method('PATCH')
 				@csrf
 					@include('back-end.products.form')
 					<div class="form-group">
 						<div class="col-sm-4 col-sm-offset-2">
-							
+
 							<button class="btn btn-white" >Làm mới</button>
 							<button class="btn btn-primary" type="submit">Cập nhật</button>
 						</div>
@@ -33,7 +33,7 @@ Thay đổi sản phẩm : #{{$obj->sku}}
 				</form>
 			</div>
 		</div>
-	</div>		
+	</div>
 </div>
 @endsection
 @section('js')
@@ -57,6 +57,16 @@ Thay đổi sản phẩm : #{{$obj->sku}}
 			filebrowserImageBrowseUrl : ckeditor_path,
 		});
 		CKEDITOR.replace('note_en' ,{
+			filebrowserBrowseUrl : ckeditor_path,
+			filebrowserUploadUrl : ckeditor_path,
+			filebrowserImageBrowseUrl : ckeditor_path,
+		});
+        CKEDITOR.replace('description' ,{
+            filebrowserBrowseUrl : ckeditor_path,
+            filebrowserUploadUrl : ckeditor_path,
+            filebrowserImageBrowseUrl : ckeditor_path,
+        });
+		CKEDITOR.replace('description_en' ,{
 			filebrowserBrowseUrl : ckeditor_path,
 			filebrowserUploadUrl : ckeditor_path,
 			filebrowserImageBrowseUrl : ckeditor_path,

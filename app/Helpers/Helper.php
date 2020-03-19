@@ -24,7 +24,7 @@ if (!function_exists('convert_format_ymd')) {
         if(sizeof($str) == 3){
             $res = $str[2].'-'.$str[1].'-'.$str[0];
         }
-        return $res;        
+        return $res;
     }
 }
 
@@ -61,6 +61,24 @@ if (!function_exists('getContent')) {
         if (\App::isLocale('vi')) {
             return $obj->content;
         }else return $obj->content_en;
+    }
+}
+
+if (!function_exists('getDescription')) {
+
+    /**
+     * description
+     *
+     * @param
+     * @return
+     */
+    function getDescription($obj)
+    {
+        $locale = \App::getLocale();
+
+        if (\App::isLocale('vi')) {
+            return $obj->description;
+        }else return $obj->description;
     }
 }
 
@@ -128,7 +146,7 @@ if (!function_exists('send_mail')) {
      */
     function send_mail($email, $title, $subject, $content)
     {
-    	try 
+    	try
         {
 			$mail->CharSet = 'UTF-8';                                       // Enable verbose debug output
             $mail->isSMTP();                                            // Set mailer to use SMTP
@@ -149,11 +167,11 @@ if (!function_exists('send_mail')) {
             );
             $mail->setFrom(config('mail.username'), $title);
             $mail->addAddress($email);
-            $mail->isHTML(true);                               
+            $mail->isHTML(true);
             $mail->Subject = $subject;
             $mail->Body    = $content;
-            $mail->send();            		                
-        }catch (Exception $e) 
+            $mail->send();
+        }catch (Exception $e)
         {}
     }
 }
