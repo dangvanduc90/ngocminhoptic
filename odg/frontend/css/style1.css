@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&display=swap');
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #000;
+    overflow-x: hidden;
+}
+/*.row , .container{
+	margin-left: auto;
+	margin-right: auto;
+}*/
+#header{
+	background: #272727;
+}
+.header-top {
+    min-height: 30px;
+}
+.header-top .top-center a{
+	display: block;
+	padding: 10px 0;
+	color: #bcad7a;
+	font-weight: bold;
+}
+.header-top .top-center .fa-whatsapp{
+	font-size: 18px;
+    margin-right: 5px;
+}
+.top-right .nav{
+	position: relative;
+    float: right;
+}
+.top-right .nav>li{
+	display: inline-block;
+	list-style: none;
+}
+.top-bar-nav li{
+	margin: 0 10px;
+}
+.top-bar-nav li:last-child{
+    margin-right: 0;
+}
+.top-bar-nav li>a {
+    font-size: 13px;
+    padding: 10px 15px;
+    color: #969696;
+    text-transform: uppercase;
+}
+.top-bar-nav li>a:hover{
+	color: #bcad7a;
+	background-color: inherit;
+}
+.top-bar-nav>li+li>a:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 1px;
+    border-left: 1px solid rgba(0,0,0,0.1);
+    height: 15px;
+    margin-top: -7px;
+    left: -1em;
+    border-color: #ffffff33;
+}
+.top-bar-nav li:last-child >a,
+.top-bar-nav{
+   padding-right: 0;
+}
+
+.top-bar{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: flex-end;
+}
+
+.top-right{
+        width: 626px;
+    }

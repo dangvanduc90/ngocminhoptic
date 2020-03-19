@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm kiếm bệnh án</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/lightslider.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/jquery.timepicker.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/jquery-ui.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+
+    <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}" ></script>
+    <script type="text/javascript" src="{{asset('js/lightslider.min.js')}}" ></script>
+    <script type="text/javascript" src="{{asset('js/jquery.zoom.js')}}" ></script>
+    <script type="text/javascript" src="{{asset('js/jquery-ui.js')}}" ></script>
+    <script type="text/javascript" src="{{asset('js/jquery.timepicker.min.js')}}" ></script>
+    <script type="text/javascript" src="{{asset('js/custom.js')}}" ></script>
+</head>
+<body>
+    <header class="hs-site-header menu-sticky">
+        <div class="header-more-info">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="logo-menu-cart">
+                        <div class="site-branding">
+                            <h2 class="entry-title ">
+                                <a href="{{route('trangchu')}}">
+                                    <img src="images/logo-images.png" alt="Trang chủ">
+                                </a>
+                            </h2>
+                        </div>
+                        <nav id="main-menu" class="main-menu">
+                            <div class="menu-main-menu-container">
+                                <ul>
+                                    <li class="active"><a href="{{route('trangchu')}}">Trang chủ</a></li>
+                                    <li><a href="{{route('giohang')}}">Giỏ hàng</a></li>
+                                    <li><a href="{{route('category')}}">Tin tức</a></li>
+                                    <li><a href="{{route('lienhe')}}">Liên hệ</a></li>
+                                    <li><a href="{{route('datlich')}}">Đặt lịch</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <div class="use-social-network">
+                            <button class="niplogin">
+                                <div class="avatarimage">
+                                    <span class="icons-avatar"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                    <span class="text">Connexion</span>
+                                </div>
+                            </button>
+                            <ul class="social-network">
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                            </ul>
+                            <div class="aad-to-cart">
+                                <a href="{{route('giohang')}}">
+                                    <span class="cart_qty">0</span>
+                                </a>
+                            </div>
+
+                            <div class="menu-open">
+                                <div class="icon-click test">
+                                    <span class="toggle-menu1"></span>
+                                    <span class="toggle-menu2"></span>
+                                    <span class="toggle-menu3"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="menu-mobi">
+                       <div class="x-cloes">
+                            <div class="icon-click">
+                                <span class="toggle-menu1"></span>
+                                <span class="toggle-menu3"></span>
+                            </div>
+                        </div>
+                        <div class="menu-sx">
+                            <button class="niplogin">
+                            <div class="avatarimage">
+                                <span class="icons-avatar"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                <span class="text">Connexion</span>
+                            </div>
+                        </button>
+                        <nav id="main-menu" class="main-menu-mobi">
+                            <div class="menu-main-menu-container">
+                                <ul>
+                                    <li class="active"><a href="{{route('trangchu')}}">Trang chủ</a></li>
+                                    <li><a href="{{route('giohang')}}">Giỏ hàng</a></li>
+                                    <li><a href="{{route('category')}}">Tin tức</a></li>
+                                    <li><a href="{{route('lienhe')}}">Liên hệ</a></li>
+                                    <li><a href="{{route('datlich')}}">Đặt lịch</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                        </div>
+       
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+	<div class="container-fluid">
+		<div class="row">
+			<div id="primary" class="content-area col-md-12">
+				<main id="main" class="site-main">
+					<div class="category-header search-text">
+						<h1 class="entry-title">Tìm kiếm bệnh án</h1>
+					</div>
+					<div class="contenr-search clearfix">
+						<div class="row">
+							
+						
+						<div class="moi-dung-form clearfix col-md-4 col-sm-5">
+							<form role="form" class="form-filter clearfix" action="" method="POST">
+
+								    <h3>Nhập từ khóa tìm kiếm</h3>
+
+									<div class="form-group">
+										<label class="control-label" for="S_ten">Họ tên</label>
+										<div class="ho-ten forms-control">
+											<input type="text" name="S_ten" value="" placeholder="Họ và tên">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label" for="s_ma_hoa">Mã hóa đơn</label>
+										<div class="ma-hoa-don forms-control">
+											<input type="text" name="s_ma_hoa" value="" placeholder="Mã hóa đơn">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label" for="s_ma_hoa">Ngày khám</label>
+										<div class="ma-hoa-don forms-control">
+											<input type="text" name="s_ma_hoa" value="" placeholder="Ngày khám">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label" for="s_hostline">Điện thoại</label>
+										<div class="hostline forms-control">
+											<input type="text" name="s_hostline" value="" placeholder="Điện thoại">
+										</div>
+									</div>
+									<div class="bt-submit">
+										<button type="submit" class="tim-kiem">Tìm kiếm</button>
+										<input type="hidden" name="" value="">
+									</div>
+							</form>
+						</div>
+						<div class="ket-qua-tim-kiem col-md-8 col-sm-7">
+							<div class="table-responsive">
+								<table class="table table-sm mb-0 table-dashboard">
+									<thead >
+										<tr>
+											<th>Stt</th>
+											<th>Họ tên</th>
+											<th>Mã hóa đơn</th>
+											<th>Ngày khám</th>
+											<th>Điện thoại</th>
+											<th>Xem thêm</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="btn-reveal-trigger">
+											<td class="align-middle"><span>1</span></td>
+											<td class="align-middle">Nguyễn Minh Dũng</td>
+											<td class="align-middle">NMO1</td>
+											<td class="align-middle">0915441113</td>
+											<td class="align-middle">25/12/2019 </td>
+											<td class="align-middle">
+												<a href="#view-informations-client" data-toggle="modal" >
+													<i class="fa fa-eye" aria-hidden="true"></i>
+												</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+                      </div>
+					</div>
+				</main>
+			</div>
+
+		</div>
+	</div>
+	<div class="modal fade modet-list-conter thong-tin-khach-hang" id="view-informations-client" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content clearfix">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<div class="thong-tin">
+						<h4 class="modal-title">Thông tin bệnh nhân</h4>
+					</div>
+				</div>
+				<div class="modal-body clearfix">
+					<div class="content-information">
+						<h3 class="name">Nguyễn Minh Dũng</h3>
+					</div>
+					<div class="row">
+						<div class="col-md-6 content-table">
+							<div class="form-group">
+								<label class="control-label">Mã đơn:</label>
+								<input type="text" name="" value="NMO1" readonly="">
+							</div>
+						</div>
+						<div class="col-md-6 content-table">
+							<div class="form-group">
+								<label class="control-label">Điện thoại:</label>
+								<input type="text" name="" value="0915441113 " readonly="">
+							</div>
+						</div>
+						<div class="col-md-6 content-table">
+							<div class="form-group">
+								<label class="control-label">Ngày khám lại:</label>
+								<input type="text" name="" value="25/12/2019" readonly="">
+							</div>
+						</div>
+						<div class="col-md-6 content-table">
+							<div class="form-group">
+								<label class="control-label">Thông số PD:</label>
+								<input type="text" name="" value="61" readonly="">
+							</div>
+						</div>
+						<div class="text-kqua col-md-12">
+							<h2><span>KẾT QUẢ KHÁM & KIỂM TRA THỊ LỰC </span></h2>
+							<div class="row">
+								<div class="col-md-6">
+									<p>Mắt phải</p>
+									<div class="noidung">
+										<div class="form-group">
+											<label class="control-label">Thị lực:</label>
+											<input type="text" name="" value="05/10" readonly="">
+										</div>
+										<div class="form-group">
+											<label class="control-label">Thông số kính :</label>
+											<input type="text" name="" value="S-2.75 C000; Trục 0" readonly="">
+										</div>
+										<div class="form-group">
+											<label class="control-label">Thị lực có kính:</label>
+											<input type="text" name="" value="10/10" readonly="">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<p>Mắt trái</p>
+									<div class="noidung">
+										<div class="form-group ">
+											<label class="control-label">Thị lực:</label>
+											<input type="text" name="" value="05/10" readonly="">
+										</div>
+										<div class="form-group ">
+											<label class="control-label">Thông số kính :</label>
+											<input type="text" name="" value="S-2.75 C000; Trục 0" readonly="">
+										</div>
+										<div class="form-group">
+											<label class="control-label">Thị lực có kính:</label>
+											<input type="text" name="" value="10/10" readonly="">
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+						    <h2><span>HÓA ĐƠN BÁN HÀNG </span></h2>
+						    <div class="table-responsive">
+								<table class="table table-sm mb-0 table-dashboard">
+									<thead >
+										<tr>
+											<th>TT</th>
+											<th>Danh mục</th>
+											<th>Mã SP</th>
+											<th>SL</th>
+											<th>Đơn Giá</th>
+											<th>Thành Tiền</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="btn-reveal-trigger">
+											<td class="align-middle"><span>1</span></td>
+											<td class="align-middle">Khám mắt</td>
+											<td class="align-middle">Khám + Đo KX</td>
+											<td class="align-middle">1</td>
+											<td class="align-middle">200.000</td>
+											<td class="align-middle">
+												<span class="">200.000</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Thoát	</button>
+			    </div>
+			</div>
+		</div>
+	</div>
+
+    <footer id="colophon" class="site-footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer-sidebar">
+                    <div class="widget-footer">
+                        <ul class="menu-footer">
+                            <li><a href="#">Livraison et retour</a></li>
+                            <li><a href="#">Politique du magasin</a></li>
+                            <li><a href="#">Moyens de paiement</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 footer-sidebar">
+                    <ul class="menu-footer">
+                        <li><a href="#">Contact</a></li>
+                        <li>Tél : 01 23 45 67 89</li>
+                        <li><a href="mailto:info@monsite.fr">info@monsite.fr</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-sidebar">
+                    <ul class="menu-footer">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Pinterest</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-12 footer-sidebar">
+                    <div class="form-footer">
+                        <p class="link-meta"><a href="#"><span>​Inscrivez-vous pour ne pas manquer nos actus</span></a></p>
+                        <form class="form-inline" action="">
+                          <div class="form-group">
+                            <input type="email" name="" class="form-control" placeholder="Saisissez votre adresse e-mail*">
+                        </div>
+                        <button type="submit" class="btn btn-default">Gửi</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="Content-gridWrapper col-md-12">
+                <span>© 2023 par Tote. Créé avec <a href="#">Wix.com</a></span>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</footer>
+</body>
+</html>

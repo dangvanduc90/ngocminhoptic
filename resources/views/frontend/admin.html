@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/lightslider.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+	<script type="text/javascript" src="js/lightslider.min.js" ></script>
+	<script type="text/javascript" src="js/jquery.zoom.js" ></script>
+	<script type="text/javascript" src="js/jquery-ui.js" ></script>
+	<script type="text/javascript" src="js/custom.js" ></script>
+</head>
+<body>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="content-admin">
+				<div class="col-md-12 ngoc-minh-admin">
+					<h1><img src="images/and.png" alt="">Ngọc Minh Optic</h1>
+				</div>
+				<div class="col-md-12 ngoc-minh-tb">
+					<button class="button-admin" data-target="">Thêm mới</button>
+					<button class="button-admin" data-target="">Cập nhất</button>
+				</div>
+				<div class="noi-dung-form-td clear clearfix">
+					<form class="form-inline form-horizontal" action="/action_page.php">
+						<div class="col-md-7 images-right">
+							<div class="images-admin">
+								<img src="images/logo-images.png" alt="">
+							</div>
+						</div>
+						<div class="col-md-5 ">
+							<div class="form-group">
+								<label for="mdh-admin"  class="control-label">Mã đơn hàng</label>
+								<div class="input-contenr">
+									<input type="text" class="form-control" id="mdh-admin" name="" value="">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="ngmh-admin" class="control-label">Ngày mua hàng</label>
+								<div class="input-contenr">
+									<input type="text" class="form-control" id="ngmh-admin" name="" value="">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="ht-admin"  class="control-label">Họ tên</label>
+								<div class="input-contenr">
+									<input type="text" class="form-control" id="ht-admin" name="" value="">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="sdt-admin"  class="control-label">Số điện thoại</label>
+								<div class="input-contenr">
+									<input type="tel" class="form-control" id="sdt-admin" name="" pattern="[0-9]*" value="">
+								</div>
+								
+							</div>
+
+							<div class="form-group input-checkboxa">
+								<label for="pd-admin"class="control-label">PD</label>
+                                <div class="input-contenr">
+                                	<input type="number" id="pd-admin" class="input-text" step="1" min="0" max="9999" name="" value="" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+								<div class="control-label chs">
+									<div class="checkboxa">
+										<input type="checkbox" name=""><span>Online</span>
+									</div>
+										
+								</div>
+								
+							</div>
+
+						</div>
+						<div class="col-md-12">
+							<table class="table table-sm mb-0 table-dashboard thong-so-mat">
+								<thead >
+									<tr>
+										<th style="width: 140px;"></th>
+										<th style="width: 275px;">Thị lực</th>
+										<th>Thông số kính</th>
+										<th style="width: 275px;">Thị lực có kích</th>
+										<th style="width: 275px;">N/A</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="btn-reveal-trigger">
+										<td class="align-middle"><span>Mắt Phải</span></td>
+										<td class="align-middle" data-title="Thị lực"><input type="text" class="form-control" id="tlkkmatp-admin" name="" value=""></td>
+										<td class="align-middle" data-title="Thông số kính"><input type="text" class="form-control" id="thskmatp-admin" name="" value=""></td>
+										<td class="align-middle" data-title="Thị lực có kích"><input type="text" class="form-control" id="tlckmatp-admin" name="" value=""></td>
+										<td class="align-middle" data-title="N/A"><input type="text" class="form-control" id="namatp-admin" name="" value=""></td>
+									</tr>
+									<tr class="btn-reveal-trigger">
+										<td class="align-middle"><span>Mắt Phải</span></td>
+										<td class="align-middle" data-title="Thị lực"><input type="text" class="form-control" id="tlkkmatt-admin" name="" value=""></td>
+										<td class="align-middle" data-title="Thông số kính"><input type="text" class="form-control" id="thskmatt-admin" name="" value=""></td>
+										<td class="align-middle" data-title="Thị lực có kích"><input type="text" class="form-control" id="tlckmatt-admin" name="" value=""></td>
+										<td class="align-middle" data-title="N/A"><input type="text" class="form-control" id="namatt-admin" name="" value=""></td>
+									</tr>
+								</tbody>
+							</table>
+
+                            <div class="quan-ly-hang">
+                            	<div class="row">
+                            		<div class="quan-ly col-md-5">
+	                            		<h2 class="title">Quản lý bán hàng</h2>
+	                            		<div class="form-group">
+											<label class="control-label" for="tkam-admin">Tiền khám</label>
+											<div class="input-contenr">
+												<input type="number" class="form-control" id="tkam-admin" name="" pattern="[0-9]*" value="">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label" for="tiph-admin">Tiểu phẫu</label>
+											<div class="input-contenr">
+												<input type="number" class="form-control" id="tiph-admin" name="" pattern="[0-9]*" value="">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label" for="khmi-admin">Khuyến mại</label>
+											<div class="input-contenr">
+												<input type="text" class="form-control" id="khmi-admin" name="" value="">
+											</div>
+											
+										</div>
+	                            	</div>
+		                            <div class="quan-ly col-md-7">
+		                            	<div class="row">
+			                            	<div class="ma-san-pham col-md-6">
+		                            			<h2 class="title">Mã sản phẩm</h2>
+		                            			<div class="form-group">
+		                            				<label class="control-label" for="ngonkinh-admin">Gọng kính</label>
+		                            				<div class="input-contenr">
+		                            					<input type="text" class="form-control" id="ngonkinh-admin" name="">
+		                            				</div>
+		                            			</div>
+		                            			<div class="form-group">
+		                            				<label class="control-label" for="trongkinh-admin">Tròng kính</label>
+		                            				<div class="input-contenr">
+		                            					<input type="text" class="form-control" id="trongkinh-admin" name="">
+		                            				</div>
+		                            			</div>
+		                            		</div>
+		                            		<div class="gia-san-pham col-md-6">
+		                            			<h2 class="title">Giá</h2>
+		                            			<div class="row">
+		                            				<div class="col-md-5">
+		                            					<div class="form-group">
+		                            						<label class="control-label dev-width"></label>
+		                            						<div class="input-contenr div-width">
+		                            							<input type="number" class="form-control" id="gis-admin" name="" pattern="[0-9]*" value="">
+		                            						</div>
+		                            						
+		                            					</div>
+		                            					<div class="form-group">
+		                            						<label class="control-label dev-width"></label>
+		                            						<div class="input-contenr div-width">
+		                            							<input type="number" class="form-control" id="giss-admin" name="" pattern="[0-9]*" value="">
+		                            						</div>
+		                            					</div>
+		                            				</div>
+		                            				<div class="col-md-7">
+		                            					<div class="form-group">
+		                            						<label class="control-label" for="phk-admin">Phụ kiện</label>
+		                            						<div class="input-contenr">
+		                            							<input type="number" class="form-control" id="phk-admin" name="" pattern="[0-9]*" value="">
+		                            						</div>
+		                            						
+		                            					</div>
+		                            					<div class="form-group">
+		                            						<label class="control-label" for="phk-admin">DV khác</label>
+		                            						<div class="input-contenr">
+		                            							<input type="number" class="form-control" id="phk-admin" name="" pattern="[0-9]*" value="">
+		                            						</div>
+		                            						
+		                            					</div>
+		                            				</div>
+
+		                            			</div>
+		                            			
+		                            		</div>
+		                            		<div class="col-md-12 ghi-chu">
+		                            			<div class="form-group">
+		                            				<label class="control-label" for="ghichu-admin">Ghi chú</label>
+		                            				<div class="input-contenr">
+		                            					<input type="text" class="form-control" id="ghichu-admin" name="" value="">
+		                            				</div>
+		                            				
+		                            			</div>
+		                            		</div>
+		                            	</div>
+
+	                            	</div>
+                            	</div>
+                            </div>
+							<div class="bt-submit">
+								<input type="hidden" value="" name="type_action" id="type_action">
+								<button type="submit" class="button-admin" id="them-moi">Thêm mới</button>
+								<button type="submit" class="button-admin" id="cap-nhat">Cập nhất</button>
+								<button type="submit" class="button-admin" id="huy-cap-nhat">Hủy cập nhật</button>
+								<button type="submit" class="button-admin" id="tinh-tien">Tính tiền</button>
+							</div>
+						</div>
+					</form>
+				</div>
+
+                <div class="tab-noi-dung clearfix">
+                	<div class="col-md-12">
+                		                	<ul class="nav nav-tabs">
+                		<li class="active"><a data-toggle="tab" href="#tab-submit-1">Kết quả</a></li>
+                		<li><a data-toggle="tab" href="#tab-submit-2">Đặt lịch</a></li>
+                	</ul>
+                	<div class="tab-content">
+                		<div id="tab-submit-1" class="tab-pane fade in active">
+                			<form role="form" class="form-filter form-horizontal clearfix" action="" method="POST">
+								
+								<div class="form-group">
+									<label class="control-label" for="">Mã hóa đơn</label>
+									<div class="ma-hoa-don forms-control">
+										<input type="text" name="" value="" >
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="">Điện thoại</label>
+									<div class="ma-hoa-don forms-control">
+										<input type="tel" name="" value="">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="">Họ tên</label>
+									<div class="ho-ten forms-control">
+										<input type="text" name="" value="">
+									</div>
+								</div>
+								<div class="bt-submits">
+									<button type="submit" class="tim-kiem">Tìm kiếm</button>
+								</div>
+								<input type="hidden" name="" value="">
+							</form>
+
+							<div class="card-body">
+								<div class="table-responsive">
+								<table class="table table-sm mb-0 table-dashboard">
+									<thead >
+										<tr>
+											<th class="ma">Mã đơn hàng</th>
+											<th class="th">Ngày tháng</th>
+											<th class="ht">Họ tên</th>
+											<th class="sd">Số điện thoại</th>
+											<th class="pd">PD</th>
+											<th class="kmp">Kính MP</th>
+                                            <th class="kmt">Kính MT</th>
+                                            <th class="kol">Khách Online</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="btn-reveal-trigger">
+											<td class="align-middle">NM0001</td>
+											<td class="align-middle">10/11/2019</td>
+											<td class="align-middle">Dũng</td>
+											<td class="align-middle">2334445334</td>
+											<td class="align-middle">11</td>
+											<td class="align-middle">1</td>
+											<td class="align-middle">1</td>
+											<td class="align-middle"><label><input type="checkbox" name=""></label></td>
+										</tr>
+									</tbody>
+								</table>
+								</div>
+							</div>
+                		</div>
+                		<div id="tab-submit-2" class="tab-pane fade">
+                			<form role="form" class="form-filter form-horizontal clearfix" action="" method="POST">
+								
+								<div class="form-group">
+									<label class="control-label" for="">Mã hóa đơn</label>
+									<div class=" forms-control">
+										<input type="text" name="" value="" >
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="">Điện thoại</label>
+									<div class=" forms-control">
+										<input type="tel" name="" value="">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="">Họ tên</label>
+									<div class="forms-control">
+										<input type="text" name="" value="">
+									</div>
+								</div>
+								<div class="bt-submits">
+									<button type="submit" class="tim-kiem">Tìm kiếm</button>
+								</div>
+								<input type="hidden" name="" value="">
+							</form>
+
+							<div class="card-body">
+								<div class="table-responsive">
+								<table class="table table-sm mb-0 table-dashboard">
+									<thead >
+										<tr>
+											<th class="ma">Mã đơn hàng</th>
+											<th class="th">Ngày tháng</th>
+											<th class="ht">Họ tên</th>
+											<th class="sd">Số điện thoại</th>
+											<th class="pd">PD</th>
+											<th class="kmp">Kính MP</th>
+                                            <th class="kmt">Kính MT</th>
+                                            <th class="kol">Khách Online</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="btn-reveal-trigger">
+											<td class="align-middle">NM0001</td>
+											<td class="align-middle">10/11/2019</td>
+											<td class="align-middle">Dũng</td>
+											<td class="align-middle">2334445334</td>
+											<td class="align-middle">11</td>
+											<td class="align-middle">1</td>
+											<td class="align-middle">1</td>
+											<td class="align-middle"><label><input type="checkbox" name=""></label></td>
+										</tr>
+									</tbody>
+								</table>
+								</div>
+							</div>
+                		</div>
+                	</div>
+                	</div>
+
+                </div>
+			</div>
+		</div>
+	</div>
+
+	
+</body>
+</html>
