@@ -2,7 +2,7 @@
 	<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
 		<label class="control-label">Tiêu đề bài viết(*)</label>
 		<div class="inner">
-			<input type="text" class="form-control" name="name" id="name" 
+			<input type="text" class="form-control" name="name" id="name"
 			value="{{isset($obj) ? $obj->name : old('name')}}" placeholder="Nhập tiêu đề" required>
 			<input type="hidden" name="_id" id="_id" value="{{isset($obj) ? $obj->id : ''}}">
 		</div>
@@ -59,8 +59,8 @@
 							class="btn btn-primary red iframe-btn" id="iframe-btn-0"><i
 							class="fa fa-picture-o"></i>Chọn</a>
 						</span>
-						@if(isset($obj))	
-						<input id="thumb_0" class="form-control" type="text" name="image" value="{{$obj->image}}" required>		
+						@if(isset($obj))
+						<input id="thumb_0" class="form-control" type="text" name="image" value="{{$obj->image}}" required>
 						@else
 						<input id="thumb_0" class="form-control" type="text" name="image" required>
 						@endif
@@ -68,12 +68,12 @@
 
 					<div id="preview_0">
 						@if(isset($obj))
-						<img src="{{$obj->image}}" style="max-width: 100%;">		
+						<img src="{{$obj->image}}" style="max-width: 100%;">
 						@else
 						@endif
 					</div>
 				</div>
-			</div> 
+			</div>
 		</div>
 		<!-- /.box-body -->
 	</div>
@@ -85,9 +85,9 @@
 				<option value="1" {{old('type') == "1" ? "selected" : ""}}>Tin tức</option>
 				<option value="3" {{old('type') == "3" ? "selected" : ""}}>Khuyến mại</option>
 				<option value="2" {{old('type') == "2" ? "selected" : ""}}>Trang</option>
-			</select> 
+			</select>
 			@else
-			<select class="form-control m-b" name="status">
+			<select class="form-control m-b" name="type">
 				<option value="1" {{$obj->type == "1" ? "selected" : ""}}>Tin tức</option>
 				<option value="3" {{$obj->type == "3" ? "selected" : ""}}>Khuyến mại</option>
 				<option value="2" {{$obj->type == "2" ? "selected" : ""}}>Trang</option>
@@ -102,7 +102,7 @@
 			<select class="form-control m-b" name="status">
 				<option value="1" {{old('status') == "1" ? "selected" : ""}}>Sử dụng</option>
 				<option value="0" {{old('status') == "0" ? "selected" : ""}}>Chưa sử dụng</option>
-			</select> 
+			</select>
 			@else
 			<select class="form-control m-b" name="status">
 				<option value="1" {{$obj->status == "1" ? "selected" : ""}}>Sử dụng</option>
