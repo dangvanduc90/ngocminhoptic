@@ -9,6 +9,7 @@ use App\Admin\Product;
 use App\Admin\Color;
 use App\Admin\Giohang;
 use App\Admin\Donhang;
+use Illuminate\Support\Facades\Log;
 use Spipu\Html2Pdf\Html2Pdf;
 use Illuminate\Support\Facades\Storage;
 
@@ -108,9 +109,9 @@ class CartController extends Controller
             'bank_id.min' => 'Must choose bank'
         ]);
 		$total = Cart::getTotal();
-//		if($total <= 0){
-//			return back();
-//		}
+		if($total <= 0){
+			return back();
+		}
 		$data = $request->all();
 		$data['status'] = 0;
 
@@ -150,6 +151,8 @@ class CartController extends Controller
 		$template = str_replace('_sdtkhachhang', $obj->phone, $template);
 		$template = str_replace('_diachikhachhang', $obj->address, $template);
 		$template = str_replace('_emailkhachhang', $obj->email, $template);
+		$template = str_replace('stk', $obj->stk, $template);
+		$template = str_replace('bank', $obj->bank_name, $template);
 		$template = str_replace('_httt', $ht, $template);
 		$template = str_replace('_ghichu', $obj->content, $template);
 		$template = str_replace('_tongtien',number_format($tongtien), $template);

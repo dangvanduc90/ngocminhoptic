@@ -20,6 +20,11 @@ class Donhang extends Model
         return $this->hasOne('App\Admin\Bank', 'id', 'bank_id')->withDefault();
     }
 
+    public function getBankNameAttribute()
+    {
+        return $this->bank->name;
+    }
+
     public function sum(){
     	return $this->giohangs()->sum('sum');
     }

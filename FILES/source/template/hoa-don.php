@@ -32,7 +32,7 @@
             </td>
 			<td style="width: 10%;">
             </td>
-            <td style="width: 40%; text-align: right; font-size: 14px;"> 
+            <td style="width: 40%; text-align: right; font-size: 14px;">
                 KÍNH MẮT NGỌC MINH
             </td>
         </tr>
@@ -72,7 +72,7 @@
         	<td style="width: 30%; text-align: left;">
 			Khách hàng
             </td>
-            <td style="width: 40%; text-align: left; "> 
+            <td style="width: 40%; text-align: left; ">
             : _tenkhachhang
             </td>
         </tr>
@@ -80,7 +80,7 @@
         	<td style="width: 30%; text-align: left;">
 			Địa chỉ
             </td>
-            <td style="width: 40%; text-align: left; "> 
+            <td style="width: 40%; text-align: left; ">
             : _diachikhachhang
             </td>
         </tr>
@@ -88,7 +88,7 @@
         	<td style="width: 30%; text-align: left;">
 			Điện thoại
             </td>
-            <td style="width: 40%; text-align: left; "> 
+            <td style="width: 40%; text-align: left; ">
             : _sdtkhachhang
             </td>
         </tr>
@@ -96,15 +96,31 @@
             <td style="width: 30%; text-align: left;">
             Email
             </td>
-            <td style="width: 40%; text-align: left; "> 
+            <td style="width: 40%; text-align: left; ">
             : _emailkhachhang
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 30%; text-align: left;">
+            Số tài khoản
+            </td>
+            <td style="width: 40%; text-align: left; ">
+            : stk
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 30%; text-align: left;">
+            Ngân hàng
+            </td>
+            <td style="width: 40%; text-align: left; ">
+            : bank
             </td>
         </tr>
         <tr>
             <td style="width: 30%; text-align: left;">
             Hình thức thanh toán
             </td>
-            <td style="width: 40%; text-align: left; "> 
+            <td style="width: 40%; text-align: left; ">
             : _httt
             </td>
         </tr>
@@ -112,14 +128,14 @@
         	<td style="width: 30%; text-align: left;">
 			Ghi chú
             </td>
-            <td style="width: 40%; text-align: left; "> 
+            <td style="width: 40%; text-align: left; ">
             : _ghichu
             </td>
         </tr>
     </table>
     <br>
-    <p style="text-align: center;padding: 10px;  font-size: 17px; font-style: bold"><b>HÓA ĐƠN BÁN HÀNG</b></p>
-	
+    <p style="text-align: center;padding: 10px;  font-size: 17px; font-weight: bold"><b>HÓA ĐƠN BÁN HÀNG</b></p>
+
 	<table id="table-3" cellspacing="0" style="width: 100%;">
 
         <tr id="th-header">
@@ -127,11 +143,11 @@
             <th style="width: 40%; text-align:center;  text-transform: uppercase; font-size: 11px;">Sản phẩm</th>
             <th style="width: 10%; text-align:center;  text-transform: uppercase; font-size: 11px;">SL</th>
             <th style="width: 20%; text-align:center;  text-transform: uppercase; font-size: 11px;">Đơn giá</th>
-            <th style="width: 20%; text-align:center;  text-transform: uppercase; font-size: 11px;">Thành tiền</th>	
+            <th style="width: 20%; text-align:center;  text-transform: uppercase; font-size: 11px;">Thành tiền</th>
         </tr>
         _dataSanPham
-        
-		
+
+
     </table>
     <br>
     <table cellspacing="0" style="width: 100%; text-align: center;">
@@ -139,19 +155,19 @@
         	<td style="width: 20%; text-align: left;">
 			Tổng tiền hàng
             </td>
-            <td style="width: 40%; text-align: left; "> 
+            <td style="width: 40%; text-align: left; ">
             : _tongtien
             </td>
-            <td style="width: 40%; text-align: center; "> 
+            <td style="width: 40%; text-align: center; ">
             Kính Mắt Ngọc Minh
             </td>
         </tr>
         <tr>
         	<td style="width: 20%; text-align: left;">
             </td>
-            <td style="width: 40%; text-align: left; "> 
+            <td style="width: 40%; text-align: left; ">
             </td>
-            <td rowspan="2" style="width: 40%; text-align: center; font-size: 7px;"> 
+            <td rowspan="2" style="width: 40%; text-align: center; font-size: 7px;">
             (Ký và ghi rõ họ tên)
             </td>
         </tr>
