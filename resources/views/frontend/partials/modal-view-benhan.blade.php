@@ -105,42 +105,42 @@ $tongcong = floatval($tongtien) - $khuyenmai;
 								</div>
 							</div>
 						</div>
-						<h2><span>{{ trans('menu.hoadonbanhang') }}</span></h2>
-						<div class="table-responsive">
-							<table class="table table-sm mb-0 table-dashboard">
-								<thead >
-									<tr>
-										<th>{{ trans('menu.stt') }}</th>
-										<th>{{ trans('menu.sanpham') }}</th>
-										<th>{{ trans('menu.soluong') }}</th>
-										<th>{{ trans('menu.dongia') }}</th>
-										<th>{{ trans('menu.thanhtien') }}</th>
-									</tr>
-								</thead>
-								@php
-								$j = 1;
-								@endphp
-								<tbody>
-									@foreach ($obj->donhangkhams()->get() as $donhang)
-									@php
-									$sp = $donhang->khambenh;
-									if($sp == null) $sp = "";
-									else $sp = getName($sp);
-									@endphp
-									<tr class="btn-reveal-trigger">
-										<td class="align-middle"><span>{{$j}}</span></td>
-										<td class="align-middle">{{$sp}}</td>
-										<td class="align-middle">{{$donhang->soluong}}</td>
-										<td class="align-middle">{{number_format($donhang->gia)}}</td>
-										<td class="align-middle">
-											<span class="">{{number_format($donhang->thanhtien)}}</span>
-										</td>
-									</tr>
-									@endforeach
-								</tbody>
-							</table>
+{{--						<h2><span>{{ trans('menu.hoadonbanhang') }}</span></h2>--}}
+{{--						<div class="table-responsive">--}}
+{{--							<table class="table table-sm mb-0 table-dashboard">--}}
+{{--								<thead >--}}
+{{--									<tr>--}}
+{{--										<th>{{ trans('menu.stt') }}</th>--}}
+{{--										<th>{{ trans('menu.sanpham') }}</th>--}}
+{{--										<th>{{ trans('menu.soluong') }}</th>--}}
+{{--										<th>{{ trans('menu.dongia') }}</th>--}}
+{{--										<th>{{ trans('menu.thanhtien') }}</th>--}}
+{{--									</tr>--}}
+{{--								</thead>--}}
+{{--								@php--}}
+{{--								$j = 1;--}}
+{{--								@endphp--}}
+{{--								<tbody>--}}
+{{--									@foreach ($obj->donhangkhams()->get() as $donhang)--}}
+{{--									@php--}}
+{{--									$sp = $donhang->khambenh;--}}
+{{--									if($sp == null) $sp = "";--}}
+{{--									else $sp = getName($sp);--}}
+{{--									@endphp--}}
+{{--									<tr class="btn-reveal-trigger">--}}
+{{--										<td class="align-middle"><span>{{$j}}</span></td>--}}
+{{--										<td class="align-middle">{{$sp}}</td>--}}
+{{--										<td class="align-middle">{{$donhang->soluong}}</td>--}}
+{{--										<td class="align-middle">{{number_format($donhang->gia)}}</td>--}}
+{{--										<td class="align-middle">--}}
+{{--											<span class="">{{number_format($donhang->thanhtien)}}</span>--}}
+{{--										</td>--}}
+{{--									</tr>--}}
+{{--									@endforeach--}}
+{{--								</tbody>--}}
+{{--							</table>--}}
 
-						</div>
+{{--						</div>--}}
 						<div class="price">
 							<p class="tong-hang"><span>{{ trans('menu.tongtienhang') }}</span>: {{$tongtien}}    VNĐ</p>
 							<p class="khuyen-mai"><span>{{ trans('menu.khuyenmai') }}    </span>: {{$khuyenmai}}    VNĐ</p>
@@ -150,7 +150,7 @@ $tongcong = floatval($tongtien) - $khuyenmai;
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" onclick="window.location.href='{{route('benhan.scan',['id'=>$obj->id])}}'">{{ trans('menu.in') }}</button>
+				<button type="button" class="btn btn-default" onclick="window.location.href='{{route('benhan.scan',['id'=>$obj->id])}}'">{{ trans('menu.export_patient_result') }}</button>
 				<button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('menu.thoat') }}</button>
 			</div>
 		</div>

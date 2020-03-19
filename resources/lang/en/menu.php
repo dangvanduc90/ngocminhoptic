@@ -84,4 +84,5 @@ return [
     'splienquan' => 'Related products',
     'doitac' => 'Partner',
     'textsan' => 'Featured products',
+    'export_patient_result' => 'Export patient result',
 ];

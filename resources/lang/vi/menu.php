@@ -56,7 +56,7 @@ return [
     'bancomuonxoa' => 'Bạn có muốn xóa ?',
     'xoa' => 'Xóa',
     'thoat' => 'Thoát',
-    'thongtinbenhnhan' => 'Patient information',
+    'thongtinbenhnhan' => 'Thông tin bệnh nhân',
     'kiemtrathiluc' => 'KẾT QUẢ KHÁM & KIỂM TRA THỊ LỰC',
     'thongsokinhcu' => 'Thông số kính cũ',
     'thiluc' => 'Thị cũ',
@@ -84,6 +84,6 @@ return [
     'splienquan' => 'Sản phẩm liên quan',
     'doitac' => 'Đối tác',
     'textsan' => 'Sản phẩm nổi bật',
-
+    'export_patient_result' => 'Xuất kết quả khám',
 
 ];
