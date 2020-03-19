@@ -207,12 +207,12 @@ class HomeController extends Controller
             $_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
             $_html .= $sp;
             $_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
-            $_html .= $donhang->soluong; 
+            $_html .= $donhang->soluong;
             $_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
             $_html .= number_format($donhang->gia);
             $_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
             $_html .= number_format($donhang->thanhtien);
-            $_html  .= "</td></tr>"; 
+            $_html  .= "</td></tr>";
         }
         $template = str_replace('_dataSanPham', $_html, $template);
 

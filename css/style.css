@@ -303,7 +303,7 @@ background-color: #f8f8f8;
 .main-menu ul {
   margin: 0;
   padding: 0;
-  
+
       text-align: center;
   list-style: none;
 }
@@ -352,7 +352,7 @@ background-color: #f8f8f8;
 }
 .main-menu ul.menu li:hover ul{
     display: block;
-} 
+}
 .menu-open {
   float: right;
   width: 50px;
@@ -478,7 +478,7 @@ background-color: #f8f8f8;
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
     margin-right: 4px;
-} 
+}
 
 
 .search-icons{
@@ -652,7 +652,7 @@ background-color: #f8f8f8;
   z-index: -1;
   opacity: 0;
   transition:all 1.2s ease-in-out;
-  
+
   -webkit-transition:all 1.2s ease-in-out;
   -moz-transition:all 1.2s ease-in-out;
   -ms-transition:all 1.2s ease-in-out;
@@ -1079,6 +1079,9 @@ background-color: #f8f8f8;
 .ico-mahoadon{
       background-position: 0 -204px;
 }
+.ico-stk{
+      background-position: -53px -66px;
+}
 .not-null{
   position: absolute;
   top: 10px;
@@ -1391,7 +1394,7 @@ background-color: #f8f8f8;
    margin-right:0;
 }
 .notices-wrapper .product-checkout .dat-lich-hen select,
-.notices-wrapper .product-checkout .dat-lich-hen input{ 
+.notices-wrapper .product-checkout .dat-lich-hen input{
   height: 40px;
 }
 .notices-wrapper .product-checkout .dat-lich-hen select,
@@ -1410,7 +1413,7 @@ background-color: #f8f8f8;
   width: 100%;
   margin-bottom: 15px;
 }
-  .ui-timepicker-container .ui-timepicker-viewport .ui-menu-item{ 
+  .ui-timepicker-container .ui-timepicker-viewport .ui-menu-item{
 
    text-align: left;
  }
@@ -2047,7 +2050,7 @@ background-color: #f8f8f8;
 .content-admin .noi-dung-form-td .form-inline .form-group label {
   font-weight: 500;
   text-align: left;
-  
+
   color: #000;
 }
 .content-admin .table tr td select,
@@ -2285,7 +2288,7 @@ background-color: #f8f8f8;
   border-color: transparent #c10101 transparent transparent;
 }
 #thong-tin-don-hang .input-contenr:hover .tooltiptexts{
-  visibility: visible; 
+  visibility: visible;
 }
 /*--------------------------------------------------------------
 # responsive
@@ -2473,7 +2476,7 @@ background-color: #f8f8f8;
 
   .thong-tin-san-pham .product-stt span{
       flex-grow: 8;
-  }  
+  }
   .review-heading table tbody tr .product-subtotal,
   .gio-hang-cua-ban table tbody tr .product-subtotal,
   .review-heading table tbody tr .product-price,
@@ -2612,7 +2615,7 @@ background-color: #f8f8f8;
       width: 100%;
   }
 
-  
+
 }
 
 @media (max-width: 480px) {

@@ -36,6 +36,8 @@ return [
     'nhapemail' => 'Enter your email',
     'nhapdiachi' => 'Enter your address',
     'noidung' => 'Content',
+    'stk' => 'Bank number',
+    'chonnganhang' => 'Bank Choose',
     'gui' => 'Send',
     'giodatlich' => 'Schedule time',
     'ngaydatlich' => 'Schedule date',

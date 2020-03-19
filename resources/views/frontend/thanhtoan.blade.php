@@ -23,6 +23,15 @@
                 <div class="notices-wrapper clearfix">
                     <form name="checkout" action="{{route('thanhtoan.post')}}" method="POST" class="product-checkout">
                     @csrf
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                      <div class="col2-set" id="customer_details">
                         <div class="row">
                             <div class="col-md-7 review-heading">
@@ -47,11 +56,11 @@
                                                    @if( $item->attributes->has('image') )
                                                    <img width="50" height="50" src="{{$item->attributes['image']}}" class="size-thumbnail" alt="">
                                                    @endif
-                                               </a>                    
+                                               </a>
                                            </td>
 
                                             <td class="product-name" data-title="Sản phẩm">
-                                            <a href="#">{{getName($item)}}</a>                    
+                                            <a href="#">{{getName($item)}}</a>
                                             </td>
                                         <td class="product-quantity" data-title="Số lượng">
                                             <div class="quantity buttons_added">
@@ -59,7 +68,7 @@
                                             </div>
                                         </td>
                                         <td class="product-subtotal" data-title="Tổng">
-                                            <span class="amount">{{number_format($item->getPriceSum())}}</span>                    
+                                            <span class="amount">{{number_format($item->getPriceSum())}}</span>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -69,30 +78,43 @@
                         <div class="col-md-5 billing-fields">
                             <div class="form-group">
                                 <span class="icon_checkout ico-name"></span>
-                                <input type="text" class="form-control" id="ho-ten" name="name" placeholder="{{ trans('menu.nhaphovaten') }}" required>
+                                <input type="text" class="form-control" id="ho-ten" value="{{ old('name') }}" name="name" placeholder="{{ trans('menu.nhaphovaten') }}" required>
                             </div>
                             <div class="form-group">
                                 <span class="icon_checkout ico-tel"></span>
-                                <input type="text" class="form-control" name="phone" placeholder="{{ trans('menu.nhapdienthoai') }}" required>
+                                <input type="text" class="form-control" name="phone" value="{{ old('phone') }}" placeholder="{{ trans('menu.nhapdienthoai') }}" required>
                             </div>
                             <div class="form-group">
                                 <span class="icon_checkout ico-diachi"></span>
-                                <input type="text" class="form-control" name="address" placeholder="{{ trans('menu.nhapdiachi') }}" required>
+                                <input type="text" class="form-control" name="address" value="{{ old('address') }}" placeholder="{{ trans('menu.nhapdiachi') }}" required>
                             </div>
                             <div class="form-group">
                                 <span class="icon_checkout ico-email"></span>
-                                <input type="email" class="form-control" name="email" id="" placeholder="{{ trans('menu.nhapemail') }}" required>
+                                <input type="email" class="form-control" name="email" id="" value="{{ old('email') }}" placeholder="{{ trans('menu.nhapemail') }}" required>
                             </div>
                             <div class="form-group">
                                 <span class="icon_checkout ico-noi-dung"></span>
-                                <textarea name="content" class="form-control" id="" cols="30" rows="5" placeholder="{{ trans('menu.noidung') }}" required></textarea>
-                         </div>
-                         <div class="form-group">
-                            <label><input type="radio" name="type" checked value="1">{{ trans('menu.nhanhangthanhtoan') }}</label>
-                            <label><input type="radio" name="type" value="2">{{ trans('menu.thanhtoannhanhang') }}</label>
-                        </div>
-                        <button type="submit" class="btn btn-default" data-target="">{{ trans('menu.thtt') }}</button>
-                    </div> 
+                                <textarea name="content" class="form-control" id="" cols="30" rows="5" placeholder="{{ trans('menu.noidung') }}" required>{{ old('content') }}</textarea>
+                             </div>
+                            <div class="form-group">
+                                <span class="icon_checkout ico-stk"></span>
+                                <input type="text" class="form-control" name="stk" id="" value="{{ old('stk') }}" placeholder="{{ trans('menu.stk') }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="bank_id">{{ trans('menu.chonnganhang') }}</label>
+                                <select name="bank_id" id="bank_id" class="form-control" required>
+                                    <option value="0" selected="">{{ trans('menu.chonnganhang') }}</option>
+                                    @foreach($banks as $bank)
+                                        <option value="{{ $bank->id }}">{{ $bank->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                             <div class="form-group">
+                                <label><input type="radio" name="type" checked value="1">{{ trans('menu.nhanhangthanhtoan') }}</label>
+                                <label><input type="radio" name="type" value="2">{{ trans('menu.thanhtoannhanhang') }}</label>
+                            </div>
+                            <button type="submit" class="btn btn-default" data-target="">{{ trans('menu.thtt') }} *</button>
+                    </div>
                 </div>
             </div>
         </form>

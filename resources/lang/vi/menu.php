@@ -36,6 +36,8 @@ return [
     'nhapemail' => 'Nhập email',
     'nhapdiachi' => 'Nhập địa chỉ',
     'noidung' => 'Nội dung',
+    'stk' => 'Số tài khoản',
+    'chonnganhang' => 'Chọn ngân hàng',
     'gui' => 'Gửi',
     'giodatlich' => 'Giờ đặt lịch',
     'ngaydatlich' => 'Ngày đặt lịch',
@@ -82,6 +84,6 @@ return [
     'splienquan' => 'Sản phẩm liên quan',
     'doitac' => 'Đối tác',
     'textsan' => 'Sản phẩm nổi bật',
-    
+
 
 ];

@@ -8,6 +8,8 @@
 			<th class="text-center">Địa chỉ</th>
 			<th class="text-center">Nội dung</th>
 			<th class="text-center">Số tiền</th>
+			<th class="text-center">Số tài khoản</th>
+			<th class="text-center">Ngân hàng</th>
 			<th class="text-center">Ngày tạo</th>
 			<th class="text-center">Trạng thái</th>
 		</tr>
@@ -22,6 +24,8 @@
 			<td class="text-center">{{$obj->address}}</td>
 			<td class="text-center">{{$obj->content}}</td>
 			<td class="text-center">{{number_format($obj->sum())}}</td>
+			<td class="text-center">{{$obj->stk}}</td>
+			<td class="text-center">{{$obj->bank->name}}</td>
 			<td class="text-center">{{$obj->created_at}}</td>
 			<td class="text-center">{{$obj->status == 0 ? 'Đang chờ' : 'Đã xử lý'}}</td>
 		</tr>

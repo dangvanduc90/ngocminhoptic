@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Admin\Bank;
 use Illuminate\Http\Request;
 use Cart;
 use App\Admin\Product;
@@ -95,14 +96,21 @@ class CartController extends Controller
 	}
 
 	public function thanhtoan(){
-		return view('frontend.thanhtoan');
+	    $banks = Bank::all();
+		return view('frontend.thanhtoan', compact('banks'));
 	}
 
 	public function postThanhToan(Request $request){
+        $request->validate([
+            'stk' => 'required',
+            'bank_id' => 'required|integer|min:1',
+        ], [
+            'bank_id.min' => 'Must choose bank'
+        ]);
 		$total = Cart::getTotal();
-		if($total <= 0){
-			return back();
-		}
+//		if($total <= 0){
+//			return back();
+//		}
 		$data = $request->all();
 		$data['status'] = 0;
 
@@ -158,15 +166,15 @@ class CartController extends Controller
 					$_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
 					$_html .= $product->name." (".$color->name.")";
 					$_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
-					$_html .= $giohang->amount; 
+					$_html .= $giohang->amount;
 					$_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
 					$_html .= number_format($giohang->price);
 					$_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
 					$_html .= number_format($giohang->sum);
-					$_html  .= "</td></tr>"; 
+					$_html  .= "</td></tr>";
 					$j++;
 				}
-				
+
 			}
 
 
