@@ -21,21 +21,21 @@
 						<div class="col-md-3 col-sm-4">
 							<div class="form-group">
 								<div class="ma-hoa-don forms-control">
-									<input id="date-ngtr-m1" type="text" id="s_fromDate" value="" placeholder="Từ ngày">
+									<input class="form-control datepicker" type="text" id="s_fromDate" value="" placeholder="Từ ngày">
 								</div>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-4">
 							<div class="form-group">
 								<div class="ho-ten forms-control">
-									<input id="date-ngts-m1" type="text" id="s_endDate" value="" placeholder="Đến ngày">
+									<input class="form-control datepicker" type="text" id="s_endDate" value="" placeholder="Đến ngày">
 								</div>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-2"></div>
 					</div>
 
-					
+
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
@@ -60,7 +60,7 @@
 			</div>
 			<div id="tab-submit-2" class="tab-pane fade">
 				<div class="row">
-					
+
 					<div class="clearfix">
 						<div class="col-md-3 col-sm-2"></div>
 						<form role="form" class="form-filter form-horizontal clearfix col-md-6 col-sm-8" action="" method="POST">
@@ -76,14 +76,14 @@
 						<div class="col-md-3 col-sm-4">
 							<div class="form-group">
 								<div class="ma-hoa-don forms-control">
-									<input id="date-ngtr-m1" type="text" id="o_fromDate" value="" placeholder="Từ ngày">
+									<input class="form-control datepicker" type="text" id="o_fromDate" value="" placeholder="Từ ngày">
 								</div>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-4">
 							<div class="form-group">
 								<div class="ho-ten forms-control">
-									<input id="date-ngts-m1" type="text" id="o_endDate" value="" placeholder="Đến ngày">
+									<input class="form-control datepicker" type="text" id="o_endDate" value="" placeholder="Đến ngày">
 								</div>
 							</div>
 						</div>
@@ -103,7 +103,8 @@
 									<th class="sd">SĐT</th>
 									<th class="sd">Cơ sở</th>
 									<th class="ht">Nội dung</th>
-								</tr>
+                                    <th class="pd">Hành động</th>
+                                </tr>
 							</thead>
 							<tbody id="tbody_order">
 								@include('back-end.crm.table-order')

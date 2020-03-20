@@ -37,26 +37,26 @@
                                     <div class="form-group">
                                         <span class="not-null">*</span>
                                         <span class="icon_checkout ico-tel"></span>
-                                        <input type="tel" class="form-control" placeholder="Nhập điện thoại" name="{{ trans('menu.nhapdienthoai') }}" required>
+                                        <input type="tel" class="form-control" name="phone" placeholder="{{ trans('menu.nhapdienthoai') }}" required>
                                     </div>
                                     <div class="ngay-dat-lich">
                                         <div class="form-group">
                                             <span class="not-null">*</span>
                                             <span class="tooltiptexts">09:30 am/pm</span>
                                             <span class="icon_checkout ico-ngay-dat"></span>
-                                            <input type="text"class="form-control" name="gio" placeholder="{{ trans('menu.giodatlich') }}" id="gioi-dat-lich" required>
+                                            <input type="text"class="form-control datetimepicker" name="gio" placeholder="{{ trans('menu.giodatlich') }}" id="gioi-dat-lich" required>
                                         </div>
                                         <div class="form-group">
                                             <span class="not-null">*</span>
                                             <span class="tooltiptexts">20/09/2019</span>
                                             <span class="icon_checkout ico-ngay-dat"></span>
-                                            <input type="text"class="form-control" name="ngay" placeholder="{{ trans('menu.ngaydatlich') }}" id="dat-lich" required>
+                                            <input type="text" class="form-control" name="ngay" placeholder="{{ trans('menu.ngaydatlich') }}" id="dat-lich" autocomplete="disabled" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <span class="icon_checkout ico-diachi"></span>
                                         <select class="mdb-select md-form" name="coso" required>
-                                            <option label="" disabled selected>{{ trans('menu.choncoso') }}</option>
+                                            <option value="">{{ trans('menu.choncoso') }}</option>
                                             @foreach(config('myconfig.coso') as $key=>$value)
                                             <option value="{{$key}}">{{$value}}</option>
                                             @endforeach

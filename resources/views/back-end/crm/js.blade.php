@@ -42,12 +42,12 @@
 
 		$("#content_table_crm").delegate("#s_str, #s_fromDate, #s_endDate", "change", function(){
 			searchBenhAn();
-			
+
 		});
 
 		$("#content_table_crm").delegate("#o_str, #o_fromDate, #o_endDate", "change", function(){
 			searchOrder();
-			
+
 		});
 
 		$("#content_form_crm").delegate(".add_product", "click", function(){
@@ -67,4 +67,35 @@
 			});
 		});
 	});
+    $('.datepicker').datepicker({
+        dateFormat: "dd/mm/yy"
+    });
+
+    function confirmFormDelete(id) {
+        // const id = form.serialize().id;
+        // console.log(form.serialize())
+        // console.log(id)
+        if(confirm('Do you really want to submit the form?')) {
+            $.ajax({
+                url: "/admin/ajax/deleteOrder/" + id,
+                method: 'post',
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    id: id
+                },
+                success: function (data) {
+                    if( data == 1) {
+                        let idSelector = $("#order_" + id);
+                        if(idSelector) {
+                            idSelector.remove();
+                        }
+                    }
+                },
+                error: function () {
+                    alert("error")
+                }
+            })
+        }
+        return false;
+    }
 </script>

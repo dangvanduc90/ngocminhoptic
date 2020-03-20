@@ -51,10 +51,10 @@ class BenhanController extends Controller
         $benhan = Benhan::create($data_benhan);
 
         $data_donhang = $request->only('khambenh_id', 'gia', 'soluong', 'thanhtien');
-        if(isset($data_donhang['khambenh_id']) && isset($data_donhang['gia']) && 
+        if(isset($data_donhang['khambenh_id']) && isset($data_donhang['gia']) &&
             isset($data_donhang['soluong']) && isset($data_donhang['thanhtien']) ){
             $size = sizeof($data_donhang['khambenh_id']);
-        if(sizeof($data_donhang['gia']) == $size && 
+        if(sizeof($data_donhang['gia']) == $size &&
             sizeof($data_donhang['soluong']) == $size &&
             sizeof($data_donhang['thanhtien']) == $size){
             foreach ($data_donhang['khambenh_id'] as $key => $value) {
@@ -112,12 +112,12 @@ class BenhanController extends Controller
         if($obj == null) abort(404);
         $obj->update($data_benhan);
         $donhangs = $obj->donhangkhams()->get();
-        
+
         $data_donhang = $request->only('khambenh_id', 'gia', 'soluong', 'thanhtien');
-        if(isset($data_donhang['khambenh_id']) && isset($data_donhang['gia']) && 
+        if(isset($data_donhang['khambenh_id']) && isset($data_donhang['gia']) &&
             isset($data_donhang['soluong']) && isset($data_donhang['thanhtien']) ){
             $size = sizeof($data_donhang['khambenh_id']);
-        if(sizeof($data_donhang['gia']) == $size && 
+        if(sizeof($data_donhang['gia']) == $size &&
             sizeof($data_donhang['soluong']) == $size &&
             sizeof($data_donhang['thanhtien']) == $size){
             foreach ($donhangs as $donhang) {
@@ -176,10 +176,10 @@ class BenhanController extends Controller
         if($str != null && $str != ''){
             $str = mb_strtolower($str, 'UTF-8');
             $benhans = $benhans->where(function ($query) use ($str) {
-                $query->orwhereRaw('lower(hovaten) like (?)', ["%{$str}%"]); 
-                $query->orwhereRaw('lower(madon) like (?)', ["%{$str}%"]);  
-                $query->orwhereRaw('lower(sdt) like (?)', ["%{$str}%"]);   
-                $query->orwhereRaw('lower(ghichu) like (?)', ["%{$str}%"]); 
+                $query->orwhereRaw('lower(hovaten) like (?)', ["%{$str}%"]);
+                $query->orwhereRaw('lower(madon) like (?)', ["%{$str}%"]);
+                $query->orwhereRaw('lower(sdt) like (?)', ["%{$str}%"]);
+                $query->orwhereRaw('lower(ghichu) like (?)', ["%{$str}%"]);
             });
         }
         if($from_date != null && $from_date != ''){
@@ -204,10 +204,10 @@ class BenhanController extends Controller
         if($str != null && $str != ''){
             $str = mb_strtolower($str, 'UTF-8');
             $benhans = $benhans->where(function ($query) use ($str) {
-                $query->orwhereRaw('lower(name) like (?)', ["%{$str}%"]); 
-                $query->orwhereRaw('lower(address) like (?)', ["%{$str}%"]);  
-                $query->orwhereRaw('lower(phone) like (?)', ["%{$str}%"]);   
-                $query->orwhereRaw('lower(email) like (?)', ["%{$str}%"]); 
+                $query->orwhereRaw('lower(name) like (?)', ["%{$str}%"]);
+                $query->orwhereRaw('lower(address) like (?)', ["%{$str}%"]);
+                $query->orwhereRaw('lower(phone) like (?)', ["%{$str}%"]);
+                $query->orwhereRaw('lower(email) like (?)', ["%{$str}%"]);
             });
         }
         if($from_date != null && $from_date != ''){
@@ -263,12 +263,12 @@ class BenhanController extends Controller
             $_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
             $_html .= $sp;
             $_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
-            $_html .= $donhang->soluong; 
+            $_html .= $donhang->soluong;
             $_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
             $_html .= number_format($donhang->gia);
             $_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
             $_html .= number_format($donhang->thanhtien);
-            $_html  .= "</td></tr>"; 
+            $_html  .= "</td></tr>";
         }
         $template = str_replace('_dataSanPham', $_html, $template);
 

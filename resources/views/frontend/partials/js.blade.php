@@ -91,7 +91,7 @@
                         loop:false,
                     });
                 }
-    			
+
     		});
     	});
 
@@ -126,5 +126,9 @@
                }
             });
         });
+    });
+
+    $('.datetimepicker').timepicker({
+        timeFormat: 'HH:mm',
     });
 </script>

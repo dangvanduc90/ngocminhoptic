@@ -7,6 +7,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
 	Route::get('/ajax/getBenhAn', 'Admin\BenhanController@ajaxgetBenhAn');
 	Route::get('/ajax/searchBenhAn', 'Admin\BenhanController@ajaxsearchBenhAn');
 	Route::get('/ajax/searchOrder', 'Admin\BenhanController@ajaxsearchOrder');
+	Route::post('/ajax/deleteOrder/{id}', 'Admin\OrderController@ajaxDestroyOrder')->name('destroy.order');
 	Route::get('/download/Benhan/{id}', 'Admin\BenhanController@download')->name('download.benhan');
 	Route::get('/', 'Admin\PostController@index')
 	->name('admin.home');
