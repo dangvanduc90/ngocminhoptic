@@ -78,7 +78,7 @@ if (!function_exists('getDescription')) {
 
         if (\App::isLocale('vi')) {
             return $obj->description;
-        }else return $obj->description;
+        }else return $obj->description_en;
     }
 }
 
