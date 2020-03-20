@@ -137,7 +137,7 @@ class BenhanController extends Controller
         }
     }
     Session::flash('success-crm', 'Cập nhật bệnh án thành công !');
-    return back();
+    return redirect()->back();
 }
 
     /**
