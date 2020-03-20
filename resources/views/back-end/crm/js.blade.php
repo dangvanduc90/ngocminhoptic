@@ -10,7 +10,7 @@
 		_sum = _price*_sl;
 		$('#thanhtien_'+id).val(_sum);
 		$('#gia_'+id).val(_price);
-
+        calculator_loan();
 	}
 
 	function searchBenhAn(){
@@ -39,6 +39,18 @@
 			autoGetPrice(_id);
 
 		});
+		$("#content_form_crm").delegate(".sanpham_kham, .soluong_sp", "keyup", function(){
+			_id = $(this).data('id');
+
+			autoGetPrice(_id);
+
+		});
+		$("#quan-ly-han").delegate("#khmi-admin, #datcoc-admin", "keyup", function(){
+            calculator_loan();
+        });
+		$("#quan-ly-han").delegate("#khmi-admin, #datcoc-admin", "change", function(){
+            calculator_loan();
+        });
 
 		$("#content_table_crm").delegate("#s_str, #s_fromDate, #s_endDate", "change", function(){
 			searchBenhAn();
@@ -97,5 +109,18 @@
             })
         }
         return false;
+    }
+
+    function calculator_loan() {
+        let total_amount_products = 0;
+        $("input[name='thanhtien[]']").each(function () {
+            total_amount_products += parseInt($(this).val()) || 0;
+        });
+        let khieunai = parseInt($("input[name='khieunai']").val()) || 0;
+        let datcoc = parseInt($("input[name='datcoc']").val()) || 0;
+
+        let congno = total_amount_products - (khieunai + datcoc);
+
+        $("input[name='congno']").val(congno);
     }
 </script>
