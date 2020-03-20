@@ -20,7 +20,7 @@
 							<label for="mdh-admin"  class="control-label">Mã đơn</label>
 							<div class="input-contenr">
 								<span class="icon_checkout ico-plu"></span>
-								<input type="text" class="form-control" id="mdh-admin" name="madon" value="{{isset($obj) ? $obj->madon : old('madon')}}" placeholder="Mã đơn" required>
+								<input type="text" class="form-control" id="mdh-admin" name="madon" value="{{isset($obj) ? $obj->madon : 'MDH_' .time()}}" placeholder="Mã đơn" required>
 							</div>
 						</div>
 					</div>
