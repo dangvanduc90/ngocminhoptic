@@ -66,10 +66,10 @@ class KhambenhController extends Controller
     {
         $obj = Khambenh::find($id);
         if($obj == null){
-            Session::flash('error-khambenh', 'Không tìm thấy dữ liệu.');  
-            return redirect()->route('khambenh.index');  
+            Session::flash('error-khambenh', 'Không tìm thấy dữ liệu.');
+            return redirect()->route('khambenh.index');
         }
-        return view('back-end.san-pham.edit',['obj'=>$obj]);
+        return view('back-end.khambenhs.edit',['obj'=>$obj]);
     }
 
     /**
@@ -83,8 +83,8 @@ class KhambenhController extends Controller
     {
         $obj = Khambenh::find($id);
         if($obj == null){
-            Session::flash('error-khambenh', 'Không tìm thấy dữ liệu.');  
-            return redirect()->route('khambenh.index');  
+            Session::flash('error-khambenh', 'Không tìm thấy dữ liệu.');
+            return redirect()->route('khambenh.index');
         }
         $arr_data = $request->all();
         $obj->update($arr_data);
@@ -102,12 +102,12 @@ class KhambenhController extends Controller
     {
         $obj = Khambenh::find($id);
         if($obj == null){
-            Session::flash('error-khambenh', 'Không tìm thấy dữ liệu.');  
-            return redirect()->route('san-pham.index');  
+            Session::flash('error-khambenh', 'Không tìm thấy dữ liệu.');
+            return redirect()->route('san-pham.index');
         }
         $obj->delete();
-        Session::flash('success-khambenh', 'Xóa thông tin thành công.');  
-        return redirect()->route('san-pham.index');  
+        Session::flash('success-khambenh', 'Xóa thông tin thành công.');
+        return redirect()->route('san-pham.index');
     }
 
     public function mutileUpdate(Request $request)
@@ -135,7 +135,7 @@ class KhambenhController extends Controller
                     $obj->delete();
                 }
             }
-        }       
+        }
         Session::flash('success-khambenh', 'Update đồng loạt thành công.');
         return redirect()->route('san-pham.index');
     }
