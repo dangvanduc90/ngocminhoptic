@@ -8,9 +8,8 @@
 	<td class="align-middle">{{$order->phone}}</td>
 	<td class="align-middle">{{$order->coso}}</td>
 	<td class="align-middle">{{$order->content}}</td>
-	<td class="align-middle">{{$order->content}}</td>
 	<td class="align-middle">
-            <button type="button" onclick="return confirmFormDelete({{$order->id}});">Xóa</button>
+            <button type="button" class="btn btn-danger" onclick="return confirmFormDelete({{$order->id}});">Xóa</button>
     </td>
 </tr>
 @endforeach

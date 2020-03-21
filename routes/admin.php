@@ -113,6 +113,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
 	Route::get('/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')
 	->name('admin.logs');
 
+    Route::get('/benh-an/add', 'Admin\BenhanController@add')->name('benh-an.add');
 	Route::resource('benh-an', 'Admin\BenhanController');
 
 	//Files

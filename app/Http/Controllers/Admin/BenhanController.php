@@ -8,10 +8,10 @@ use App\Admin\Benhan;
 use App\Admin\Khambenh;
 use App\Admin\Donhangkham;
 use App\Admin\Order;
+use Illuminate\Support\Facades\Log;
 use Spipu\Html2Pdf\Html2Pdf;
 use Illuminate\Support\Facades\Storage;
-use Session;
-
+use \Illuminate\Support\Facades\Session;
 
 class BenhanController extends Controller
 {
@@ -20,11 +20,20 @@ class BenhanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $sanphams = Khambenh::where('status',1)->orderby('name')->get();
         $benhans = Benhan::orderby('created_at', 'desc')->get();
         $orders = Order::orderby('created_at', 'desc')->get();
+
+        if (Session::has('id')) {
+            $obj = Benhan::find(Session::get('id'));
+            if($obj == null) abort(404);
+            $num = $obj->donhangkhams()->count();
+            Session::forget('id');
+            return view('back-end.pages.crm',['obj'=>$obj, 'type'=>1, 'sanphams'=>$sanphams, 'num'=>$num, 'benhans' =>$benhans, 'orders'=>$orders]);
+        }
+
         return view('back-end.pages.crm',['type'=>1, 'sanphams'=>$sanphams, 'num'=>1, 'benhans' =>$benhans, 'orders'=>$orders]);
     }
 
@@ -117,28 +126,36 @@ class BenhanController extends Controller
         if(isset($data_donhang['khambenh_id']) && isset($data_donhang['gia']) &&
             isset($data_donhang['soluong']) && isset($data_donhang['thanhtien']) ){
             $size = sizeof($data_donhang['khambenh_id']);
-        if(sizeof($data_donhang['gia']) == $size &&
-            sizeof($data_donhang['soluong']) == $size &&
-            sizeof($data_donhang['thanhtien']) == $size){
-            foreach ($donhangs as $donhang) {
-                $donhang->delete();
-            }
-            foreach ($data_donhang['khambenh_id'] as $key => $value) {
-                if($value != null && $value > 0){
-                    $data = [];
-                    $data['benhan_id'] = $obj->id;
-                    $data['khambenh_id'] = $value;
-                    $data['soluong'] = $data_donhang['soluong'][$key];
-                    $data['gia'] = $data_donhang['gia'][$key];
-                    $data['thanhtien'] = $data_donhang['thanhtien'][$key];
-                    Donhangkham::create($data);
+            if(sizeof($data_donhang['gia']) == $size &&
+                sizeof($data_donhang['soluong']) == $size &&
+                sizeof($data_donhang['thanhtien']) == $size){
+                foreach ($donhangs as $donhang) {
+                    $donhang->delete();
+                }
+                foreach ($data_donhang['khambenh_id'] as $key => $value) {
+                    if($value != null && $value > 0){
+                        $data = [];
+                        $data['benhan_id'] = $obj->id;
+                        $data['khambenh_id'] = $value;
+                        $data['soluong'] = $data_donhang['soluong'][$key];
+                        $data['gia'] = $data_donhang['gia'][$key];
+                        $data['thanhtien'] = $data_donhang['thanhtien'][$key];
+                        Donhangkham::create($data);
+                    }
                 }
             }
         }
+        Session::flash('success-crm', 'Cập nhật bệnh án thành công !');
+        return redirect()->route('benh-an.index')->with('id', $id);
     }
-    Session::flash('success-crm', 'Cập nhật bệnh án thành công !');
-    return redirect()->back();
-}
+
+    public function add()
+    {
+        if (Session::has('id')) {
+            Session::forget('id');
+        }
+        return redirect()->route('benh-an.index');
+    }
 
     /**
      * Remove the specified resource from storage.
