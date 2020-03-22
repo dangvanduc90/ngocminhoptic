@@ -124,4 +124,6 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
 	//Slug
 	Route::get('/create-slug', 'Admin\HomeController@createSlug')
 	->name('create-slug');
+
+    Route::resource('coso', 'Admin\CoSoController');
 });

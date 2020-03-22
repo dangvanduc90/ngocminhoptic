@@ -4,13 +4,13 @@
             @include('back-end.partials.nav-header')
             <li class={{$flag == "admin-home"  ? "active" : ""}}>
                 <a href="{{route('benh-an.index')}}">
-                    <i class="fa fa-bar-chart-o"></i> 
+                    <i class="fa fa-bar-chart-o"></i>
                     <span class="nav-label">Hệ thống quản lý</span>
                 </a>
             </li>
             <li class={{$flag == "report"  ? "active" : ""}}>
                 <a href="{{route('report')}}">
-                    <i class="fa fa-bar-chart-o"></i> 
+                    <i class="fa fa-bar-chart-o"></i>
                     <span class="nav-label">Thống kê</span>
                 </a>
             </li>
@@ -31,6 +31,9 @@
             <li class={{$flag == "post"  ? "active" : ""}}>
                 <a href="{{route('post.index')}}"><i class="fa fa-file-text-o"></i> <span class="nav-label">Tin tức</span></a>
             </li>
+            <li class={{$flag == "coso"  ? "active" : ""}}>
+                <a href="{{route('coso.index')}}"><i class="fa fa-file-text-o"></i> <span class="nav-label">Cơ sở</span></a>
+            </li>
             {{-- <li class={{$flag == "category"  ? "active" : ""}}>
                 <a href="{{route('category.index')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Chuyên Mục</span></a>
             </li> --}}
@@ -48,14 +51,14 @@
             </li> --}}
            {{--  <li class={{$flag == "users"  ? "active" : ""}}>
                 <a href="{{route('user.index')}}">
-                    <i class="fa fa-users"></i> 
+                    <i class="fa fa-users"></i>
                     <span class="nav-label">Người Dùng</span>
                 </a>
             </li> --}}
             <li class={{$flag == "seo"  ? "active" : ""}}>
                 <a href="{{route('seo.index')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Cấu hình SEO</span></a>
             </li>
-            <li class={{$flag == "files" ||  $flag == "webinfo" ||  $flag == "section" 
+            <li class={{$flag == "files" ||  $flag == "webinfo" ||  $flag == "section"
                     || $flag == "page"  || $flag == "banner" || $flag == "icon" || $flag == "content"
                     ? "active" : ""}}>
                 <a href="#"><i class="fa fa-wrench"></i> <span class="nav-label">Thiết lập</span><span class="fa arrow"></span></a>
@@ -68,7 +71,7 @@
             </li>
             <li class="landing_link">
                 <a target="_blank" href="{{route('trangchu')}}"><i class="fa fa-star"></i> <span class="nav-label">Website</span></a>
-            </li>          
+            </li>
         </ul>
     </div>
 </nav>
