@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Admin\CoSo;
 use Illuminate\Http\Request;
 use App\Admin\Post;
 use App\Admin\Product;
@@ -106,7 +107,8 @@ class HomeController extends Controller
 
     public function getDatlich(){
         $map = Webinfo::whereIN('code',['map'])->first();
-        return view('frontend.datlich',['map'=>$map]);
+        $cosos = CoSo::all();
+        return view('frontend.datlich', compact('cosos'));
     }
 
     public function postDatlich(Request $request){

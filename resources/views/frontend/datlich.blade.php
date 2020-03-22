@@ -56,24 +56,24 @@
                                     <div class="form-group">
                                         <span class="icon_checkout ico-diachi"></span>
                                         <select class="mdb-select md-form" name="coso" required>
-                                            <option value="">{{ trans('menu.choncoso') }}</option>
-                                            @foreach(config('myconfig.coso') as $key=>$value)
-                                            <option value="{{$key}}">{{$value}}</option>
+                                            @foreach($cosos as $key=>$coso)
+                                            <option value="{{$coso->id}}">{{$coso->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
+                                    <input type="hidden" id="cosos" value="{{ json_encode($cosos) }}">
 
                                     <div class="form-group">
                                         <span class="icon_checkout ico-noi-dung"></span>
-                                        <textarea name="content" class="form-control" id="" cols="30" rows="5" name="" placeholder="{{ trans('menu.noidung') }}"></textarea>
+                                        <textarea name="content" class="form-control" id="" cols="30" rows="5" placeholder="{{ trans('menu.noidung') }}"></textarea>
                                     </div>
                                     <button type="submit" class="btn btn-default" data-target="" >{{ trans('menu.gui') }}</button>
                                 </div>
                             </div>
                         </form>
-                        @if($map != null)
+                        @if(count($cosos) > 0)
                         <div class="col-md-7 maps">
-                            {!! $map->content !!}
+                            {!! $cosos->first()->address !!}
                         </div>
                         @endif
                     </div>
@@ -83,4 +83,24 @@
         </div>
     </div>
 </div>
+@endsection
+@section('js')
+    <script>
+        $(document).ready(function () {
+            $(".mdb-select").change(function () {
+                const cosos = {!! json_encode($cosos) !!};
+                const idSelected = $(this).val();
+                let index = -1;
+                for (let i = 0; i < cosos.length; i++) {
+                        if(cosos[i].id == idSelected) {
+                            index = i;
+                            break;
+                        }
+                }
+
+                const coso = cosos[index];
+                $(".maps").html(coso.address)
+            })
+        })
+    </script>
 @endsection

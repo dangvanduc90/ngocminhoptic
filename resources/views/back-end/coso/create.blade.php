@@ -1,7 +1,7 @@
 @extends('back-end.layouts.main')
 
 @section('title')
-Tạo mới bài viết
+Tạo mới cơ sở
 @endsection
 
 @section('css')

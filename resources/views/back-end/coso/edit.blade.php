@@ -1,7 +1,7 @@
 @extends('back-end.layouts.main')
 
 @section('title')
-Thay đổi bài viết
+Thay đổi cơ sở
 @endsection
 
 @section('css')
