@@ -5,11 +5,8 @@
 			<th class="text-center">Tên bài viết</th>
 			<th class="text-center">Slug</th>
 			<th class="text-center">Ảnh</th>
-			<th class="text-center">Miêu tả ngắn</th>
 			<th class="text-center">Người tạo</th>
-			<th class="text-center">Ngày tạo</th>
 			<th class="text-center">Người sửa</th>
-			<th class="text-center">Ngày sửa</th>
 			<th class="text-center">Trạng Thái</th>
 			<th class="text-center">Action</th>
 		</tr>
@@ -21,11 +18,8 @@
 			<td class="text-center">{{$obj->name}}</td>
 			<td class="text-center">{{$obj->slug}}</td>
 			<td class="text-center"><img src="{{$obj->image}}" style="max-width: 200px;"></td>
-			<td class="text-center">{{ $obj->des_s }}</td>
 			<td class="text-center">{{$obj->adminCreated != null ? $obj->adminCreated->name : ''}}</td>
-			<td class="text-center">{{ $obj->created_at }}</td>
 			<td class="text-center">{{$obj->adminUpdated != null ? $obj->adminUpdated->name : ''}}</td>
-			<td class="text-center">{{ $obj->updated_at }}</td>
 			<td class="text-center">
 				@if ($obj->status == 1)
 				<span class="label label-success">Đang sử dụng</span></a>
@@ -35,7 +29,7 @@
 			</td>
 			<td class="text-center">
 				<a href="{{route('post.edit', ['id'=>$obj->id])}}" class="btn btn-warning btn-circle"><i class="fa fa-edit"></i></a>
-				<a 	class="btn btn-danger btn-circle btn-sm delete-button" 
+				<a 	class="btn btn-danger btn-circle btn-sm delete-button"
 					data-action ="{{ route('post.destroy',$obj->id) }}" type="button">
 					<i class="fa fa-trash"></i>
 				</a>
