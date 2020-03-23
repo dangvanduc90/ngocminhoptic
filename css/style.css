@@ -750,6 +750,46 @@ background-color: #f8f8f8;
 .modet-list-conter .list-text .product-option-item ul li .color-label .mau {
   display: none;
 }
+
+.single-product .list-text .product-option-item .table .color-label {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 14px 6px 0;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    border: 1px solid #c9c9c9;
+}
+.single-product .list-text .product-option-item .table .color-label.active:not(.disabled):after,
+.modet-list-conter .list-text .product-option-item .table .color-label.active:not(.disabled):after,
+.single-product .list-text .product-option-item .table .color-label:hover:not(.disabled):after,
+.modet-list-conter .list-text .product-option-item .table .color-label:hover:not(.disabled):after {
+    border: 1px solid #121212;
+    content: "";
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    position: absolute;
+    border-radius: 50%;
+    top: -3px;
+    left: -3px;
+    opacity: .5;
+}
+.single-product .list-text .product-option-item .table .color-label .mau,
+.modet-list-conter .list-text .product-option-item .table .color-label .mau {
+    display: none;
+}
+
+.single-product .list-text .product-option-item .table th,
+.single-product .list-text .product-option-item .table td,
+.single-product .list-text .product-option-item .table tr {
+    /*border: 0;*/
+}
+
+.single-product .list-text .product-option-item .table th {
+    width: 10px
+}
 .single-product .list-text .product-option-item .option-quantity,
 .modet-list-conter .list-text .product-option-item .option-quantity {
   margin-bottom: 20px;

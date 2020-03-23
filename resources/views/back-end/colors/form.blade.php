@@ -7,9 +7,9 @@
         <select name="product_id" class="form-control" required>
             <option label=""></option>
             @foreach($products as $product)
-            <option value="{{$product->id}}" 
-                {{isset($obj) ? 
-                    (($obj->product_id == $product->id) ? 'selected' : '') 
+            <option value="{{$product->id}}"
+                {{isset($obj) ?
+                    (($obj->product_id == $product->id) ? 'selected' : '')
                     : (old('product_id') == $product->id ? 'selected' : '')}}>
                 {{$product->name}}
             </option>
@@ -47,7 +47,7 @@
 
         <div id="preview_0">
             @if(isset($obj))
-            <img src="{{$obj->image_color}}" style="max-width: 250px;">       
+            <img src="{{$obj->image_color}}" style="max-width: 250px;">
             @else
             @endif
         </div>
@@ -77,7 +77,7 @@
 
         <div id="preview_1">
             @if(isset($obj))
-            <img src="{{$obj->image_product}}" style="max-width: 250px;">       
+            <img src="{{$obj->image_product}}" style="max-width: 250px;">
             @else
             @endif
         </div>
@@ -89,13 +89,13 @@
         <select name=is_default class="form-control" required>
              <option value="1"
                 {{isset($obj) ?
-                    (($obj->is_default == 1) ? 'selected' : '') 
+                    (($obj->is_default == 1) ? 'selected' : '')
                     : (old('is_default') == 1 ? 'selected' : '')}}>
                 Đúng
             </option>
-             <option value="0" 
-                {{isset($obj) ? 
-                    (($obj->is_default == 0) ? 'selected' : '') 
+             <option value="0"
+                {{isset($obj) ?
+                    (($obj->is_default == 0) ? 'selected' : '')
                     : (old('is_default') == 0 ? 'selected' : '')}}>
                 Sai
             </option>
@@ -103,4 +103,9 @@
     </div>
 </div>
 
-
+<div class="form-group  {{ $errors->has('quantity') ? 'has-error' : '' }}">
+    <label class="col-sm-2 control-label" for="quantity">Số lượng</label>
+    <div class="col-sm-4">
+        <input type="number" class="form-control" name="quantity" id="quantity" value="{{isset($obj) ? $obj->quantity : ''}}" placeholder="12" min="0" required>
+    </div>
+</div>

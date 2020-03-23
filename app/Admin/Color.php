@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 class Color extends Model
 {
     protected $fillable = [
-        'product_id' , 'name', 'name_en', 'image_color' , 'code_color', 'image_product', 'is_default', 'status'
+        'product_id' , 'name', 'name_en', 'image_color' , 'code_color', 'image_product', 'is_default', 'status', 'quantity'
     ];
 
     protected $append =[
