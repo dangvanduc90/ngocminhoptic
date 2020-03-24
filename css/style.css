@@ -2215,13 +2215,11 @@ background-color: #f8f8f8;
 .content-admin .form-tim-kiem-theo-ngay .forms-control input,
 .content-admin .tab-noi-dung .form-filter .forms-control input {
   width: 100%;
-  border: 1px solid #787878;
   border-radius: 0;
   height: 30px;
   outline: none;
   padding-right: 32px;
   box-shadow: none;
-  border-radius: 20px;
 }
 .them-moi-th{
 /*    text-align: right;*/
