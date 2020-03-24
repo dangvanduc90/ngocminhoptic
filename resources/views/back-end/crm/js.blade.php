@@ -156,4 +156,38 @@
         });
         form.submit();
     });
+    $("#form-exports-sanpham-submit").click(function (e) {
+        const form = $("#form-exports-sanpham");
+        form.find(".exports-input-sanphams").remove();
+
+        $("#tbody_sp tr").each(function (index) {
+            $(this).find("td").each(function (i) {
+                const cell = $(this).html();
+                let html = '';
+                if(i === 0) { // STT
+                    html = `<input type="hidden" class="exports-input-sanphams" name="sanphams[${index}][]" value="${cell}" form="form-exports-sanpham">`;
+                }
+                if(i === 1) { // Sản phẩm
+                    const text =  $(this).find("select option:selected").text();
+                    html = `<input type="hidden" class="exports-input-sanphams" name="sanphams[${index}][]" value="${text}" form="form-exports-sanpham">`;
+                }
+                if(i === 2) { // Giá
+                    const text =  $(this).find("input").val();
+                    html = `<input type="hidden" class="exports-input-sanphams" name="sanphams[${index}][]" value="${text}" form="form-exports-sanpham">`;
+
+                }
+                if(i === 3) { // Số lượng
+                    const text =  $(this).find("input").val();
+                    html = `<input type="hidden" class="exports-input-sanphams" name="sanphams[${index}][]" value="${text}" form="form-exports-sanpham">`;
+                }
+                if(i === 4) { // Thành tiền
+                    const text =  $(this).find("input").val();
+                    html = `<input type="hidden" class="exports-input-sanphams" name="sanphams[${index}][]" value="${text}" form="form-exports-sanpham">`;
+                }
+                form.append(html);
+            });
+        });
+        return;
+        form.submit();
+    });
 </script>

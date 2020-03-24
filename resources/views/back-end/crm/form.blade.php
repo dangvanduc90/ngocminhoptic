@@ -16,7 +16,7 @@ method="POST">
 </div>
 </form>
 @elseif(isset($obj) && $type == 1)
-<form class="form-inline form-horizontal" action="{{route('benh-an.update',['id'=>$obj->id])}}"
+<form class="form-inline form-horizontal" action="{{route('benh-an.update',['id'=>$obj->id])}}" id="my-form"
 	method="POST">
 	@method('PATCH')
 	@csrf
@@ -35,3 +35,10 @@ method="POST">
 	</div>
 </form>
 @endif
+
+<form action="{{\Illuminate\Support\Facades\URL::route('post.exports.sanpham')}}" method="post" target="_blank" id="form-exports-sanpham">
+    @csrf
+    <input type="hidden" class="exports-input-sanphams" name="sanphams" form="form-exports-sanpham">
+    <div class="text-center">
+    </div>
+</form>
