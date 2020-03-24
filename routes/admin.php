@@ -126,4 +126,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
 	->name('create-slug');
 
     Route::resource('coso', 'Admin\CoSoController');
+
+    Route::post('ajax/exports/benhan', 'ExportsController@exportBenhAn')->name('post.exports.benhan');
+    Route::post('ajax/exports/lichhen', 'ExportsController@exportLichHen')->name('post.exports.lichhen');
 });

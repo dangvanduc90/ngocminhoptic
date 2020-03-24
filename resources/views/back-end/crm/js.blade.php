@@ -87,7 +87,7 @@
         // const id = form.serialize().id;
         // console.log(form.serialize())
         // console.log(id)
-        if(confirm('Do you really want to submit the form?')) {
+        if(confirm('Chắc chắn muốn xóa lịch hẹn này?')) {
             $.ajax({
                 url: "/admin/ajax/deleteOrder/" + id,
                 method: 'post',
@@ -123,4 +123,37 @@
 
         $("input[name='congno']").val(congno);
     }
+
+    $("#form-exports-benhan").click(function (e) {
+        const form = $(this);
+        e.preventDefault();
+        $(this).find(".exports-input-benhans").remove();
+
+        $("#tbody_benhan tr").each(function (index) {
+            $(this).find("td").each(function () {
+                const cell = $(this).html();
+                const html = `<input type="hidden" class="exports-input-benhans" name="benhans[${index}][]" value="${cell}">`;
+                form.append(html);
+            });
+        });
+        form.submit();
+    });
+    $("#form-exports-lichhen").click(function (e) {
+        const form = $(this);
+        e.preventDefault();
+        $(this).find(".exports-input-lichhens").remove();
+
+        $("#tbody_order tr").each(function (index) {
+            const max =$(this).find("td").length;
+            $(this).find("td").each(function (i) {
+                if (i + 1 < max) {
+                    const cell = $(this).html();
+                    const html = `<input type="hidden" class="exports-input-lichhens" name="lichhens[${index}][]" value="${cell}">`;
+                    form.append(html);
+                }
+                return;
+            });
+        });
+        form.submit();
+    });
 </script>

@@ -35,8 +35,16 @@
 						<div class="col-md-3 col-sm-2"></div>
 					</div>
 
+                    <form action="{{\Illuminate\Support\Facades\URL::route('post.exports.benhan')}}" method="post" target="_blank" id="form-exports-benhan">
+                        @csrf
+                        <input type="hidden" class="exports-input-benhans" name="benhans">
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Xuất excel bệnh án</button>
+                        </div>
+                    </form>
+                    <br>
 
-				</div>
+                </div>
 				<div class="card-body">
 					<div class="table-responsive">
 						<table class="table table-sm mb-0 table-dashboard">
@@ -89,6 +97,16 @@
 						</div>
 						<div class="col-md-3 col-sm-2"></div>
 					</form>
+                    <div class="clearfix"></div>
+                    <form action="{{\Illuminate\Support\Facades\URL::route('post.exports.lichhen')}}" method="post" target="_blank" id="form-exports-lichhen">
+                        @csrf
+                        <input type="hidden" class="exports-input-lichhens" name="benhans">
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Xuất excel lịch hẹn</button>
+                        </div>
+                    </form>
+                    <br>
+
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
