@@ -35,13 +35,18 @@
 						<div class="col-md-3 col-sm-2"></div>
 					</div>
 
-                    <form action="{{\Illuminate\Support\Facades\URL::route('post.exports.benhan')}}" method="post" target="_blank" id="form-exports-benhan">
-                        @csrf
-                        <input type="hidden" class="exports-input-benhans" name="benhans">
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Xuất excel bệnh án</button>
-                        </div>
-                    </form>
+                    <div class="text-center">
+                        <form style="display: inline-block" action="{{\Illuminate\Support\Facades\URL::route('post.exports.benhan')}}" method="post" target="_blank" id="form-exports-benhan" >
+                            @csrf
+                            <input type="hidden" class="exports-input-benhans" name="benhans">
+                                <button type="submit" class="btn btn-primary form-control-static" form="form-exports-benhan">Xuất excel bệnh án</button>
+                        </form>
+
+                        <form style="display: inline-block" action="{{\Illuminate\Support\Facades\URL::route('post.exports.tatca.benhan')}}" method="post" target="_blank" id="form-tatca-exports-benhan">
+                            @csrf
+                                <button type="submit" class="btn btn-primary form-control-static" form="form-tatca-exports-benhan">Xuất excel tất cả bệnh án</button>
+                        </form>
+                    </div>
                     <br>
 
                 </div>

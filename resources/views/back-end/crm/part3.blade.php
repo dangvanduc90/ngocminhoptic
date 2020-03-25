@@ -7,6 +7,7 @@
 	<div id="quan-ly-han" class="panel-collapses collapses">
 		<div class="panel-body">
             <button type="submit" class="btn btn-primary" form="form-exports-sanpham" id="form-exports-sanpham-submit">Xuất excel sản phẩm</button>
+            <a class="btn btn-primary" href="{{ route('san-pham.create') }}" target="_blank">Nhập sản phẩm</a>
             <br>
 			<table class="table table-sm mb-0 table-dashboard thong-so-mat" id="table_sanpham">
 				<thead >

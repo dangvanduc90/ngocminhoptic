@@ -127,6 +127,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
 
     Route::resource('coso', 'Admin\CoSoController');
 
+    Route::post('ajax/exports/tatca/benhan', 'ExportsController@exportTatCaBenhAn')->name('post.exports.tatca.benhan');
     Route::post('ajax/exports/benhan', 'ExportsController@exportBenhAn')->name('post.exports.benhan');
     Route::post('ajax/exports/lichhen', 'ExportsController@exportLichHen')->name('post.exports.lichhen');
     Route::post('ajax/exports/sanpham', 'ExportsController@exportSanPham')->name('post.exports.sanpham');
