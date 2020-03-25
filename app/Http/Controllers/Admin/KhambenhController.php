@@ -40,7 +40,7 @@ class KhambenhController extends Controller
     {
         //
         $arr_data = $request->all();
-        khambenh::create($arr_data);
+        Khambenh::create($arr_data);
         Session::flash('success-khambenh', 'Tạo mới sản phẩm thành công.');
         return redirect(route('san-pham.create'));
     }
