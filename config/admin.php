@@ -1,6 +1,6 @@
 <?php
 
 return [
-	'base_url' => 'http://ngocminh.test/',
-	'admin_url' => 'http://ngocminh.test/admin/',
+	'base_url' => env('APP_URL', 'http://ngocminhoptic.com/'),
+	'admin_url' => env('APP_URL', 'http://ngocminhoptic.com/') .'admin/',
 ];
