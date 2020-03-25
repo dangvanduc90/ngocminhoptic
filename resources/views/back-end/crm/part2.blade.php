@@ -9,10 +9,10 @@
 			<table class="table table-sm mb-0 table-dashboard thong-so-mat">
 				<thead >
 					<tr>
-						<th ></th>
-						<th style="width: 460px;">Thông số kính cũ</th>
+						<th style="width: 100px;"></th>
+						<th style="width: 360px;">Thông số kính cũ</th>
 						<th>Thị lực</th>
-						<th style="width: 460px;">Thông số kính mới</th>
+						<th style="width: 360px;">Thông số kính mới</th>
 						<th>Thị lực có kính mới</th>
 						<th>Nhãn áp</th>
 					</tr>

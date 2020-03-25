@@ -92,12 +92,6 @@
 				<div class="row">
 					<div class="quan-ly col-md-5">
 						<div class="form-group">
-							<label class="control-label" for="tongtien-admin">Tổng tiền</label>
-							<div class="input-contenr">
-								<input type="number" class="form-control" id="tongtien-admin" readonly >
-							</div>
-						</div>
-						<div class="form-group">
 							<label class="control-label" for="khmi-admin">Khuyến mại</label>
 							<div class="input-contenr">
 								<input type="number" class="form-control" id="khmi-admin" name="khieunai" value="{{isset($obj) ? $obj->khieunai : old('khieunai')}}">
@@ -115,7 +109,12 @@
 								<input type="number" class="form-control" id="conno-admin" name="congno" value="{{isset($obj) ? $obj->congno : old('congno')}}" readonly>
 							</div>
 						</div>
-
+                        <div class="form-group">
+                            <label class="control-label" for="tongtien-admin">Tổng tiền</label>
+                            <div class="input-contenr">
+                                <input type="number" class="form-control" id="tongtien-admin" readonly >
+                            </div>
+                        </div>
 					</div>
 					<div class="quan-ly col-md-7">
 

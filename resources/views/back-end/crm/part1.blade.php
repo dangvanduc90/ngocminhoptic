@@ -46,7 +46,7 @@
 							<div class="input-contenr">
 								<span class="icon_checkout ico-date"></span>
 								<span class="tooltiptexts">20/09/2019</span>
-								<input type="text" class="form-control datepicker" id="ngmh-admin" name="ngaykham" value="{{isset($obj) ? $obj->ngaykham : old('ngaykham')}}" placeholder="Ngày khám">
+								<input type="text" class="form-control datepicker" id="ngmh-admin" name="ngaykham" value="{{isset($obj) ? $obj->ngaykham : date('d/m/Y')}}" placeholder="Ngày khám">
 							</div>
 						</div>
 						<div class="form-group">
