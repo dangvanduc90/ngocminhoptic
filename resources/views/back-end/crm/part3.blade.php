@@ -17,6 +17,7 @@
 						<th>Giá</th>
 						<th>Số lượng</th>
 						<th>Thành tiền</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				@if(!isset($obj))
@@ -41,6 +42,9 @@
 						<td class="align-middle" data-title="Thành tiền">
 							<input type="text" class="form-control" id="thanhtien_{{$j}}" name="thanhtien[]" value="" readonly>
 						</td>
+                        <td>
+                            <button type="button" class="btn btn-primary remove_product">Xóa</button>
+                        </td>
 					</tr>
 					@endfor
 				</tbody>
@@ -64,11 +68,14 @@
 							<input type="text" class="form-control" id="gia_{{$j}}" name="gia[]" value="{{$donhang->gia}}" readonly>
 						</td>
 						<td class="align-middle" data-title="Số lượng">
-							<input data-id="{{$j}}" type="number" class="form-control soluong_sp" id="soluong_{{$j}}" name="soluong[]" value="{{$donhang->soluong}}" required>
+							<input data-id="{{$j}}" type="number" class="form-control soluong_sp" id="soluong_{{$j}}" name="soluong[]" value="{{$donhang->soluong}}" min="0" required>
 						</td>
 						<td class="align-middle" data-title="Thành tiền">
 							<input type="text" class="form-control" id="thanhtien_{{$j}}" name="thanhtien[]" value="{{$donhang->thanhtien}}" readonly>
 						</td>
+                        <td>
+                            <button type="button" class="btn btn-primary remove_product">Xoas</button>
+                        </td>
 					</tr>
 					@php
 					$j++;
@@ -85,6 +92,12 @@
 				<div class="row">
 					<div class="quan-ly col-md-5">
 						<div class="form-group">
+							<label class="control-label" for="tongtien-admin">Tổng tiền</label>
+							<div class="input-contenr">
+								<input type="number" class="form-control" id="tongtien-admin" readonly >
+							</div>
+						</div>
+						<div class="form-group">
 							<label class="control-label" for="khmi-admin">Khuyến mại</label>
 							<div class="input-contenr">
 								<input type="number" class="form-control" id="khmi-admin" name="khieunai" value="{{isset($obj) ? $obj->khieunai : old('khieunai')}}">
@@ -99,7 +112,7 @@
 						<div class="form-group">
 							<label class="control-label" for="conno-admin">Công nợ</label>
 							<div class="input-contenr">
-								<input type="number" class="form-control" id="conno-admin" name="congno" value="{{isset($obj) ? $obj->congno : old('congno')}}">
+								<input type="number" class="form-control" id="conno-admin" name="congno" value="{{isset($obj) ? $obj->congno : old('congno')}}" readonly>
 							</div>
 						</div>
 

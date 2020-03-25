@@ -11,6 +11,9 @@
 		$('#thanhtien_'+id).val(_sum);
 		$('#gia_'+id).val(_price);
         calculator_loan();
+        const total_amount_products = calculator_total_amount();
+
+        $("#tongtien-admin").val(total_amount_products)
 	}
 
 	function searchBenhAn(){
@@ -70,6 +73,9 @@
 				$('#sp_count').val(_count + 1);
 			});
 		});
+		$("#content_form_crm").delegate(".remove_product", "click", function(){
+			$(this).closest('.btn-reveal-trigger').remove();
+		});
 
 		$("#content_table_crm").delegate(".benhan_data", "click", function(){
 			_id = $(this).data('id');
@@ -112,16 +118,23 @@
     }
 
     function calculator_loan() {
+        const total_amount_products = calculator_total_amount();
+        let khieunai = parseInt($("input[name='khieunai']").val()) || 0;
+        let datcoc = parseInt($("input[name='datcoc']").val()) || 0;
+
+        let congno = 0;
+        if (datcoc !== 0) {
+            congno = total_amount_products - (khieunai + datcoc);
+        }
+        $("input[name='congno']").val(congno);
+    }
+
+    function calculator_total_amount() {
         let total_amount_products = 0;
         $("input[name='thanhtien[]']").each(function () {
             total_amount_products += parseInt($(this).val()) || 0;
         });
-        let khieunai = parseInt($("input[name='khieunai']").val()) || 0;
-        let datcoc = parseInt($("input[name='datcoc']").val()) || 0;
-
-        let congno = total_amount_products - (khieunai + datcoc);
-
-        $("input[name='congno']").val(congno);
+        return total_amount_products;
     }
 
     $("#form-exports-benhan").click(function (e) {

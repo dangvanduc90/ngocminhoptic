@@ -17,4 +17,7 @@
 	<td class="align-middle" data-title="Thành tiền">
 		<input type="text" class="form-control" id="thanhtien_{{$j}}" name="thanhtien[]" value="" readonly>
 	</td>
+    <td>
+        <button type="button" class="btn btn-primary remove_product">Xóa</button>
+    </td>
 </tr>

@@ -17,6 +17,7 @@
         "maatwebsite/excel": "^3.1",
         "phpmailer/phpmailer": "^6.0",
         "rap2hpoutre/laravel-log-viewer": "^1.2",
+        "spipu/html2pdf": "^5.2",
         "unisharp/laravel-ckeditor": "^4.7",
         "unisharp/laravel-filemanager": "dev-master"
     },
