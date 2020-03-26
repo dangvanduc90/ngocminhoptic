@@ -139,4 +139,11 @@ class KhambenhController extends Controller
         Session::flash('success-khambenh', 'Update đồng loạt thành công.');
         return redirect()->route('san-pham.index');
     }
+
+    public function searchAjax(Request $request)
+    {
+        $masp = $request->get('masp');
+        $products = Khambenh::where('masp', $masp)->first();
+        return response()->json($products);
+    }
 }

@@ -203,4 +203,25 @@
         return;
         form.submit();
     });
+
+    $(".debounce").keyup(function () {
+        const that = $(this)
+        const masp = $(this).val();
+        // Fetch data
+        $.ajax({
+            type: 'GET',
+            url: '/admin/ajax/searchKhamBenh',
+            dataType: 'json',
+            data: {
+                masp: masp
+            },
+            success: function( product ) {
+                if (product.hasOwnProperty('id')) {
+                    that.closest('tr').find('.sanpham_kham').val(product.id).change()
+                } else {
+                    that.closest('tr').find('.sanpham_kham').val('').change()
+                }
+            }
+        });
+    })
 </script>

@@ -2093,6 +2093,8 @@ background-color: #f8f8f8;
 
   color: #000;
 }
+.content-admin .form-tim-kiem-theo-ngay .forms-control input,
+.content-admin .tab-noi-dung .form-filter .forms-control input,
 .content-admin .table tr td select,
 .content-admin .table tr td input,
 .content-admin .noi-dung-form-td .form-inline .form-group input,
@@ -2302,7 +2304,7 @@ background-color: #f8f8f8;
   margin-bottom: 0;
 }
 
-#thong-tin-don-hang .tooltiptexts{
+.tooltiptexts{
     visibility: hidden;
     width: 120px;
     background-color: #c10101;
@@ -2315,7 +2317,7 @@ background-color: #f8f8f8;
     top: 0px;
     left: 100%;
 }
-#thong-tin-don-hang .tooltiptexts::after {
+.tooltiptexts::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -2325,7 +2327,7 @@ background-color: #f8f8f8;
   border-style: solid;
   border-color: transparent #c10101 transparent transparent;
 }
-#thong-tin-don-hang .input-contenr:hover .tooltiptexts{
+.input-contenr:hover .tooltiptexts{
   visibility: visible;
 }
 /*--------------------------------------------------------------
@@ -2461,7 +2463,7 @@ background-color: #f8f8f8;
   .content-admin .tab-noi-dung .form-filter .bt-submits button[type="submit"] {
     float: right;
   }
-    #thong-tin-don-hang .tooltiptexts,
+    .tooltiptexts,
   .notices-wrapper .product-checkout .ngay-dat-lich .tooltiptexts {
     z-index: 1;
     top: -33px;
@@ -2469,7 +2471,7 @@ background-color: #f8f8f8;
     left: auto;
   }
 
-#thong-tin-don-hang .tooltiptexts::after ,
+.tooltiptexts::after ,
   .notices-wrapper .product-checkout .ngay-dat-lich .tooltiptexts::after {
     content: "";
     position: absolute;
