@@ -1098,6 +1098,16 @@ background-color: #f8f8f8;
 .form-lien-he .row .icon_checkout {
   left: 25px;
 }
+
+.content-admin .form-tim-kiem-theo-ngay .forms-control .icon_checkout {
+    background-position: 0 -180px;
+    background-size: 235px;
+    width: 18px;
+    height: 17px;
+    top: 6px;
+    left: 28px;
+}
+
 .form-lien-he .row .not-null{
   right: 19px;
 }
@@ -2222,6 +2232,11 @@ background-color: #f8f8f8;
   outline: none;
   padding-right: 32px;
   box-shadow: none;
+}
+
+.content-admin .form-tim-kiem-theo-ngay .forms-control input.datepicker,
+.content-admin .tab-noi-dung .form-filter .forms-control input.datepicker {
+    padding-left: 38px;
 }
 .them-moi-th{
 /*    text-align: right;*/

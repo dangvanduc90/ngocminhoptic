@@ -21,7 +21,7 @@
 						<div class="col-md-3 col-sm-4">
 							<div class="form-group">
 								<div class="ma-hoa-don forms-control input-contenr">
-                                    <span class="tooltiptexts">20/09/2019</span>
+                                    <span class="icon_checkout ico-date"></span>
 									<input class="form-control datepicker" type="text" id="s_fromDate" value="" placeholder="Từ ngày">
 								</div>
 							</div>
@@ -29,7 +29,7 @@
 						<div class="col-md-3 col-sm-4">
 							<div class="form-group">
 								<div class="ho-ten forms-control input-contenr">
-                                    <span class="tooltiptexts">{{ date('d/m/Y') }}</span>
+                                    <span class="icon_checkout ico-date"></span>
 									<input class="form-control datepicker" type="text" id="s_endDate" value="" placeholder="Đến ngày">
 								</div>
 							</div>
@@ -41,7 +41,7 @@
                         <form style="display: inline-block" action="{{\Illuminate\Support\Facades\URL::route('post.exports.benhan')}}" method="post" target="_blank" id="form-exports-benhan" >
                             @csrf
                             <input type="hidden" class="exports-input-benhans" name="benhans">
-                                <button type="submit" class="btn btn-primary form-control-static" form="form-exports-benhan">Xuất excel bệnh án</button>
+                                <button type="submit" class="btn btn-primary form-control-static" form="form-exports-benhan">Xuất excel bệnh án tìm kiếm</button>
                         </form>
 
                         <form style="display: inline-block" action="{{\Illuminate\Support\Facades\URL::route('post.exports.tatca.benhan')}}" method="post" target="_blank" id="form-tatca-exports-benhan">
@@ -91,6 +91,7 @@
 						<div class="col-md-3 col-sm-4">
 							<div class="form-group">
 								<div class="ma-hoa-don forms-control">
+                                    <span class="icon_checkout ico-date"></span>
 									<input class="form-control datepicker" type="text" id="o_fromDate" value="" placeholder="Từ ngày">
 								</div>
 							</div>
@@ -98,6 +99,7 @@
 						<div class="col-md-3 col-sm-4">
 							<div class="form-group">
 								<div class="ho-ten forms-control">
+                                    <span class="icon_checkout ico-date"></span>
 									<input class="form-control datepicker" type="text" id="o_endDate" value="" placeholder="Đến ngày">
 								</div>
 							</div>
