@@ -60,6 +60,9 @@
 					@foreach($obj->donhangkhams()->get() as $donhang)
 					<tr class="btn-reveal-trigger">
 						<td class="align-middle">{{$j}}</td>
+                        <td class="align-middle" data-title="Mã sản phẩm">
+                            <input type="text" class="form-control debounce" id="masp_{{$j}}" name="masp[]" value="{{ $donhang->masp }}">
+                        </td>
 						<td class="align-middle" data-title="Sản phẩm">
 							<select data-id="{{$j}}" id="sanpham_{{$j}}" class="form-control sanpham_kham" name="khambenh_id[]" required>
 								<option data-price="0" label=""></option>
