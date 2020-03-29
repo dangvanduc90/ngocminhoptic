@@ -8,6 +8,7 @@ use App\Admin\Benhan;
 use App\Admin\Khambenh;
 use App\Admin\Donhangkham;
 use App\Admin\Order;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Spipu\Html2Pdf\Html2Pdf;
 use Illuminate\Support\Facades\Storage;
@@ -245,14 +246,27 @@ class BenhanController extends Controller
         $tongtien = $obj->donhangkhams()->sum('thanhtien');
         $khuyenmai = floatval($obj->khieunai);
         $tongcong = floatval($tongtien) - $khuyenmai;
+        $congno = $obj->congno;
         $template = Storage::disk('template')->get('benh-an.php');
         $current_date = date('d/m/Y');
         $template = str_replace('_madon', $obj->madon, $template);
-        $template = str_replace('_ngayhomnay', $current_date, $template);
+        $template = str_replace('_ngaydenkham', $obj->ngaykham, $template);
         $template = str_replace('_tenkhachhang', $obj->hovaten, $template);
         $template = str_replace('_sdtkhachhang', $obj->sdt, $template);
         $template = str_replace('_diachikhachhang', $obj->diachi, $template);
-        $template = str_replace('_ghichu', $obj->noidung, $template);
+        if ($obj->noidung) {
+            $template = str_replace('_ghichu', '
+            <tr>
+                <td style="width: 30%; text-align: left;">
+                Ghi chú
+                </td>
+                <td style="width: 40%; text-align: left; ">
+                : '. $obj->noidung .'
+                </td>
+            </tr>', $template);
+        } else {
+            $template = str_replace('_ghichu', '', $template);
+        }
         $template = str_replace('_ngaykhamlai', $obj->ngayhen, $template);
         $template = str_replace('_tspd', $obj->pd, $template);
         $template = str_replace('_mpthiluc', $obj->mp_thiluc, $template);
@@ -267,7 +281,10 @@ class BenhanController extends Controller
 
         $template = str_replace('_tongtien',number_format($tongtien), $template);
         $template = str_replace('_khuyenmai', number_format($khuyenmai), $template);
-        $template = str_replace('_tongcong', number_format($tongcong), $template);
+        $template = str_replace('_congno', number_format($congno), $template);
+        $template = str_replace('_datcoc', number_format($obj->datcoc), $template);
+
+        $template = str_replace('_authuser', Auth::user()->fullname, $template);
 
         $j = 1;
         $_html = "";
