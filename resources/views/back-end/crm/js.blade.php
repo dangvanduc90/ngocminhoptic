@@ -1,8 +1,8 @@
 <script>
 	function autoGetPrice(id){
-		_selected = $( "#sanpham_"+id+" option:selected" );
-		_price = _selected.data('price');
-		_sl = $('#soluong_'+id).val();
+		let _selected = $( "#sanpham_"+id+" option:selected" );
+		let _price = _selected.data('price');
+		let _sl = $('#soluong_'+id).val();
 		if(_sl == ''){
 			_sl = 0;
 			$('#soluong_'+id).val(_sl);
@@ -11,6 +11,7 @@
 		$('#thanhtien_'+id).val(_sum);
 		$('#gia_'+id).val(_price);
         calculator_loan();
+
         const total_amount_products = calculator_total_amount();
 
         $("#tongtien-admin").val(total_amount_products)
@@ -37,9 +38,15 @@
 	}
 	$(document).ready(function () {
 		$("#content_form_crm").delegate(".sanpham_kham, .soluong_sp", "change", function(){
-			_id = $(this).data('id');
+			const _id = $(this).data('id');
 
 			autoGetPrice(_id);
+
+            if($(this).hasClass('sanpham_kham') && $(this).val() != '') {
+                let _selected = $( "#sanpham_"+_id+" option:selected" );
+                let _masp = _selected.data('masp');
+                $("#masp_" + _id).val(_masp);
+            }
 
 		});
 		$("#content_form_crm").delegate(".sanpham_kham, .soluong_sp", "keyup", function(){
@@ -204,8 +211,8 @@
         form.submit();
     });
 
-    $(".debounce").keyup(function () {
-        const that = $(this)
+    $("#content_form_crm").delegate(".debounce", "keyup", function(){
+        const that = $(this);
         const masp = $(this).val();
         // Fetch data
         $.ajax({

@@ -7,7 +7,7 @@
 		<select data-id="{{$j}}" id="sanpham_{{$j}}" class="form-control sanpham_kham" name="khambenh_id[]" required>
 			<option data-price="0" label=""></option>
 			@foreach($sanphams as $sanpham)
-			<option data-price="{{$sanpham->price}}" value="{{$sanpham->id}}">{{$sanpham->name}}</option>
+			<option data-price="{{$sanpham->price}}" data-masp="{{$sanpham->masp}}" value="{{$sanpham->id}}">{{$sanpham->name}}</option>
 			@endforeach
 		</select>
 	</td>
