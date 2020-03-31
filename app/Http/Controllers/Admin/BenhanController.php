@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Admin\Webinfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Admin\Benhan;
@@ -285,6 +286,11 @@ class BenhanController extends Controller
         $template = str_replace('_datcoc', number_format($obj->datcoc), $template);
 
         $template = str_replace('_authuser', Auth::user()->fullname, $template);
+
+        $logo = Webinfo::where('name', 'logo')->first();
+        if ($logo) {
+            $template = str_replace('_logo', $logo->image, $template);
+        }
 
         $j = 1;
         $_html = "";

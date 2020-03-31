@@ -27,41 +27,42 @@
     <bookmark title="Lettre" level="0" ></bookmark>
     <table cellspacing="0" style="width: 100%; text-align: center;">
         <tr>
-            <td style="width: 40%; text-align: left; font-size: 14px;">
-                <b>Mã đơn : _madon</b>
+            <td style="text-align: left" colspan="2">
+                <img src="_logo" alt="Trang chủ" title="Trang chủ" width="160">
             </td>
-            <td style="width: 10%;">
+        </tr>
+        <tr>
+            <td colspan="2">
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 60%; text-align: left; font-size: 14px;">
+                <b>Mã đơn : _madon</b>
             </td>
             <td style="width: 40%; text-align: right; font-size: 14px;">
                 KÍNH MẮT NGỌC MINH
             </td>
         </tr>
         <tr>
-            <td rowspan="4" style="width: 40%; text-align: left;">
+            <td style="width: 60%; text-align: left;">
                 Hà Nội, Ngày _ngaydenkham
-            </td>
-            <td style="width: 10%;">
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 10%;">
-                <p style="text-align: right; font-size: 11px;"></p>
             </td>
             <td style="width: 40%;">
                 <p style="text-align: right; font-size: 11px;">Hotline : 0915.959.980 - 0243.205.5979</p>
             </td>
         </tr>
         <tr>
-            <td style="width: 20%;">
+            <td style="width: 60%; text-align: left;">
             </td>
-            <td style="width: 40%;">
+            <td style="width: 40%;text-align: right;">
                 <p style="text-align: right; font-size: 11px;">Email: ngocminhoptic@gmail.com</p>
             </td>
         </tr>
         <tr>
-            <td style="width: 20%;">
+            <td style="width: 60%; text-align: left;">
             </td>
-            <td style="width: 40%;">
+            <td style="width: 40%;text-align: right;">
                 <p style="text-align: right; font-size: 11px;">Website: www.ngocminhoptic.com</p>
             </td>
         </tr>

@@ -6,7 +6,7 @@
     					<div class="site-branding">
     						<h1 class="entry-title ">
     							<a href="{{route('trangchu')}}">
-    								<img src="{{asset('images/logo-images.png')}}" alt="Trang chủ">
+    								<img src="{{$logo ? asset($logo->image) : ''}}" alt="Trang chủ">
     							</a>
     						</h1>
     					</div>
@@ -44,7 +44,7 @@
                               <span class="toggle-menu3"></span>
                           </div>
                       </div>
-                  </div> 
+                  </div>
               </div> <!-- end menu desktop -->
           </div>
         </div>
@@ -121,7 +121,7 @@
         					<li class="menu-item"><a href="{{route('giohang.get')}}">{{ trans('menu.giohang') }}</a></li>
         				</ul>
         			</div>
-        		</nav> 
+        		</nav>
             </div>
         </div> <!-- end menu mobile -->
 

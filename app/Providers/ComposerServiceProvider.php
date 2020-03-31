@@ -280,8 +280,9 @@ class ComposerServiceProvider extends ServiceProvider
         });
 
         View::composer('frontend.partials.header', function ($view) {
+            $logo = Webinfo::where('name', 'logo')->first();
             $cats = Type::where('status',1)->orderby('name')->get();
-            $view->with(['cats'=>$cats]);
+            $view->with(['cats'=>$cats, 'logo' => $logo]);
         });
 
         View::composer('back-end.coso.*', function ($view) {
