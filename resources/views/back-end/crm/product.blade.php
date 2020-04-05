@@ -15,7 +15,7 @@
 		<input type="text" class="form-control" id="gia_{{$j}}" name="gia[]" value="" readonly>
 	</td>
 	<td class="align-middle" data-title="Số lượng">
-		<input data-id="{{$j}}" type="number" class="form-control soluong_sp" id="soluong_{{$j}}" name="soluong[]" value="0" required>
+		<input data-id="{{$j}}" type="number" class="form-control soluong_sp" id="soluong_{{$j}}" name="soluong[]" value="0" required min="0">
 	</td>
 	<td class="align-middle" data-title="Thành tiền">
 		<input type="text" class="form-control" id="thanhtien_{{$j}}" name="thanhtien[]" value="" readonly>

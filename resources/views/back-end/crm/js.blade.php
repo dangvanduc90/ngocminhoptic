@@ -1,4 +1,10 @@
 <script>
+    $("#khmi-admin").number(true, 0, '.', ',' );
+    $("#datcoc-admin").number(true, 0, '.', ',' );
+    $("#conno-admin").number(true, 0, '.', ',' );
+    $("#tbody_sp input[name='thanhtien[]']").number(true, 0, '.', ',' );
+    $("#tbody_sp input[name='gia[]']").number(true, 0, '.', ',' );
+
 	function autoGetPrice(id){
 		let _selected = $( "#sanpham_"+id+" option:selected" );
 		let _price = _selected.data('price');
@@ -14,7 +20,8 @@
 
         const total_amount_products = calculator_total_amount();
 
-        $("#tongtien-admin").val(total_amount_products)
+        const tienkhuyenmai = $("#khmi-admin").val() || 0;
+        $("#tongtien-admin").val($.number( total_amount_products - tienkhuyenmai, 0, '.', ',' ))
 	}
 
 	function searchBenhAn(){
@@ -56,10 +63,10 @@
 
 		});
 		$("#quan-ly-han").delegate("#khmi-admin, #datcoc-admin", "keyup", function(){
-            calculator_loan();
+            autoGetPrice();
         });
 		$("#quan-ly-han").delegate("#khmi-admin, #datcoc-admin", "change", function(){
-            calculator_loan();
+            autoGetPrice();
         });
 
 		$("#content_table_crm").delegate("#s_str, #s_fromDate, #s_endDate", "change", function(){
@@ -78,6 +85,8 @@
 			$.get(_url, {count: _count}, function(data){
 				$("#tbody_sp").append(data);
 				$('#sp_count').val(_count + 1);
+				$("#tbody_sp input[name='thanhtien[]']").number(true, 0, '.', ',' );
+				$("#tbody_sp input[name='gia[]']").number(true, 0, '.', ',' );
 			});
 		});
 		$("#content_form_crm").delegate(".remove_product", "click", function(){
@@ -126,14 +135,14 @@
 
     function calculator_loan() {
         const total_amount_products = calculator_total_amount();
-        let khieunai = parseInt($("input[name='khieunai']").val()) || 0;
-        let datcoc = parseInt($("input[name='datcoc']").val()) || 0;
+        let khieunai = parseInt($("#khmi-admin").val()) || 0;
+        let datcoc = parseInt($("#datcoc-admin").val()) || 0;
 
         let congno = 0;
         if (datcoc !== 0) {
             congno = total_amount_products - (khieunai + datcoc);
         }
-        $("input[name='congno']").val(congno);
+        $("#conno-admin").val(congno);
     }
 
     function calculator_total_amount() {

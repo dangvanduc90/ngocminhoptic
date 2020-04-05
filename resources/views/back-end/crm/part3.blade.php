@@ -101,25 +101,25 @@
 						<div class="form-group">
 							<label class="control-label" for="khmi-admin">Khuyến mại</label>
 							<div class="input-contenr">
-								<input type="number" class="form-control" id="khmi-admin" name="khieunai" value="{{isset($obj) ? $obj->khieunai : old('khieunai')}}">
+								<input type="text" class="form-control" id="khmi-admin" name="khieunai" value="{{isset($obj) ? $obj->khieunai : old('khieunai')}}">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label" for="datcoc-admin">Đặt cọc</label>
 							<div class="input-contenr">
-								<input type="number" class="form-control" id="datcoc-admin" name="datcoc" value="{{isset($obj) ? $obj->datcoc : old('datcoc')}}">
+								<input type="text" class="form-control" id="datcoc-admin" name="datcoc" value="{{isset($obj) ? $obj->datcoc : old('datcoc')}}">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label" for="conno-admin">Công nợ</label>
 							<div class="input-contenr">
-								<input type="number" class="form-control" id="conno-admin" name="congno" value="{{isset($obj) ? $obj->congno : old('congno')}}" readonly>
+								<input type="text" class="form-control" id="conno-admin" name="congno" value="{{isset($obj) ? $obj->congno : old('congno')}}" readonly>
 							</div>
 						</div>
                         <div class="form-group">
                             <label class="control-label" for="tongtien-admin">Tổng tiền</label>
                             <div class="input-contenr">
-                                <input type="number" class="form-control" id="tongtien-admin" readonly >
+                                <input type="text" class="form-control" id="tongtien-admin" readonly >
                             </div>
                         </div>
 					</div>

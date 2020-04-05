@@ -13,4 +13,5 @@
 	<script type="text/javascript" src="{{asset('js/jquery.zoom.js')}}" ></script>
 	<script type="text/javascript" src="{{asset('js/jquery-ui.js')}}" ></script>
 	<script type="text/javascript" src="{{asset('js/custom.js')}}" ></script>
+	<script type="text/javascript" src="{{asset('js/jquery.number.js')}}" ></script>
 </head>

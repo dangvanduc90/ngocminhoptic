@@ -59,28 +59,32 @@ class BenhanController extends Controller
     {
         $data_benhan = $request->all();
         $data_benhan['status'] = 0;
+
+        $data_benhan['khieunai'] = $data_benhan['khieunai'] ? str_replace(',', '', $data_benhan['khieunai']) : 0;
+        $data_benhan['datcoc'] = $data_benhan['khieunai'] ? str_replace(',', '', $data_benhan['datcoc']) : 0;
+        $data_benhan['congno'] = $data_benhan['congno'] ? str_replace(',', '', $data_benhan['congno']) : 0;
+
         $benhan = Benhan::create($data_benhan);
 
         $data_donhang = $request->only('khambenh_id', 'gia', 'soluong', 'thanhtien');
-        if(isset($data_donhang['khambenh_id']) && isset($data_donhang['gia']) &&
-            isset($data_donhang['soluong']) && isset($data_donhang['thanhtien']) ){
+        if(isset($data_donhang['khambenh_id']) && isset($data_donhang['gia']) && isset($data_donhang['soluong']) && isset($data_donhang['thanhtien']) ){
             $size = sizeof($data_donhang['khambenh_id']);
-        if(sizeof($data_donhang['gia']) == $size &&
-            sizeof($data_donhang['soluong']) == $size &&
-            sizeof($data_donhang['thanhtien']) == $size){
-            foreach ($data_donhang['khambenh_id'] as $key => $value) {
-                if($value != null && $value > 0){
-                    $data = [];
-                    $data['benhan_id'] = $benhan->id;
-                    $data['khambenh_id'] = $value;
-                    $data['soluong'] = $data_donhang['soluong'][$key];
-                    $data['gia'] = $data_donhang['gia'][$key];
-                    $data['thanhtien'] = $data_donhang['thanhtien'][$key];
-                    Donhangkham::create($data);
+            if(sizeof($data_donhang['gia']) == $size &&
+                sizeof($data_donhang['soluong']) == $size &&
+                sizeof($data_donhang['thanhtien']) == $size){
+                foreach ($data_donhang['khambenh_id'] as $key => $value) {
+                    if($value != null && $value > 0){
+                        $data = [];
+                        $data['benhan_id'] = $benhan->id;
+                        $data['khambenh_id'] = $value;
+                        $data['soluong'] = $data_donhang['soluong'][$key];
+                        $data['gia'] = str_replace(',', '', $data_donhang['gia'][$key]);
+                        $data['thanhtien'] = str_replace(',', '', $data_donhang['thanhtien'][$key]);
+                        Donhangkham::create($data);
+                    }
                 }
             }
-        }
-        $this->download($benhan->id);
+            $this->download($benhan->id);
 
     }
     Session::flash('success-crm', 'Tạo mới bệnh án thành công !');
@@ -316,5 +320,6 @@ class BenhanController extends Controller
         $html2pdf->pdf->SetDisplayMode('fullpage');
         $html2pdf->writeHTML($template, true);
         $html2pdf->output('Invoive.pdf','D');
+        return 'done';
     }
 }
