@@ -68,12 +68,12 @@
         </tr>
     </table>
     <br>
-    <table cellspacing="0" style="width: 70%; text-align: center;">
+    <table cellspacing="0" style="width: 100%; text-align: center;">
         <tr>
             <td style="width: 30%; text-align: left;">
                 Khách hàng
             </td>
-            <td style="width: 40%; text-align: left; ">
+            <td style="width: 70%; text-align: left; ">
                 : _tenkhachhang
             </td>
         </tr>
@@ -81,7 +81,7 @@
             <td style="width: 30%; text-align: left;">
                 Địa chỉ
             </td>
-            <td style="width: 40%; text-align: left; ">
+            <td style="width: 70%; text-align: left; ">
                 : _diachikhachhang
             </td>
         </tr>
@@ -89,7 +89,7 @@
             <td style="width: 30%; text-align: left;">
                 Điện thoại
             </td>
-            <td style="width: 40%; text-align: left; ">
+            <td style="width: 70%; text-align: left; ">
                 : _sdtkhachhang
             </td>
         </tr>
@@ -97,7 +97,7 @@
             <td style="width: 30%; text-align: left;">
                 Ngày khám lại
             </td>
-            <td style="width: 40%; text-align: left; ">
+            <td style="width: 70%; text-align: left; ">
                 : _ngaykhamlai
             </td>
         </tr>
@@ -105,7 +105,7 @@
             <td style="width: 30%; text-align: left;">
                 Thông số PD
             </td>
-            <td style="width: 40%; text-align: left; ">
+            <td style="width: 70%; text-align: left; ">
                 : _tspd
             </td>
         </tr>
@@ -116,43 +116,43 @@
     <table id="table-3" cellspacing="0" style="width: 100%;">
 
         <tr id="th-header">
-            <th style="width: 15%; text-align:center;  text-transform: uppercase; font-size: 11px;"></th>
-            <th style="width: 15%; text-align:center;  text-transform: uppercase; font-size: 11px;">Thị lực</th>
-            <th style="width: 35%; text-align:center;  text-transform: uppercase; font-size: 11px;">Thông số kính</th>
-            <th style="width: 20%; text-align:center;  text-transform: uppercase; font-size: 11px;">Thị lực có kính</th>
-            <th style="width: 15%; text-align:center;  text-transform: uppercase; font-size: 11px;">Nhãn áp</th>
+            <th style="width: 15%; text-align:center;  text-transform: uppercase; font-size: 12px;"></th>
+            <th style="width: 15%; text-align:center;  text-transform: uppercase; font-size: 12px;">Thị lực</th>
+            <th style="width: 35%; text-align:center;  text-transform: uppercase; font-size: 12px;">Thông số kính</th>
+            <th style="width: 20%; text-align:center;  text-transform: uppercase; font-size: 12px;">Thị lực có kính</th>
+            <th style="width: 15%; text-align:center;  text-transform: uppercase; font-size: 12px;">Nhãn áp</th>
         </tr>
         <tr>
-            <td style=" text-align:center; font-size: 11px;">
+            <td style=" text-align:center; font-size: 12px;">
                 Mắt phải
             </td>
-            <td style=" text-align:center; font-size: 11px;">
+            <td style=" text-align:center; font-size: 12px;">
                 _mpthiluc
             </td>
-            <td style=" text-align:center; font-size:11px;">
+            <td style=" text-align:center; font-size: 12px;">
                 _mptskinh
             </td>
-            <td style=" text-align:center; font-size: 11px;">
+            <td style=" text-align:center; font-size: 12px;">
                 _mptlcokinh
             </td>
-            <td style=" text-align:center; font-size: 11px;">
+            <td style=" text-align:center; font-size: 12px;">
                 _mpna
             </td>
         </tr>
         <tr>
-            <td style=" text-align:center; font-size: 11px;">
+            <td style=" text-align:center; font-size: 12px;">
                 Mắt trái
             </td>
-            <td style=" text-align:center; font-size: 11px;">
+            <td style=" text-align:center; font-size: 12px;">
                 _mtthiluc
             </td>
-            <td style=" text-align:center; font-size: 11px;">
+            <td style=" text-align:center; font-size: 12px;">
                 _mttskinh
             </td>
-            <td style=" text-align:center; font-size: 11px;">
+            <td style=" text-align:center; font-size: 12px;">
                 _mttlcokinh
             </td>
-            <td style=" text-align:center; font-size: 11px;">
+            <td style=" text-align:center; font-size: 12px;">
                 _mtna
             </td>
         </tr>
@@ -165,7 +165,7 @@
 
         <tr id="th-header">
             <th style="width: 10%; text-align:center;  text-transform: uppercase; font-size: 11px;">TT</th>
-            <th style="width: 40%; text-align:center;  text-transform: uppercase; font-size: 11px;">Sản phẩm</th>
+            <th style="width: 40%; text-align:left;  text-transform: uppercase; font-size: 11px;">Sản phẩm</th>
             <th style="width: 10%; text-align:center;  text-transform: uppercase; font-size: 11px;">SL</th>
             <th style="width: 20%; text-align:center;  text-transform: uppercase; font-size: 11px;">Đơn giá</th>
             <th style="width: 20%; text-align:center;  text-transform: uppercase; font-size: 11px;">Thành tiền</th>

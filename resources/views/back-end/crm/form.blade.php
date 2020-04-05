@@ -31,6 +31,7 @@ method="POST">
 			<button type="submit" class="button-admin" id="cap-nhat">Cập nhật</button>
 			<button type="reset" class="button-admin" id="huy-cap-nhat">Hủy cập nhật</button>
 			<button type="button" onclick="window.location.href='{{route('download.benhan',['id'=>$obj->id])}}';" class="button-admin">In hóa đơn</button>
+            <button type="button" class="button-admin" id="benh-an-btn-delete" {{ \Illuminate\Support\Facades\Auth::user()->role !== 'admin' ? 'disabled' : '' }}>Xóa hóa đơn</button>
 		</div>
 	</div>
 </form>
@@ -41,4 +42,9 @@ method="POST">
     <input type="hidden" class="exports-input-sanphams" name="sanphams" form="form-exports-sanpham">
     <div class="text-center">
     </div>
+</form>
+
+<form method="post" id="benh-an-destroy">
+    @csrf
+    @method('delete')
 </form>

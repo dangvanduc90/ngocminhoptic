@@ -17,6 +17,6 @@ class Donhangkham extends Model
 
     public function khambenh()
     {
-        return $this->belongsTo('App\Admin\Khambenh');
+        return $this->belongsTo('App\Admin\Khambenh')->withDefault();
     }
 }

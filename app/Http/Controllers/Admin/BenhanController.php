@@ -63,6 +63,7 @@ class BenhanController extends Controller
         $data_benhan['khieunai'] = $data_benhan['khieunai'] ? str_replace(',', '', $data_benhan['khieunai']) : 0;
         $data_benhan['datcoc'] = $data_benhan['khieunai'] ? str_replace(',', '', $data_benhan['datcoc']) : 0;
         $data_benhan['congno'] = $data_benhan['congno'] ? str_replace(',', '', $data_benhan['congno']) : 0;
+        $data_benhan['tongtien'] = $data_benhan['tongtien'] ? str_replace(',', '', $data_benhan['tongtien']) : 0;
 
         $benhan = Benhan::create($data_benhan);
 
@@ -125,6 +126,12 @@ class BenhanController extends Controller
         $data_benhan = $request->all();
         $obj = Benhan::find($id);
         if($obj == null) abort(404);
+
+        $data_benhan['khieunai'] = $data_benhan['khieunai'] ? str_replace(',', '', $data_benhan['khieunai']) : 0;
+        $data_benhan['datcoc'] = $data_benhan['khieunai'] ? str_replace(',', '', $data_benhan['datcoc']) : 0;
+        $data_benhan['congno'] = $data_benhan['congno'] ? str_replace(',', '', $data_benhan['congno']) : 0;
+        $data_benhan['tongtien'] = $data_benhan['tongtien'] ? str_replace(',', '', $data_benhan['tongtien']) : 0;
+
         $obj->update($data_benhan);
         $donhangs = $obj->donhangkhams()->get();
 
@@ -171,7 +178,9 @@ class BenhanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Benhan::destroy($id);
+        Donhangkham::where('benhan_id', $id)->delete();
+        return redirect()->route('benh-an.index');
     }
 
     public function ajaxAddProduct(Request $request){
@@ -248,9 +257,8 @@ class BenhanController extends Controller
     public function download($id){
         $obj = Benhan::find($id);
         if($obj == null) abort(404);
-        $tongtien = $obj->donhangkhams()->sum('thanhtien');
+        $tongtien = $obj->tongtien;
         $khuyenmai = floatval($obj->khieunai);
-        $tongcong = floatval($tongtien) - $khuyenmai;
         $congno = $obj->congno;
         $template = Storage::disk('template')->get('benh-an.php');
         $current_date = date('d/m/Y');
@@ -313,6 +321,7 @@ class BenhanController extends Controller
             $_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
             $_html .= number_format($donhang->thanhtien);
             $_html  .= "</td></tr>";
+            $j++;
         }
         $template = str_replace('_dataSanPham', $_html, $template);
 

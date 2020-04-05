@@ -1,7 +1,7 @@
 <tr class="btn-reveal-trigger">
 	<td class="align-middle">{{$j}}</td>
     <td class="align-middle" data-title="Mã sản phẩm">
-        <input type="text" class="form-control debounce" id="masp_{{$j}}" name="masp[]" value="">
+        <input type="text" class="form-control debounce" id="masp_{{$j}}" name="masp[]" value="{{$sanpham->masp}}">
     </td>
 	<td class="align-middle" data-title="Sản phẩm">
 		<select data-id="{{$j}}" id="sanpham_{{$j}}" class="form-control sanpham_kham" name="khambenh_id[]" required>

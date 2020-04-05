@@ -1,9 +1,14 @@
 <script>
-    $("#khmi-admin").number(true, 0, '.', ',' );
-    $("#datcoc-admin").number(true, 0, '.', ',' );
-    $("#conno-admin").number(true, 0, '.', ',' );
-    $("#tbody_sp input[name='thanhtien[]']").number(true, 0, '.', ',' );
-    $("#tbody_sp input[name='gia[]']").number(true, 0, '.', ',' );
+    jqueryNumberFormat()
+
+    function jqueryNumberFormat() {
+        $("#khmi-admin").number(true, 0, '.', ',' );
+        $("#datcoc-admin").number(true, 0, '.', ',' );
+        $("#conno-admin").number(true, 0, '.', ',' );
+        $("#tongtien-admin").number(true, 0, '.', ',' );
+        $("#tbody_sp input[name='thanhtien[]']").number(true, 0, '.', ',' );
+        $("#tbody_sp input[name='gia[]']").number(true, 0, '.', ',' );
+    }
 
 	function autoGetPrice(id){
 		let _selected = $( "#sanpham_"+id+" option:selected" );
@@ -94,12 +99,24 @@
 		});
 
 		$("#content_table_crm").delegate(".benhan_data", "click", function(){
-			_id = $(this).data('id');
-			_url = "{{config('admin.base_url')}}admin/ajax/getBenhAn";
+			const _id = $(this).data('id');
+			const _url = "{{config('admin.base_url')}}admin/ajax/getBenhAn";
 			$.get(_url, {id: _id}, function(data){
 				$("#content_form_crm").html(data);
-			});
+                $("#benh-an-destroy").attr('action', '/admin/benh-an/' + _id);
+                jqueryNumberFormat();
+            });
 		});
+        $("#content_form_crm").delegate("#benh-an-btn-delete", "click", function(){
+            const form = $("#benh-an-destroy");
+            if (confirm("Bạn chắc chắn muốn xóa hóa đơn này?")) {
+                if (form.attr('action')) {
+                    $("#benh-an-destroy").submit();
+                } else {
+                    alert('Bạn chưa chọn hóa đơn nào!!!');
+                }
+            }
+        });
 	});
     $('.datepicker').datepicker({
         dateFormat: "dd/mm/yy"

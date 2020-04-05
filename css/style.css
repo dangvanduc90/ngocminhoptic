@@ -2701,6 +2701,9 @@ background-color: #f8f8f8;
 
 }
 
+button[disabled], html input[disabled] {
+    cursor: not-allowed;
+}
 
 @media (min-width: 320px){
   .seting-modal{

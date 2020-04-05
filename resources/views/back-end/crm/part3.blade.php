@@ -61,7 +61,7 @@
 					<tr class="btn-reveal-trigger">
 						<td class="align-middle">{{$j}}</td>
                         <td class="align-middle" data-title="Mã sản phẩm">
-                            <input type="text" class="form-control debounce" id="masp_{{$j}}" name="masp[]" value="{{ $donhang->masp }}">
+                            <input type="text" class="form-control debounce" id="masp_{{$j}}" name="masp[]" value="{{ $donhang->khambenh->masp }}">
                         </td>
 						<td class="align-middle" data-title="Sản phẩm">
 							<select data-id="{{$j}}" id="sanpham_{{$j}}" class="form-control sanpham_kham" name="khambenh_id[]" required>
@@ -81,7 +81,7 @@
 							<input type="text" class="form-control" id="thanhtien_{{$j}}" name="thanhtien[]" value="{{$donhang->thanhtien}}" readonly>
 						</td>
                         <td>
-                            <button type="button" class="btn btn-primary remove_product">Xoas</button>
+                            <button type="button" class="btn btn-primary remove_product">Xóa</button>
                         </td>
 					</tr>
 					@php
@@ -119,7 +119,7 @@
                         <div class="form-group">
                             <label class="control-label" for="tongtien-admin">Tổng tiền</label>
                             <div class="input-contenr">
-                                <input type="text" class="form-control" id="tongtien-admin" readonly >
+                                <input type="text" class="form-control" id="tongtien-admin" readonly name="tongtien" value="{{isset($obj) ? $obj->tongtien : old('tongtien')}}">
                             </div>
                         </div>
 					</div>
