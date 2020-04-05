@@ -21,6 +21,7 @@
 						<div class="col-md-3 col-sm-4">
 							<div class="form-group">
 								<div class="ma-hoa-don forms-control input-contenr">
+                                    <span class="tooltiptexts">20/09/2019</span>
                                     <span class="icon_checkout ico-date"></span>
 									<input class="form-control datepicker" type="text" id="s_fromDate" value="" placeholder="Từ ngày">
 								</div>
@@ -29,6 +30,7 @@
 						<div class="col-md-3 col-sm-4">
 							<div class="form-group">
 								<div class="ho-ten forms-control input-contenr">
+                                    <span class="tooltiptexts">20/09/2019</span>
                                     <span class="icon_checkout ico-date"></span>
 									<input class="form-control datepicker" type="text" id="s_endDate" value="" placeholder="Đến ngày">
 								</div>
@@ -90,7 +92,8 @@
 						<div class="col-md-3 col-sm-2"></div>
 						<div class="col-md-3 col-sm-4">
 							<div class="form-group">
-								<div class="ma-hoa-don forms-control">
+								<div class="ma-hoa-don forms-control input-contenr">
+                                    <span class="tooltiptexts">20/09/2019</span>
                                     <span class="icon_checkout ico-date"></span>
 									<input class="form-control datepicker" type="text" id="o_fromDate" value="" placeholder="Từ ngày">
 								</div>
@@ -98,7 +101,8 @@
 						</div>
 						<div class="col-md-3 col-sm-4">
 							<div class="form-group">
-								<div class="ho-ten forms-control">
+								<div class="ho-ten forms-control input-contenr">
+                                    <span class="tooltiptexts">20/09/2019</span>
                                     <span class="icon_checkout ico-date"></span>
 									<input class="form-control datepicker" type="text" id="o_endDate" value="" placeholder="Đến ngày">
 								</div>
