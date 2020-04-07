@@ -51,9 +51,8 @@ class BenhanController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -85,12 +84,12 @@ class BenhanController extends Controller
                     }
                 }
             }
-            $this->download($benhan->id);
+//            $this->download($benhan->id);
 
+        }
+        Session::flash('success-crm', 'Tạo mới bệnh án thành công !');
+        return redirect()->route('benh-an.index')->with('id', $benhan->id);
     }
-    Session::flash('success-crm', 'Tạo mới bệnh án thành công !');
-    return back();
-}
 
     /**
      * Display the specified resource.
@@ -337,7 +336,7 @@ class BenhanController extends Controller
         }
         $template = str_replace('_dataSanPham', $_html, $template);
 
-        $html2pdf = new HTML2PDF('P', 'A4', 'fr');
+        $html2pdf = new HTML2PDF('P', 'A4', 'en');
         $html2pdf->pdf->SetDisplayMode('fullpage');
         $html2pdf->writeHTML($template, true);
         $html2pdf->output('Invoive.pdf','D');
