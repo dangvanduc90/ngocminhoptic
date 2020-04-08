@@ -116,6 +116,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
 
     Route::get('/benh-an/add', 'Admin\BenhanController@add')->name('benh-an.add');
 	Route::resource('benh-an', 'Admin\BenhanController');
+    Route::get('/benh-an/{id}/clone', 'Admin\BenhanController@clone')->name('benh-an.clone');
 
 	//Files
 	Route::get('/files', function () {

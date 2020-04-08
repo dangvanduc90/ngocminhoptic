@@ -92,6 +92,37 @@ class BenhanController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function clone($id)
+    {
+        $original = Benhan::find($id);
+        //copy attributes from original model
+        $newRecord = $original->replicate();
+
+        $newRecord->madon = 'MDH_' .time();
+        //save model before you recreate relations (so it has an id)
+        $newRecord->push();
+
+        //reset relations on EXISTING MODEL (this way you can control which ones will be loaded
+//        $original->relations = [];
+
+        //re-sync the child relationships
+        $relations = $original->getRelations();
+
+            foreach ($original->donhangkhams()->get() as $relationRecord) {
+                $newRelationship = $relationRecord->replicate();
+                $newRelationship->benhan_id = $newRecord->id;
+                $newRelationship->push();
+            }
+
+        Session::flash('success-crm', 'Nhân bản hóa đơn thành công !');
+        return redirect()->route('benh-an.index')->with('id', $newRecord->id);
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $id

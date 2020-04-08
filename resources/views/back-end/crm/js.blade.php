@@ -256,5 +256,12 @@
                 }
             }
         });
-    })
+    });
+
+    $("#content_form_crm").delegate("#benh-an-btn-clone", "click", function () {
+        const id = $(this).data('id');
+        if(confirm("Bạn muốn nhân bản hóa đơn này?")) {
+            window.location.href = `/admin/benh-an/${id}/clone`
+        }
+    });
 </script>

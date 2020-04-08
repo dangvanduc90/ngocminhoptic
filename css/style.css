@@ -2178,7 +2178,7 @@ background-color: #f8f8f8;
 .content-admin .bt-submit button[type="submit"] {
   background-color: #e1e1e1;
   height: 30px;
-  width: 125px;
+  min-width: 125px;
   border: 1px solid #aeaeae;
   color: #000;
   font-size: 14px;
