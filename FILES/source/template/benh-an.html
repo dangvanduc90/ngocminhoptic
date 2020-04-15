@@ -55,22 +55,22 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="text-align: right;">
+                        <td style="text-align: left;">
                             _address_company
                         </td>
                     </tr>
                     <tr>
-                        <td style="text-align: right;">
+                        <td style="text-align: left;">
                             _hotline_company
                         </td>
                     </tr>
                     <tr>
-                        <td style="text-align: right;">
+                        <td style="text-align: left;">
                             Email: <a target="_blank" href="mailto:_email">_email</a>
                         </td>
                     </tr>
                     <tr>
-                        <td style="text-align: right;">
+                        <td style="text-align: left;">
                             Website: <a target="_blank" href="_website">_website</a>
                         </td>
                     </tr>
@@ -134,36 +134,36 @@
             <th style="width: 15%; text-align:center;  text-transform: uppercase; font-size: 12px;">Nhãn áp</th>
         </tr>
         <tr>
-            <td style=" text-align:center; font-size: 12px;">
+            <td style=" text-align:center; font-size: 13px;">
                 Mắt phải
             </td>
-            <td style=" text-align:center; font-size: 12px;">
+            <td style=" text-align:center; font-size: 13px;">
                 _mpthiluc
             </td>
-            <td style=" text-align:center; font-size: 12px;">
+            <td style=" text-align:center; font-size: 13px;">
                 _mptskinh
             </td>
-            <td style=" text-align:center; font-size: 12px;">
+            <td style=" text-align:center; font-size: 13px;">
                 _mptlcokinh
             </td>
-            <td style=" text-align:center; font-size: 12px;">
+            <td style=" text-align:center; font-size: 13px;">
                 _mpna
             </td>
         </tr>
         <tr>
-            <td style=" text-align:center; font-size: 12px;">
+            <td style=" text-align:center; font-size: 13px;">
                 Mắt trái
             </td>
-            <td style=" text-align:center; font-size: 12px;">
+            <td style=" text-align:center; font-size: 13px;">
                 _mtthiluc
             </td>
-            <td style=" text-align:center; font-size: 12px;">
+            <td style=" text-align:center; font-size: 13px;">
                 _mttskinh
             </td>
-            <td style=" text-align:center; font-size: 12px;">
+            <td style=" text-align:center; font-size: 13px;">
                 _mttlcokinh
             </td>
-            <td style=" text-align:center; font-size: 12px;">
+            <td style=" text-align:center; font-size: 13px;">
                 _mtna
             </td>
         </tr>
@@ -235,6 +235,7 @@
     <br>
     <br>
     Bảo hành 06 tháng áp dụng cho các lỗi do nhà sản xuất đối với sản phẩm. Không bảo hành đối với các sản phẩm đã bị trầy, xước, cháy, nổ, bong sơn, lão hóa, thay đổi hình dáng sản phẩm... trong quá trình sử dụng. Bảo trì trọn đời sản phẩm trên tất cả các chi nhánh của NgocMinh Optic.
+    <br>
     <br>
     Chi tiết trong Website <a target="_blank" href="http://www.ngocminhoptic.com/">www.ngocminhoptic.com/</a>
     <br>

@@ -66,6 +66,7 @@
 									<th class="pd">PD</th>
 									<th class="kmp">Kính MP</th>
 									<th class="kmt">Kính MT</th>
+									<th class="kmt">Công nợ</th>
 								</tr>
 							</thead>
 							<tbody id="tbody_benhan">

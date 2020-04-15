@@ -11,16 +11,19 @@
     }
 
 	function autoGetPrice(id){
-		let _selected = $( "#sanpham_"+id+" option:selected" );
-		let _price = _selected.data('price');
-		let _sl = $('#soluong_'+id).val();
-		if(_sl == ''){
-			_sl = 0;
-			$('#soluong_'+id).val(_sl);
-		}
-		_sum = _price*_sl;
-		$('#thanhtien_'+id).val(_sum);
-		$('#gia_'+id).val(_price);
+        if(id) {
+            let _selected = $( "#sanpham_"+id+" option:selected" );
+            let _price = _selected.data('price');
+            let _sl = $('#soluong_'+id).val();
+            if(_sl == ''){
+                _sl = 0;
+                $('#soluong_'+id).val(_sl);
+            }
+            _sum = _price*_sl;
+            $('#thanhtien_'+id).val(_sum);
+            $('#gia_'+id).val(_price);
+        }
+
         calculator_loan();
 
         const total_amount_products = calculator_total_amount();
@@ -73,6 +76,19 @@
 		$("#quan-ly-han").delegate("#khmi-admin, #datcoc-admin", "change", function(){
             autoGetPrice();
         });
+
+		$(document).on('keyup', '#khmi-admin', function () {
+            autoGetPrice();
+        })
+		$(document).on('change', '#khmi-admin', function () {
+            autoGetPrice();
+        })
+		$(document).on('keyup', '#datcoc-admin', function () {
+            autoGetPrice();
+        })
+		$(document).on('change', '#datcoc-admin', function () {
+            autoGetPrice();
+        })
 
 		$("#content_table_crm").delegate("#s_str, #s_fromDate, #s_endDate", "change", function(){
 			searchBenhAn();

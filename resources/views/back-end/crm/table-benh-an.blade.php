@@ -7,5 +7,6 @@
 	<td class="align-middle">{{$benhan->pd}}</td>
 	<td class="align-middle">{{$benhan->mp_ts_moi}}</td>
 	<td class="align-middle">{{$benhan->mt_ts_moi}}</td>
+	<td class="align-middle">{{$benhan->congno}}</td>
 </tr>
 @endforeach
