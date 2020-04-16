@@ -89,6 +89,9 @@
 		$(document).on('change', '#datcoc-admin', function () {
             autoGetPrice();
         })
+        $(document).on('click', '.remove_product', function () {
+            autoGetPrice();
+        })
 
 		$("#content_table_crm").delegate("#s_str, #s_fromDate, #s_endDate", "change", function(){
 			searchBenhAn();

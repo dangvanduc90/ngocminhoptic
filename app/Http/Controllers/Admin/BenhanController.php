@@ -354,7 +354,7 @@ class BenhanController extends Controller
             else $sp = $sp->name;
             $_html  .= "<tr><td style='text-align:center; font-size: 13px;''>";
             $_html .= $j;
-            $_html  .= "</td><td style='text-align:center; font-size: 13px;''>";
+            $_html  .= "</td><td style='text-align:center; font-size: 13px;width: 350px''>";
             $_html .= $sp;
             $_html  .= "</td><td style='text-align:center; font-size: 13px;''>";
             $_html .= $donhang->soluong;

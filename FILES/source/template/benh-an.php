@@ -175,11 +175,11 @@
     <table id="table-3" cellspacing="0" style="width: 100%;">
 
         <tr id="th-header">
-            <th style="width: 10%; text-align:center;  text-transform: uppercase; font-size: 11px;">TT</th>
-            <th style="width: 40%; text-align:left;  text-transform: uppercase; font-size: 11px;">Sản phẩm</th>
-            <th style="width: 10%; text-align:center;  text-transform: uppercase; font-size: 11px;">SL</th>
-            <th style="width: 20%; text-align:center;  text-transform: uppercase; font-size: 11px;">Đơn giá</th>
-            <th style="width: 20%; text-align:center;  text-transform: uppercase; font-size: 11px;">Thành tiền</th>
+            <th style="width: 5%; text-align:center;  text-transform: uppercase; font-size: 11px;">TT</th>
+            <th style="width: 350px; text-align:left;  text-transform: uppercase; font-size: 11px;">Sản phẩm</th>
+            <th style="width: 5%; text-align:center;  text-transform: uppercase; font-size: 11px;">SL</th>
+            <th style="width: 15%; text-align:center;  text-transform: uppercase; font-size: 11px;">Đơn giá</th>
+            <th style="width: 15%; text-align:center;  text-transform: uppercase; font-size: 11px;">Thành tiền</th>
         </tr>
         _dataSanPham
 
