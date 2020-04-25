@@ -221,7 +221,10 @@ class HomeController extends Controller
         $html2pdf = new HTML2PDF('P', 'A4', 'fr');
         $html2pdf->pdf->SetDisplayMode('fullpage');
         $html2pdf->writeHTML($template, true);
-        $html2pdf->output('Invoive.pdf','D');
+
+        $hovaten = stripVN($obj->hovaten);
+
+        $html2pdf->output("$hovaten.pdf",'D');
         return back();
     }
 
