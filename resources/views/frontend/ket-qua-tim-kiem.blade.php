@@ -25,24 +25,26 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label" for="s_ma_hoa">{{ trans('menu.mahoadon') }}</label>
+									<label class="control-label" for="s_mahd">{{ trans('menu.mahoadon') }}</label>
 									<div class="ma-hoa-don forms-control">
 										<span class="icon_checkout ico-mahoadon"></span>
 										<input type="text" id="s_mahd" value="" placeholder="">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label" for="s_hostline">{{ trans('menu.dienthoai') }}</label>
+									<label class="control-label" for="s_dt">{{ trans('menu.dienthoai') }}</label>
 									<div class="hostline forms-control">
 										<span class="icon_checkout ico-tel"></span>
 										<input type="text" id="s_dt" value="" placeholder="">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label" for="s_ma_hoa">{{ trans('menu.ngaykham') }}</label>
-									<div class="ma-hoa-don forms-control">
+									<label class="control-label" for="s_ngaykham">{{ trans('menu.ngaykham') }}</label>
+									<div class="ma-hoa-don forms-control input-contenr">
 										<span class="icon_checkout ico-ngay-dat"></span>
-										<input type="text" id="s_ngaykham" id="ngay-kham" value="" placeholder="">
+                                        <span class="tooltiptexts">20/09/2019</span>
+										<input type="text" id="s_ngaykham" autocomplete="off"
+                                            class="datepicker" value="" placeholder="">
 									</div>
 								</div>
 								<div class="bt-submit">
@@ -102,6 +104,8 @@
 @endsection
 
 @section('js')
+    <link href="{{asset('backend/css/plugins/datapicker/datepicker3.css')}}" rel="stylesheet">
+    <script src="{{asset('backend/js/plugins/datapicker/bootstrap-datepicker.js')}}"></script>
 <script type="text/javascript">
 	$('#search_benhan').click(function(){
 		_ten = $('#s_ten').val();
@@ -121,5 +125,14 @@
 			$('#view-informations-client').modal('toggle');
 		});
 	});
+
+    $('.datepicker').datepicker({
+        todayBtn: "linked",
+        keyboardNavigation: false,
+        forceParse: false,
+        calendarWeeks: true,
+        autoclose: true,
+        format: "dd/mm/yyyy"
+    });
 </script>
 @endsection

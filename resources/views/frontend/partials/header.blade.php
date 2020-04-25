@@ -34,8 +34,12 @@
                               </a>
                           </div>
                           <div class="langcode">
-                            <a href="{!! route('user.change-language', ['vi']) !!}" title="Vietnamese"><img src="images/vietnam-img.png" alt=""></a>
-                            <a href="{!! route('user.change-language', ['en']) !!}" title="English" ><img src="images/english-img.png" alt=""></a>
+                            <a href="{!! route('user.change-language', ['vi']) !!}" title="Vietnamese">
+                                <img src="/images/vietnam-img.png" alt="">
+                            </a>
+                            <a href="{!! route('user.change-language', ['en']) !!}" title="English" >
+                                <img src="/images/english-img.png" alt="">
+                            </a>
                         </div>
                         <div class="menu-open">
                            <div class="icon-click test">

@@ -138,7 +138,12 @@
         });
 	});
     $('.datepicker').datepicker({
-        dateFormat: "dd/mm/yy"
+        todayBtn: "linked",
+        keyboardNavigation: false,
+        forceParse: false,
+        calendarWeeks: true,
+        autoclose: true,
+        format: "dd/mm/yyyy"
     });
 
     function confirmFormDelete(id) {
