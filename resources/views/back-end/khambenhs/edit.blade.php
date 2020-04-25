@@ -4,9 +4,6 @@
 Thay đổi sản phẩm
 @endsection
 
-@section('css')
-@endsection
-
 {{-- Page content --}}
 @section('content')
 <div class="wrapper wrapper-content">
@@ -17,7 +14,7 @@ Thay đổi sản phẩm
 			</div>
 			<div class="ibox-content">
 				@include('back-end.partials.alert-msg')
-				<form id="form" class="form-horizontal" role="form" action="{{route('san-pham.update',['id'=>$obj->id])}}" 
+				<form id="form" class="form-horizontal" role="form" action="{{route('san-pham.update',['id'=>$obj->id])}}"
 				enctype="multipart/form-data" method="POST">
 				@method('PATCH')
 				@csrf
@@ -32,8 +29,10 @@ Thay đổi sản phẩm
 				</form>
 			</div>
 		</div>
-	</div>		
+	</div>
 </div>
 @endsection
 @section('js')
+    <script type="text/javascript" src="{{asset('js/jquery.number.js')}}" ></script>
+    @include('back-end.khambenhs.js')
 @endsection

@@ -16,7 +16,7 @@ class KhambenhController extends Controller
      */
     public function index()
     {
-        $objs = Khambenh::all();
+        $objs = Khambenh::all()->sortBy('name');
         return view('back-end.khambenhs.list',['data'=>$objs]);
     }
 
@@ -38,8 +38,8 @@ class KhambenhController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $arr_data = $request->all();
+        $arr_data['price'] = $arr_data['price'] ? floatval(str_replace(',', '', $arr_data['price'])) : 0;
         Khambenh::create($arr_data);
         Session::flash('success-khambenh', 'Tạo mới sản phẩm thành công.');
         return redirect(route('san-pham.create'));
@@ -87,6 +87,7 @@ class KhambenhController extends Controller
             return redirect()->route('khambenh.index');
         }
         $arr_data = $request->all();
+        $arr_data['price'] = $arr_data['price'] ? floatval(str_replace(',', '', $arr_data['price'])) : 0;
         $obj->update($arr_data);
         Session::flash('success-khambenh', 'Thay đổi thông tin thành công.');
         return redirect(route('san-pham.edit', ['id' => $id]));

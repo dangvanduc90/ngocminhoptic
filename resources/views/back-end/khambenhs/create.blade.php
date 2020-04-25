@@ -17,7 +17,7 @@ Tạo mới sản phẩm
 			</div>
 			<div class="ibox-content">
 				@include('back-end.partials.alert-msg')
-				<form id="form" class="form-horizontal" role="form" action="{{route('san-pham.store')}}" 
+				<form id="form" class="form-horizontal" role="form" action="{{route('san-pham.store')}}"
 				enctype="multipart/form-data" method="POST">
 				@csrf
 					@include('back-end.khambenhs.form')
@@ -31,8 +31,10 @@ Tạo mới sản phẩm
 				</form>
 			</div>
 		</div>
-	</div>		
+	</div>
 </div>
 @endsection
 @section('js')
+    <script type="text/javascript" src="{{asset('js/jquery.number.js')}}" ></script>
+    @include('back-end.khambenhs.js')
 @endsection

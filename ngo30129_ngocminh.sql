@@ -515,7 +515,7 @@ CREATE TABLE `images` (
 CREATE TABLE `khambenhs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` double(8,2) DEFAULT NULL,
+  `price` double(30,2) DEFAULT NULL,
   `status` tinyint(1) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
