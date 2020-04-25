@@ -17,7 +17,7 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $objs = Type::all();
+        $objs = Type::all()->sortBy('name');
         return view('back-end.types.list',['data'=>$objs]);
     }
 
@@ -67,8 +67,8 @@ class TypeController extends Controller
     {
         $obj = Type::find($id);
         if($obj == null){
-            Session::flash('error-type', 'Không tìm thấy dữ liệu.');  
-            return redirect()->route('type.index');  
+            Session::flash('error-type', 'Không tìm thấy dữ liệu.');
+            return redirect()->route('type.index');
         }
         return view('back-end.types.edit',['obj'=>$obj]);
     }
@@ -84,8 +84,8 @@ class TypeController extends Controller
     {
         $obj = Type::find($id);
         if($obj == null){
-            Session::flash('error-type', 'Không tìm thấy dữ liệu.');  
-            return redirect()->route('type.index');  
+            Session::flash('error-type', 'Không tìm thấy dữ liệu.');
+            return redirect()->route('type.index');
         }
         $arr_data = $request->all();
         $obj->update($arr_data);
@@ -103,12 +103,12 @@ class TypeController extends Controller
     {
         $obj = Type::find($id);
         if($obj == null){
-            Session::flash('error-type', 'Không tìm thấy dữ liệu.');  
-            return redirect()->route('type.index');  
+            Session::flash('error-type', 'Không tìm thấy dữ liệu.');
+            return redirect()->route('type.index');
         }
         $obj->delete();
-        Session::flash('success-type', 'Xóa thông tin thành công.');  
-        return redirect()->route('type.index');  
+        Session::flash('success-type', 'Xóa thông tin thành công.');
+        return redirect()->route('type.index');
     }
 
     public function mutileUpdate(Request $request)
@@ -136,7 +136,7 @@ class TypeController extends Controller
                     $obj->delete();
                 }
             }
-        }       
+        }
         Session::flash('success-type', 'Update đồng loạt thành công.');
         return redirect()->route('type.index');
     }

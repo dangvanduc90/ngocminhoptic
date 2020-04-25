@@ -35,7 +35,7 @@
     </div>
 </div>
 <div class="form-group {{ $errors->has('image') ? 'has-error' : '' }}">
-    <label class="col-sm-2 control-label">Ảnh</label>
+    <label class="col-sm-2 control-label">Ảnh (Kích thước: 1336 x 413 px)</label>
     <div class="col-sm-8">
         <div class="input-group">
             <span class="input-group-btn">
