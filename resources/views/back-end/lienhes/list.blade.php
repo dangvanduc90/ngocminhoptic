@@ -30,10 +30,12 @@ Danh sách liên hệ
 		</div>
 	</div>
 </div>
+@include('back-end.partials.modals.delete')
 {{-- END Main content --}}
 @stop
 @section('js')
 <script src="{{asset('backend/js/plugins/dataTables/datatables.min.js')}}"></script>
+<script src="{{asset('js/delete-modal.js')}}"></script>
 <script>
 	$(document).ready(function(){
 		$('.dataTables-example').DataTable({
@@ -41,7 +43,7 @@ Danh sách liên hệ
 			responsive: true,
 			dom: '<"html5buttons"B>lTfgitp',
 			buttons: [
-			{extend: 'excel', title: 'ExampleFile'},			
+			{extend: 'excel', title: 'ExampleFile'},
 		]
 	});
 	});

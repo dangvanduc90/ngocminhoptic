@@ -6,7 +6,8 @@
 			<th class="text-center">Email</th>
 			<th class="text-center">Địa chỉ</th>
 			<th class="text-center">Nội dung</th>
-		</tr>
+            <th class="text-center">Action</th>
+        </tr>
 	</thead>
 	<tbody>
 		@foreach($lienhes as $obj)
@@ -16,6 +17,12 @@
 			<td class="text-center">{{$obj->email}}</td>
 			<td class="text-center">{{$obj->address}}</td>
 			<td class="text-center">{{$obj->content}}</td>
+            <td class="text-center">
+                <a 	class="btn btn-danger btn-circle btn-sm delete-button"
+                      data-action ="{{ route('lienhe.destroy',$obj->id) }}" type="button">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </td>
 		</tr>
 		@endforeach
 	</tbody>

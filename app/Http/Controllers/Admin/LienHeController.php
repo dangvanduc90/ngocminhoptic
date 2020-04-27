@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Admin\LienHe;
+use Illuminate\Support\Facades\Session;
 
 class LienHeController extends Controller
 {
@@ -82,6 +83,13 @@ class LienHeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $obj = LienHe::find($id);
+        if($obj == null){
+            Session::flash('error-product', 'Không tìm thấy dữ liệu.');
+            return redirect()->route('lienhe.index');
+        }
+        $obj->delete();
+        Session::flash('success-product', 'Xóa thông tin thành công.');
+        return redirect()->route('lienhe.index');
     }
 }

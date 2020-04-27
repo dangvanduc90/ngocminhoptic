@@ -14,7 +14,8 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
 	->name('admin.home');
 
 	Route::get('/followers/', 'Admin\ContactController@index')->name('contact.show');
-	Route::get('/contacts/', 'Admin\LienHeController@index')->name('lienhe.show');
+	Route::get('/contacts/', 'Admin\LienHeController@index')->name('lienhe.index');
+	Route::delete('/contacts/{id}', 'Admin\LienHeController@destroy')->name('lienhe.destroy');
 	Route::get('/donhang/', 'Admin\DonhangController@index')->name('donhang.show');
 
 	//Product

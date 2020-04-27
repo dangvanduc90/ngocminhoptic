@@ -41,7 +41,7 @@
                 <a href="{{route('contact.show')}}"><i class="fa fa-tags"></i> <span class="nav-label">Email đáy trang</span></a>
             </li>
              <li class={{$flag == "lienhe"  ? "active" : ""}}>
-                <a href="{{route('lienhe.show')}}"><i class="fa fa-tags"></i> <span class="nav-label">Thông tin liên hệ</span></a>
+                <a href="{{route('lienhe.index')}}"><i class="fa fa-tags"></i> <span class="nav-label">Thông tin liên hệ</span></a>
             </li>
            {{--  <li class={{$flag == "album"  ? "active" : ""}}>
                 <a href="{{route('album.index')}}"><i class="fa fa-picture-o"></i> <span class="nav-label">Album</span></a>
