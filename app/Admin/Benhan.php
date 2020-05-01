@@ -9,7 +9,7 @@ class Benhan extends Model
     protected $fillable = [
         'madon' , 'hovaten', 'sdt', 'pd', 'ngaykham', 'ngayhen', 'diachi', 'noidung', 'mp_ts', 'mt_ts',
         'mp_thiluc', 'mt_thiluc', 'mp_ts_moi', 'mt_ts_moi', 'mp_tl_kich', 'mt_tl_kich', 'mp_nhanap', 'mt_nhanap',
-        'khieunai', 'ghichu', 'datcoc', 'congno', 'tongtien', 'status'
+        'khieunai', 'ghichu', 'datcoc', 'congno', 'tongtien', 'tongthanhtien', 'status'
     ];
 
     public function donhangkhams()

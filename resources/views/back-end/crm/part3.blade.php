@@ -99,6 +99,12 @@
 				<div class="row">
 					<div class="quan-ly col-md-5">
 						<div class="form-group">
+							<label class="control-label" for="tongthanhtien-admin">Tổng Thành Tiền</label>
+							<div class="input-contenr">
+								<input type="text" class="form-control" id="tongthanhtien-admin" name="tongthanhtien" value="{{isset($obj) ? $obj->tongthanhtien : old('tongthanhtien')}}" readonly>
+							</div>
+						</div>
+                        <div class="form-group">
 							<label class="control-label" for="khmi-admin">Khuyến mại</label>
 							<div class="input-contenr">
 								<input type="text" class="form-control" id="khmi-admin" name="khieunai" value="{{isset($obj) ? $obj->khieunai : old('khieunai')}}">

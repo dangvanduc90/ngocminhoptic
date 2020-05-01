@@ -2,6 +2,7 @@
     jqueryNumberFormat()
 
     function jqueryNumberFormat() {
+        $("#tongthanhtien-admin").number(true, 0, '.', ',' );
         $("#khmi-admin").number(true, 0, '.', ',' );
         $("#datcoc-admin").number(true, 0, '.', ',' );
         $("#conno-admin").number(true, 0, '.', ',' );
@@ -30,6 +31,7 @@
 
         const tienkhuyenmai = $("#khmi-admin").val() || 0;
         $("#tongtien-admin").val($.number( total_amount_products - tienkhuyenmai, 0, '.', ',' ))
+        $("#tongthanhtien-admin").val($.number( total_amount_products , 0, '.', ',' ))
 	}
 
 	function searchBenhAn(){

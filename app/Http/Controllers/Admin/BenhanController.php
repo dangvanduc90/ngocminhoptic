@@ -63,6 +63,7 @@ class BenhanController extends Controller
         $data_benhan['datcoc'] = $data_benhan['khieunai'] ? floatval(str_replace(',', '', $data_benhan['datcoc'])) : 0;
         $data_benhan['congno'] = $data_benhan['congno'] ? floatval(str_replace(',', '', $data_benhan['congno'])) : 0;
         $data_benhan['tongtien'] = $data_benhan['tongtien'] ? doubleval(str_replace(',', '', $data_benhan['tongtien'])) : 0;
+        $data_benhan['tongthanhtien'] = $data_benhan['tongthanhtien'] ? doubleval(str_replace(',', '', $data_benhan['tongthanhtien'])) : 0;
 
         $benhan = Benhan::create($data_benhan);
 
@@ -161,6 +162,7 @@ class BenhanController extends Controller
         $data_benhan['datcoc'] = $data_benhan['khieunai'] ? floatval(str_replace(',', '', $data_benhan['datcoc'])) : 0;
         $data_benhan['congno'] = $data_benhan['congno'] ? floatval(str_replace(',', '', $data_benhan['congno'])) : 0;
         $data_benhan['tongtien'] = $data_benhan['tongtien'] ? doubleval(str_replace(',', '', $data_benhan['tongtien'])) : 0;
+        $data_benhan['tongthanhtien'] = $data_benhan['tongthanhtien'] ? doubleval(str_replace(',', '', $data_benhan['tongthanhtien'])) : 0;
 
         $obj->update($data_benhan);
         $donhangs = $obj->donhangkhams()->get();
