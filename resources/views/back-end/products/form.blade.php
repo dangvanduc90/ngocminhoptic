@@ -27,6 +27,63 @@
 		</div>
 	</div>
 
+    <div class="form-group">
+        <label class="control-label">Ảnh sản phẩm</label>
+        <div class="alert" id="message" style="display: none"></div>
+        <table class="table" id="images-product-table">
+            <tbody>
+                @if(isset($obj))
+                    @foreach($obj->images as $image)
+                        <tr>
+                            <td><input type="file" name="select_file" class="select_file" accept="image/*" /></td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-upload">Upload</button>
+                            </td>
+                            <td>
+                            <span class="uploaded_image">
+                                <img src="{{ $image->product_image }}" class="img-thumbnail" />
+                                <input type="hidden" value="{{ $image->product_image }}" name="product_image[]">
+                                <input type="hidden" value="{{ $image->title }}" name="title[]">
+                                <input type="hidden" value="{{ $image->alt }}" name="alt[]">
+                            </span>
+                            </td>
+                            <td>
+                                <label>Ảnh đại diện
+                                    <input type="radio" class="is_default" @if($image->is_default == 1) checked @endif name="rdo_is_default" >
+                                    <input type="hidden" name="is_default[]" value="{{ intval($image->is_default) }}">
+                                </label>
+                            </td>
+                            <td class="text-right"><button type="button" class="btn btn-danger btn-delete-img">Xóa ảnh</button></td>
+                        </tr>
+                    @endforeach
+                @endif
+                <tr>
+                    <td><input type="file" name="select_file" class="select_file" accept="image/*" /></td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-upload">Upload</button>
+                    </td>
+                    <td>
+                        <div class="uploaded_image"></div>
+                    </td>
+                    <td>
+                        <label>Ảnh đại diện
+                            <input type="radio" class="is_default" name="rdo_is_default" @unless(isset($obj)) checked @endif />
+                            <input type="hidden" name="is_default[]" value="1" />
+                        </label>
+                    </td>
+                    <td class="text-right"><button type="button" class="btn btn-danger btn-delete-img">Xóa ảnh</button></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <button type="button" class="btn btn-primary" id="btn-new-img">Thêm ảnh mới</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
 	<div class="box box-primary">
 		<div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
 			<label class="control-label">Mô tả ngắn</label>
@@ -43,13 +100,13 @@
 		<div class="form-group {{ $errors->has('content') ? 'has-error' : '' }}">
 			<label class="control-label">Thông tin chi tiết(*)</label>
 			<div>
-				<textarea rows="5" placeholder="" class="form-control my-editor" name="content">{{isset($obj) ? $obj->content : ''}}</textarea>
+				<textarea rows="5" placeholder="" class="form-control my-editor" name="content" required>{{isset($obj) ? $obj->content : ''}}</textarea>
 			</div>
 		</div>
 		<div class="form-group {{ $errors->has('content_en') ? 'has-error' : '' }}">
 			<label class="control-label">Thông tin chi tiết (EN)(*)</label>
 			<div>
-				<textarea rows="5" placeholder="" class="form-control my-editor" name="content_en">{{isset($obj) ? $obj->content_en : ''}}</textarea>
+				<textarea rows="5" placeholder="" class="form-control my-editor" name="content_en" required>{{isset($obj) ? $obj->content_en : ''}}</textarea>
 			</div>
 		</div>
 		<div class="form-group {{ $errors->has('note') ? 'has-error' : '' }}">
@@ -58,7 +115,7 @@
 				<textarea name="note" id="note" class="form-control my-editor" rows="40" required>{{isset($obj) ? $obj->note : old('note')}}</textarea>
 			</div>
 		</div>
-			<div class="form-group {{ $errors->has('note_en') ? 'has-error' : '' }}">
+        <div class="form-group {{ $errors->has('note_en') ? 'has-error' : '' }}">
 			<label class="control-label">Thông tin khác (EN)(*)</label>
 			<div class="noi-dung">
 				<textarea name="note_en" id="note_en" class="form-control my-editor" rows="40" required>{{isset($obj) ? $obj->note_en : old('note_en')}}</textarea>
@@ -129,7 +186,8 @@
 	        </select>
 	    </div>
 	</div>
-	<div class="box box-primary">
+
+    <div class="box box-primary">
 		@include('back-end.partials.seo')
 	</div>
 </div>

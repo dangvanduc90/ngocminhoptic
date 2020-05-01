@@ -17,7 +17,7 @@ class ColorController extends Controller
      */
     public function index()
     {
-        $objs = Color::orderby('product_id')->get();
+        $objs = Color::all();
         return view('back-end.colors.list',['data'=>$objs]);
     }
 
@@ -67,8 +67,8 @@ class ColorController extends Controller
     {
         $obj = Color::find($id);
         if($obj == null){
-            Session::flash('error-color', 'Không tìm thấy dữ liệu.');  
-            return redirect()->route('color.index');  
+            Session::flash('error-color', 'Không tìm thấy dữ liệu.');
+            return redirect()->route('color.index');
         }
         $products = Product::where('status',1)->get();
         return view('back-end.colors.edit',['obj'=>$obj, 'products'=>$products]);
@@ -85,8 +85,8 @@ class ColorController extends Controller
     {
         $obj = Color::find($id);
         if($obj == null){
-            Session::flash('error-color', 'Không tìm thấy dữ liệu.');  
-            return redirect()->route('color.index');  
+            Session::flash('error-color', 'Không tìm thấy dữ liệu.');
+            return redirect()->route('color.index');
         }
         $arr_data = $request->all();
         $obj->update($arr_data);
@@ -104,12 +104,12 @@ class ColorController extends Controller
     {
         $obj = Color::find($id);
         if($obj == null){
-            Session::flash('error-color', 'Không tìm thấy dữ liệu.');  
-            return redirect()->route('color.index');  
+            Session::flash('error-color', 'Không tìm thấy dữ liệu.');
+            return redirect()->route('color.index');
         }
         $obj->delete();
-        Session::flash('success-color', 'Xóa thông tin thành công.');  
-        return redirect()->route('color.index');  
+        Session::flash('success-color', 'Xóa thông tin thành công.');
+        return redirect()->route('color.index');
     }
 
     public function mutileUpdate(Request $request)
@@ -137,7 +137,7 @@ class ColorController extends Controller
                     $obj->delete();
                 }
             }
-        }       
+        }
         Session::flash('success-color', 'Update đồng loạt thành công.');
         return redirect()->route('color.index');
     }

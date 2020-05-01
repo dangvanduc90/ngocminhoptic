@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Admin\ImageProduct;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest as ProductRequest;
 use App\Admin\Product;
 use App\Admin\Type;
+use Illuminate\Support\Facades\Validator;
 use Session;
 
 class ProductController extends Controller
@@ -43,7 +45,23 @@ class ProductController extends Controller
     {
         //
         $arr_data = $request->all();
-        Product::create($arr_data);
+        $product = Product::create($arr_data);
+
+        $arr_images = [];
+        ImageProduct::where('product_id', $product->id)->delete();
+        foreach ($request->input('product_image') as $key => $image) {
+            array_push($arr_images, [
+                'product_id' => $product->id,
+                'is_default' => $request->input('is_default')[$key],
+                'title' => $request->input('title')[$key],
+                'alt' => $request->input('alt')[$key],
+                'product_image' => $image,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]);
+        }
+        ImageProduct::insert($arr_images);
+
         Session::flash('success-product', 'Tạo mới sản phẩm thành công.');
         return redirect(route('product.create'));
     }
@@ -69,10 +87,11 @@ class ProductController extends Controller
     {
         $obj = Product::find($id);
         if($obj == null){
-            Session::flash('error-product', 'Không tìm thấy dữ liệu.');  
-            return redirect()->route('product.index');  
+            Session::flash('error-product', 'Không tìm thấy dữ liệu.');
+            return redirect()->route('product.index');
         }
-         $types = Type::orderby('name')->where('status',1)->get();
+
+        $types = Type::orderby('name')->where('status',1)->get();
         return view('back-end.products.edit',['obj'=>$obj, 'types'=>$types]);
     }
 
@@ -87,11 +106,27 @@ class ProductController extends Controller
     {
         $obj = Product::find($id);
         if($obj == null){
-            Session::flash('error-product', 'Không tìm thấy dữ liệu.');  
-            return redirect()->route('product.index');  
+            Session::flash('error-product', 'Không tìm thấy dữ liệu.');
+            return redirect()->route('product.index');
         }
         $arr_data = $request->all();
         $obj->update($arr_data);
+
+        $arr_images = [];
+        ImageProduct::where('product_id', $id)->delete();
+        foreach ($request->input('product_image') as $key => $image) {
+            array_push($arr_images, [
+                'product_id' => $id,
+                'is_default' => $request->input('is_default')[$key],
+                'title' => $request->input('title')[$key],
+                'alt' => $request->input('alt')[$key],
+                'product_image' => $image,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]);
+        }
+        ImageProduct::insert($arr_images);
+
         Session::flash('success-product', 'Thay đổi thông tin thành công.');
         return redirect(route('product.edit', ['id' => $id]));
     }
@@ -106,12 +141,12 @@ class ProductController extends Controller
     {
         $obj = Product::find($id);
         if($obj == null){
-            Session::flash('error-product', 'Không tìm thấy dữ liệu.');  
-            return redirect()->route('product.index');  
+            Session::flash('error-product', 'Không tìm thấy dữ liệu.');
+            return redirect()->route('product.index');
         }
         $obj->delete();
-        Session::flash('success-product', 'Xóa thông tin thành công.');  
-        return redirect()->route('product.index');  
+        Session::flash('success-product', 'Xóa thông tin thành công.');
+        return redirect()->route('product.index');
     }
 
     public function mutileUpdate(Request $request)
@@ -139,8 +174,59 @@ class ProductController extends Controller
                     $obj->delete();
                 }
             }
-        }       
+        }
         Session::flash('success-product', 'Update đồng loạt thành công.');
         return redirect()->route('product.index');
+    }
+
+    public function upload(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'select_file' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'index' => 'required|integer',
+        ]);
+        if($validation->passes()) {
+            $index = $request->input('index');
+            $image = $request->file('select_file');
+            $name = $image->getClientOriginalName();
+
+            $path = 'FILES/source/products/' . date('Y-m-d');
+            $href = '/'.$path . '/'.$name;
+            $image->move($path, $name);
+
+            $value = $index == 1 ? 1 : 0;
+            $checked = $index == 1 ? 'checked' : '';
+            return response()->json([
+                'message'   => "Tải ảnh $name lên thành công",
+                'html' => '`<td><input type="file" name="select_file" class="select_file" accept="image/*" /></td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-upload">Upload</button>
+                    </td>
+                    <td>
+                        <span class="uploaded_image">
+                            <img src="'.$href.'" class="img-thumbnail" />
+                            <input type="hidden" value="'.$href.'" name="product_image[]">
+                            <input type="hidden" value="'.$name.'" name="title[]">
+                            <input type="hidden" value="'.$name.'" name="alt[]">
+                        </span>
+                    </td>
+                    <td>
+                        <label>Ảnh đại diện
+                            <input type="radio" class="is_default" '.$checked.' name="rdo_is_default" >
+                            <input type="hidden" name="is_default[]" value="'.$value.'">
+                        </label>
+                    </td>
+                    <td class="text-right"><button type="button" class="btn btn-danger btn-delete-img">Xóa ảnh</button></td>',
+                'class_name'  => 'alert-success',
+                'success' => 1,
+            ]);
+        } else {
+            return response()->json([
+                'message'   => $validation->errors()->all(),
+                'html' => '',
+                'class_name'  => 'alert-danger',
+                'success' => 0,
+            ]);
+        }
     }
 }

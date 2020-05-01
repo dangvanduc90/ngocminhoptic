@@ -22,6 +22,8 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
 	Route::resource('product', 'Admin\ProductController');
 	Route::post('/mutile-update/product', 'Admin\ProductController@mutileUpdate')
 	->name('mutileUpdate.product');
+	Route::post('/upload/product', 'Admin\ProductController@upload')
+	->name('upload.product');
 
 	//Product
 	Route::resource('type', 'Admin\TypeController');

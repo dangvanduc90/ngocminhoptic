@@ -7833,9 +7833,6 @@ body.skin-2 #wrapper {
 }
 .skin-2 #page-wrapper {
   background: #f6f6f6;
-  background: -webkit-radial-gradient(center, ellipse cover, #f6f6f6 20%, #d5d5d5 100%);
-  background: -o-radial-gradient(center, ellipse cover, #f6f6f6 20%, #d5d5d5 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #f6f6f6 20%, #d5d5d5 100%);
   background: radial-gradient(ellipse at center, #f6f6f6 20%, #d5d5d5 100%);
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#f6f6f6, endColorstr=#d5d5d5)";
 }
@@ -8788,4 +8785,8 @@ table.dataTable thead>tr>th.sorting_asc, table.dataTable thead>tr>th.sorting_des
 }
 .form-reset .form-group{
     margin-bottom: 15px;
+}
+
+.uploaded_image img {
+    width: 150px;
 }

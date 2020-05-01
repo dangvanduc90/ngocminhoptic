@@ -37,40 +37,6 @@ Thay đổi sản phẩm : #{{$obj->sku}}
 </div>
 @endsection
 @section('js')
-<script src="{{asset('js/slug.js')}}"></script>
-<script>
-	$(document).ready(function() {
-		settingIframe("#iframe-btn-0", "#thumb_0", "#preview_0");
-		CKEDITOR.replace('content' ,{
-			filebrowserBrowseUrl : ckeditor_path,
-			filebrowserUploadUrl : ckeditor_path,
-			filebrowserImageBrowseUrl : ckeditor_path,
-		});
-		CKEDITOR.replace('note' ,{
-			filebrowserBrowseUrl : ckeditor_path,
-			filebrowserUploadUrl : ckeditor_path,
-			filebrowserImageBrowseUrl : ckeditor_path,
-		});
-		CKEDITOR.replace('content_en' ,{
-			filebrowserBrowseUrl : ckeditor_path,
-			filebrowserUploadUrl : ckeditor_path,
-			filebrowserImageBrowseUrl : ckeditor_path,
-		});
-		CKEDITOR.replace('note_en' ,{
-			filebrowserBrowseUrl : ckeditor_path,
-			filebrowserUploadUrl : ckeditor_path,
-			filebrowserImageBrowseUrl : ckeditor_path,
-		});
-        CKEDITOR.replace('description' ,{
-            filebrowserBrowseUrl : ckeditor_path,
-            filebrowserUploadUrl : ckeditor_path,
-            filebrowserImageBrowseUrl : ckeditor_path,
-        });
-		CKEDITOR.replace('description_en' ,{
-			filebrowserBrowseUrl : ckeditor_path,
-			filebrowserUploadUrl : ckeditor_path,
-			filebrowserImageBrowseUrl : ckeditor_path,
-		});
-	});
-</script>
+    <script src="{{asset('js/slug.js')}}"></script>
+    @include('back-end.products.js')
 @endsection

@@ -11,9 +11,11 @@ class Product extends Model
         'name' , 'is_display', 'name_en', 'type_id', 'slug', 'sku' , 'price' , 'saleoff', 'chatlieu', 'chatlieu_en', 'description', 'description_en', 'content_en', 'note_en', 'content', 'note', 'status', 'meta_title', 'meta_des', 'meta_key'
     ];
 
-    public function colors()
+    protected $with = ['type'];
+
+    public function images()
     {
-        return $this->hasMany('App\Admin\Color');
+        return $this->hasMany('App\Admin\ImageProduct');
     }
 
     public function type()
@@ -22,14 +24,12 @@ class Product extends Model
     }
 
     public function getImage(){
-    	$color = $this->colors()->where('status',1)->orderby('is_default','desc')->first();
-    	if($color != null) return $color->image_product;
-    	else return asset('images/no-image.png');
+    	$color = $this->images()->where('status',1)->orderby('is_default','desc')->first();
+    	return $color != null ? $color->image_product : asset('images/no-image.png');
     }
 
     public function getThumb(){
-    	$color = $this->colors()->where('status',1)->orderby('is_default','desc')->first();
-    	if($color != null) return  str_replace("source", "thumbs", $color->image_product);
-    	else return asset('images/no-image.png');
+    	$color = $this->images()->where('status',1)->orderby('is_default','desc')->first();
+    	return $color != null ? str_replace("source", "thumbs", $color->image_product) : asset('images/no-image.png');
     }
 }

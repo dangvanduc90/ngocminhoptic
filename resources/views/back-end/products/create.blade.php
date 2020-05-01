@@ -35,40 +35,6 @@ Tạo mới sản phẩm
 </div>
 @endsection
 @section('js')
-<script src="{{asset('js/slug.js')}}"></script>
-<script>
-	var ckeditor_path = $("#ckeditor_path").val();
-	$(document).ready(function() {
-		CKEDITOR.replace('content' ,{
-			filebrowserBrowseUrl : ckeditor_path,
-			filebrowserUploadUrl : ckeditor_path,
-			filebrowserImageBrowseUrl : ckeditor_path,
-		});
-		CKEDITOR.replace('note' ,{
-			filebrowserBrowseUrl : ckeditor_path,
-			filebrowserUploadUrl : ckeditor_path,
-			filebrowserImageBrowseUrl : ckeditor_path,
-		});
-		CKEDITOR.replace('content_en' ,{
-			filebrowserBrowseUrl : ckeditor_path,
-			filebrowserUploadUrl : ckeditor_path,
-			filebrowserImageBrowseUrl : ckeditor_path,
-		});
-		CKEDITOR.replace('note_en' ,{
-			filebrowserBrowseUrl : ckeditor_path,
-			filebrowserUploadUrl : ckeditor_path,
-			filebrowserImageBrowseUrl : ckeditor_path,
-		});
-        CKEDITOR.replace('description' ,{
-            filebrowserBrowseUrl : ckeditor_path,
-            filebrowserUploadUrl : ckeditor_path,
-            filebrowserImageBrowseUrl : ckeditor_path,
-        });
-        CKEDITOR.replace('description_en' ,{
-            filebrowserBrowseUrl : ckeditor_path,
-            filebrowserUploadUrl : ckeditor_path,
-            filebrowserImageBrowseUrl : ckeditor_path,
-        });
-	});
-</script>
+    <script src="{{asset('js/slug.js')}}"></script>
+    @include('back-end.products.js')
 @endsection
