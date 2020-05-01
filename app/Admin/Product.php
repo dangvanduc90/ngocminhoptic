@@ -19,7 +19,7 @@ class Product extends Model
 
     public function images()
     {
-        return $this->hasMany('App\Admin\ImageProduct');
+        return $this->hasMany('App\Admin\ImageProduct')->orderBy('is_default', 'desc');
     }
 
     public function type()

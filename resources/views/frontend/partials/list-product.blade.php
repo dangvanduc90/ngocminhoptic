@@ -3,7 +3,12 @@
         <div class="col-md-3 col-sm-6 col-xs-6 product-list-wrapper">
             <div class="view-product" style="border:1px solid #f9f9f9;">
                 <div class="product-item-images">
-                    @foreach($product->images()->get() as $image)
+                    @foreach($product->images()->get() as $key => $image)
+                        @php
+                        if($key == 2) {
+                            break;
+                        }
+                        @endphp
                         @if($image->is_default == 1)
                             <div class="thumbnail-wrapper">
                                 <a href="{{route('product.detail',['slug'=>$product->slug])}}" class="product-item-root"

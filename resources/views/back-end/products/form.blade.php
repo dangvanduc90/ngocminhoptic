@@ -28,7 +28,7 @@
 	</div>
 
     <div class="form-group">
-        <label class="control-label">Ảnh sản phẩm(*)</label>
+        <label class="control-label">Ảnh sản phẩm(*) <span class="text-muted">Chú ý: phải có ảnh sản phẩm thì mới hiển thị</span></label>
         <div class="alert" id="message" style="display: none"></div>
         <table class="table" id="images-product-table">
             <tbody>
