@@ -47,12 +47,17 @@ class ProductController extends Controller
         $arr_data = $request->all();
         $product = Product::create($arr_data);
 
+        $setDefault = in_array(1, $request->input('is_default'));
         $arr_images = [];
         ImageProduct::where('product_id', $product->id)->delete();
         foreach ($request->input('product_image') as $key => $image) {
+            $valueIsDefault = $request->input('is_default')[$key];
+            if (!$setDefault && $key == 0) {
+                $valueIsDefault = 1;
+            }
             array_push($arr_images, [
                 'product_id' => $product->id,
-                'is_default' => $request->input('is_default')[$key],
+                'is_default' => $valueIsDefault,
                 'title' => $request->input('title')[$key],
                 'alt' => $request->input('alt')[$key],
                 'product_image' => $image,
@@ -112,12 +117,17 @@ class ProductController extends Controller
         $arr_data = $request->all();
         $obj->update($arr_data);
 
+        $setDefault = in_array(1, $request->input('is_default'));
         $arr_images = [];
-        ImageProduct::where('product_id', $id)->delete();
+        ImageProduct::where('product_id', $obj->id)->delete();
         foreach ($request->input('product_image') as $key => $image) {
+            $valueIsDefault = $request->input('is_default')[$key];
+            if (!$setDefault && $key == 0) {
+                $valueIsDefault = 1;
+            }
             array_push($arr_images, [
-                'product_id' => $id,
-                'is_default' => $request->input('is_default')[$key],
+                'product_id' => $obj->id,
+                'is_default' => $valueIsDefault,
                 'title' => $request->input('title')[$key],
                 'alt' => $request->input('alt')[$key],
                 'product_image' => $image,

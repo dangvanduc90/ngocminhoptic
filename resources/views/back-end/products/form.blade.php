@@ -28,7 +28,7 @@
 	</div>
 
     <div class="form-group">
-        <label class="control-label">Ảnh sản phẩm</label>
+        <label class="control-label">Ảnh sản phẩm(*)</label>
         <div class="alert" id="message" style="display: none"></div>
         <table class="table" id="images-product-table">
             <tbody>
@@ -68,7 +68,7 @@
                     <td>
                         <label>Ảnh đại diện
                             <input type="radio" class="is_default" name="rdo_is_default" @unless(isset($obj)) checked @endif />
-                            <input type="hidden" name="is_default[]" value="1" />
+                            <input type="hidden" name="is_default[]" value="{{ isset($obj) ? 0 : 1 }}" />
                         </label>
                     </td>
                     <td class="text-right"><button type="button" class="btn btn-danger btn-delete-img">Xóa ảnh</button></td>

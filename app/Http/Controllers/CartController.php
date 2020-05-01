@@ -28,9 +28,9 @@ class CartController extends Controller
 			$data['msg'] = "Sản phẩm không tồn tại hoặc đã tạm ngưng bán hàng. Vui lòng kiểm tra lại !";
 			return $data;
 		}
-		$color = Color::where('id',$color_id)->where('product_id', $product_id)->first();
+		$color = Color::find($color_id);
 		if($color == null){
-			$data['msg'] = "Màu sản phẩm không tồn tại hoặc đã tạm ngưng bán hàng. Vui lòng kiểm tra lại !";
+			$data['msg'] = "Màu sản phẩm không tồn tại!";
 			return $data;
 		}
 		if(intval($qty) <= 0){
@@ -38,15 +38,21 @@ class CartController extends Controller
 			return $data;
 		}
 		Cart::add(array(
-			'id' => $color_id,
+			'id' => $product->id . '_' . $color->id,
 			'name' => $product->name." (".$color->name.")",
 			'price' => $product->price,
 			'quantity' => $qty,
 			'attributes' => array(
-				'image' => $color->image_product,
-			)
+                'product_id' => $product->id,
+                'color_id' => $color->id,
+                'color_name' => $color->name,
+                'color_name_en' => $color->name_en,
+                'code_color' => $color->code_color,
+                'slug' => $product->slug,
+                'image' => $product->avatar->product_image,
+            )
 		));
-		$data['msg'] = "Thêm vào giỏ hàng thành công !";
+		$data['msg'] = "Thêm vào giỏ hàng thành công!";
 		$data['sum'] = Cart::getTotalQuantity();
 		return $data;
 	}
@@ -62,29 +68,37 @@ class CartController extends Controller
 			$data['msg'] = "Số lượng sản phẩm phải lớn hơn 0";
 			return $data;
 		}
-		Cart::remove($color_id);
-		$color = Color::where('id',$color_id)->first();
-		if($color == null){
+        $color = Color::find($color_id);
+        if($color == null){
 			$data['msg'] = "Màu sản phẩm không tồn tại hoặc đã tạm ngưng bán hàng. Vui lòng kiểm tra lại !";
 			return $data;
 		}
-		$product = $color->product;
+		$product = Product::find($request->input('product_id'));
 		if($product == null){
 			$data['msg'] = "Sản phẩm không tồn tại hoặc đã tạm ngưng bán hàng. Vui lòng kiểm tra lại !";
 			return $data;
 		}
-		Cart::add(array(
-			'id' => $color_id,
-			'name' => $product->name." (".$color->name.")",
-			'price' => $product->price,
-			'quantity' => $qty,
-			'attributes' => array(
-				'image' => $color->image_product,
-			)
-		));
+		$cartId = $request->input('id');
+		Cart::remove($cartId);
+
+        Cart::add(array(
+            'id' => $product->id . '_' . $color->id,
+            'name' => $product->name." (".$color->name.")",
+            'price' => $product->price,
+            'quantity' => $qty,
+            'attributes' => array(
+                'product_id' => $product->id,
+                'color_id' => $color->id,
+                'color_name' => $color->name,
+                'color_name_en' => $color->name_en,
+                'code_color' => $color->code_color,
+                'slug' => $product->slug,
+                'image' => $product->avatar->product_image,
+            )
+        ));
 
 		$data['status'] = 1;
-		$data['sum'] = number_format(Cart::get($color_id)->getPriceSum());
+		$data['sum'] = number_format(Cart::get($request->input('id'))->getPriceSum());
 		$data['total'] = number_format(Cart::getTotal());
 		return $data;
 	}

@@ -25,7 +25,6 @@ Route::group(['middleware' => 'locale'], function() {
 	Route::get('/san-pham/danh-muc/{slug}.html', 'HomeController@productListOne')->name('product-one.list');
 	Route::get('/san-pham/{slug}.html', 'HomeController@detailProduct')->name('product.detail');
 	Route::get('/ajax/getProductInfo', 'HomeController@ajaxProductInfo');
-	Route::get('/ajax/getColorProductInfo', 'HomeController@getColorProductInfo');
 	Route::get('/ajax/sendContact', 'Admin\ContactController@store');
 	Route::get('/ajax/searhProduct', 'HomeController@searchProduct');
 	Route::get('/ajax/addToCart', 'CartController@ajaxAdd');

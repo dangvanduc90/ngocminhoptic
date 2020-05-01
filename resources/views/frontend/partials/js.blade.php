@@ -66,41 +66,15 @@
         }
     });
     $(document).ready(function() {
-    	$("#mainContentBoby").delegate(".color-product", "click", function(){
-            _type = $(this).data('type');
-    		_url = '{{config('admin.base_url')}}ajax/getColorProductInfo';
-    		_id = $(this).data('id');
-    		$.get(_url, {color_id: _id, type: _type}, function(data){
-    			$('#div_color').html(data);
-                if(_type == 1){
-                    $('.image-slider').lightSlider({
-                        gallery:true,
-                        item:1,
-                        thumbItem:7,
-                        slideMargin: 0,
-                        auto:false,
-                        loop:false,
-                    });
-                }else{
-                    $('.product-galleryr').lightSlider({
-                        gallery:true,
-                        item:1,
-                        thumbItem:7,
-                        slideMargin: 0,
-                        auto:false,
-                        loop:false,
-                    });
-                }
-
-    		});
-    	});
-
         $("#mainContentBoby").delegate(".add_cart", "click", function(){
-
-            _product_id = $('#product_id').val();
-            _color_id = $('#color_product').val();
-            _qty_product = $('#qty_product').val();
-            _url = '{{config('admin.base_url')}}ajax/addToCart';
+            const _product_id = $(document).find('#product_id').val();
+            const _color_id = $(document).find("ul.product-option-list > li > div.active").data('id');
+            if(typeof _color_id == "undefined") {
+                alert("Bạn vui lòng chọn màu sản phẩm?");
+                return
+            }
+            const _qty_product = $(document).find('#qty_product').val();
+            const _url = '{{config('admin.base_url')}}ajax/addToCart';
             $.get(_url, {product_id: _product_id, color_id: _color_id, qty_product: _qty_product}, function(data){
                 $('.cart_qty').html(data['sum']);
                 alert(data['msg']);
@@ -114,11 +88,13 @@
         });
 
         $("#mainContentBoby").delegate(".input_quantity_product", "change", function(){
-            _qty = $(this).val();
-            _id = $(this).data('id');
-            _url = '{{config('admin.base_url')}}ajax/updateToCart';
-            $.get(_url, {color_id: _id, qty_product: _qty}, function(data){
-               _status = data['status'];
+            const _qty = $(this).val();
+            const _id = $(this).data('id');
+            const _color_id = $(this).data('color_id');
+            const _product_id = $(this).data('product_id');
+            const _url = '{{config('admin.base_url')}}ajax/updateToCart';
+            $.get(_url, {id: _id, color_id: _color_id, qty_product: _qty, product_id: _product_id}, function(data){
+               const _status = data['status'];
                if(_status == 0) alert(data['msg']);
                else{
                     $('.sum_cart').html(data['total']);

@@ -38,38 +38,38 @@
                                         <td class="product-stt" data-title="Stt">
                                             <span>{{$i}}</span>
                                             <div class="dropdown  mobile">
-                                               <a data-id="{{$item->id}}" class="removeProductCart"><span class="glyphicon glyphicon-trash"></span></a>            
-                                           </div>                    
+                                               <a data-id="{{$item->id}}" class="removeProductCart"><span class="glyphicon glyphicon-trash"></span></a>
+                                           </div>
                                        </td>
                                        <td class="product-thumbnail" data-title="{{ trans('menu.anhsp') }}">
-                                        <a href="#">
+                                        <a target="_blank" href="{{ route('product.detail', ['slug' => $item->attributes['slug']]) }}">
                                             @if( $item->attributes->has('image') )
-                                            <img width="50" height="50" src="{{$item->attributes['image']}}" class="size-thumbnail" alt="">
+                                                <img width="50" height="50" src="{{$item->attributes['image']}}" class="size-thumbnail" alt="">
                                             @endif
-                                        </a>                    
+                                        </a>
                                     </td>
 
                                     <td class="product-name" data-title="{{ trans('menu.sanpham') }}">
-                                        <a href="#">{{getName($item)}}</a>                    
+                                        <a target="_blank" href="{{ route('product.detail', ['slug' => $item->attributes['slug']]) }}">{{getName($item)}}</a>
                                     </td>
 
                                     <td class="product-tt" data-title="{{ trans('menu.thongtin') }}">
-                                        <span class=""></span>                 
+                                        <span class=""></span>
                                     </td>
                                     <td class="product-price" data-title="Giá">
-                                        <span class="amount">{{number_format($item->price)}}</span>                 
+                                        <span class="amount">{{number_format($item->price)}}</span>
                                     </td>
                                     <td class="product-quantity"  data-title="{{ trans('menu.soluong') }}">
                                         <div class="quantity buttons_added">
-                                            <input type="number" data-id="{{$item->id}}" class="input-text input_quantity_product" step="1" min="0" max="9999" name="" value="{{$item->quantity}}" title="SL" size="4" pattern="[0-9]*" inputmode="numeric" aria-labelledby="">
+                                            <input type="number" data-product_id="{{ $item->attributes['product_id'] ?? 0 }}" data-color_id="{{ $item->attributes['color_id'] ?? 0 }}" data-id="{{$item->id}}" class="input-text input_quantity_product" step="1" min="0" max="9999" name="" value="{{$item->quantity}}" pattern="[0-9]*" inputmode="numeric" aria-labelledby="">
                                         </div>
                                     </td>
 
                                     <td class="product-subtotal" data-title="Tổng">
-                                        <span class="amount" id="sum_price_{{$item->id}}">{{number_format($item->getPriceSum())}}</span>                    
+                                        <span class="amount" id="sum_price_{{$item->id}}">{{number_format($item->getPriceSum())}}</span>
                                     </td>
                                     <td class="product-remove" style="cursor: pointer;">
-                                        <a data-id="{{$item->id}}"  class="removeProductCart">{{ trans('menu.xoa') }}</a>            
+                                        <a data-id="{{$item->id}}"  class="removeProductCart">{{ trans('menu.xoa') }}</a>
                                     </td>
                                 </tr>
                                 @php

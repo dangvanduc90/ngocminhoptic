@@ -19,8 +19,8 @@ jQuery(document).ready(function($){
      $(".open-search .icon-search").click(function(){
         $(".open-search .search-header").toggleClass("active");
       });
-    
-    // js menu mobile 
+
+    // js menu mobile
     jQuery('.main-menu-mobi .menu-item-has-children > a').after('<span class="sub-open"></span>');
     jQuery('.main-menu-mobi .sub-open').click( function () {
         jQuery(this).closest('li').children('.sub-menu').toggle(600);
@@ -114,22 +114,17 @@ jQuery(document).ready(function($){
         loop:false,
     });
 
-
     // Ảnh phóng to
     $('.ex1').zoom();
 
-
-    
-    $(".product-option-list .color-label").on("click", function(){
+    $(document).on("click", ".product-option-list .color-label", function(){
         if($(this).hasClass("active")){
             $(this).removeClass("active");
-        }
-        else{
-            $(".product-option-list .color-label").removeClass("active");
-            $(this).addClass("active"); 
+        } else {
+            $(document).find(".product-option-list .color-label").removeClass("active");
+            $(this).addClass("active");
         }
     });
-
 
    // menu sticky
     var stickyNavTop = jQuery('.main-menu').offset().top;
@@ -151,18 +146,12 @@ jQuery(document).ready(function($){
     });
 
    // ngày đặt lịch
-
    $( "#dat-lich" ).datepicker({
        dateFormat: "dd/mm/yy"
    });
    $( "#ngay-kham" ).datepicker({
        dateFormat: "dd/mm/yy"
    });
-
-
-   // gời đặt lịch
-
-
 
    // Menu mobi
     $(".test").on('click', function(){
@@ -171,4 +160,4 @@ jQuery(document).ready(function($){
     $(".x-cloes .icon-click").on('click', function(){
       $(".menu-mobi").removeClass("menu-mobi-click");
     });
-});	
+});

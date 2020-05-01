@@ -4,7 +4,6 @@ namespace App\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 class Product extends Model
 {
     protected $fillable = [
@@ -12,6 +11,11 @@ class Product extends Model
     ];
 
     protected $with = ['type'];
+
+    protected $appends = [
+        'images',
+        'avatar',
+    ];
 
     public function images()
     {
@@ -23,13 +27,13 @@ class Product extends Model
         return $this->belongsTo('App\Admin\Type');
     }
 
-    public function getImage(){
-    	$color = $this->images()->where('status',1)->orderby('is_default','desc')->first();
-    	return $color != null ? $color->image_product : asset('images/no-image.png');
-    }
-
-    public function getThumb(){
-    	$color = $this->images()->where('status',1)->orderby('is_default','desc')->first();
-    	return $color != null ? str_replace("source", "thumbs", $color->image_product) : asset('images/no-image.png');
+    public function getAvatarAttribute()
+    {
+        foreach ($this->images as $image) {
+            if ($image->is_default) {
+                return $image;
+            }
+        }
+        return new ImageProduct();
     }
 }

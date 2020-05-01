@@ -33,59 +33,16 @@
                   <input type="hidden" name="product_id" id="product_id" value="{{$obj->id}}">
                   <div class="product-option-item">
                     <div class="option-item">
-                        <table class="table product-option-list">
-                            <thead>
-                            <tr>
-                                <th>Màu</th>
-                                <th>Số lương</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($obj->colors()->orderby('is_default','desc')->get() as $_color)
-                            <tr>
-                                <td>
-                                    <div data-id ="{{$_color->id}}" data-type="2" class="color-label color-product"
-                                         @if($_color->image_color != null && $_color->image_color != "")
-                                            style="background-image: url('{{$_color->thumb_color}}');"
-                                        @else
-                                            style="background-color: {{$_color->code_color}}"
-                                        @endif
-                                    >
+                        <label class="option-label">{{ trans('menu.mau') }}</label>
+                        <ul class="product-option-list">
+                            @foreach($colors as $key => $_color)
+                                <li>
+                                    <div data-id ="{{$_color->id}}" data-type="1" class="color-label color-product @if($key == 0) active @endif" style="background-color: {{$_color->code_color}}">
                                         <span class="mau">{{getName($_color)}}</span>
                                     </div>
-                                </td>
-                                <td>
-                                    <div class="quantity">
-                                        {{ $_color->quantity }}
-                                    </div>
-                                </td>
-                            </tr>
+                                </li>
                             @endforeach
-                            </tbody>
-                        </table>
-{{--                      <ul class="product-option-list">--}}
-{{--                        @foreach($obj->colors()->orderby('is_default','desc')->get() as $_color)--}}
-{{--                        @if($_color->image_color != null && $_color->image_color != "")--}}
-{{--                        <li>--}}
-{{--                          <div data-id ="{{$_color->id}}" data-type="2" class="color-label color-product" style="background-image: url('{{$_color->thumb_color}}');">--}}
-{{--                            <span class="mau">{{getName($_color)}}</span>--}}
-{{--                          </div>--}}
-{{--                            <div class="quantity">--}}
-{{--                                {{ $_color->quantity }}--}}
-{{--                            </div>--}}
-{{--                        </li>--}}
-{{--                        @else--}}
-{{--                        <li>--}}
-{{--                          <div data-id ="{{$_color->id}}" data-type="2" class="color-label color-product" style="background-color: {{$_color->code_color}}">--}}
-{{--                            <span class="mau">{{getName($_color)}}</span>--}}
-{{--                          </div>--}}
-{{--                            <div class="quantity">--}}
-{{--                                {{ $_color->quantity }}--}}
-{{--                            </div>--}}
-{{--                        </li>--}}
-{{--                        @endif--}}
-{{--                        @endforeach--}}
-{{--                      </ul>--}}
+                        </ul>
                     </div>
                     <div class="option-quantity">
                       <label class="option-label">{{ trans('menu.soluong') }}</label>

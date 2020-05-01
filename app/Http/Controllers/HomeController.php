@@ -77,7 +77,8 @@ class HomeController extends Controller
         $obj = Product::where('slug',$slug)->where('status',1)->first();
         if($obj == null) abort(404);
         $products = Product::where('type_id',$obj->type)->where('id','<>',$obj->id)->where('status',1)->get();
-        return view('frontend.single-product',['obj' => $obj, 'products'=>$products]);
+        $colors = Color::where('status', 1)->get();
+        return view('frontend.single-product', compact('obj', 'products', 'colors'));
     }
 
     public function searchProduct(Request $request){
@@ -125,7 +126,8 @@ class HomeController extends Controller
         $id = $request->input('product_id');
         $product = Product::find($id);
         if($product == null) return "";
-        return view('frontend.partials.modal-quick-view', ['product'=>$product]);
+        $colors = Color::where('status', 1)->get();
+        return view('frontend.partials.modal-quick-view', ['obj'=>$product, 'colors' => $colors]);
     }
 
     public function getBenhAn(){
@@ -231,19 +233,4 @@ class HomeController extends Controller
     public function getThongBao(){
         return view('frontend.thongbao');
     }
-
-    public function getColorProductInfo(Request $request){
-        $res = [];
-        $id = $request->input('color_id');
-        $type = $request->input('type');
-        $color = Color::find($id);
-        if($color == null) return "";
-        $product = $color->product;
-        if($product == null) return "";
-        if($type == 1)
-            return view('frontend.partials.color', ['product'=>$product, 'color'=>$color]);
-        else
-            return view('frontend.partials.color2', ['obj'=>$product, 'color'=>$color]);
-    }
-
 }
