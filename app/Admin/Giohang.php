@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Giohang extends Model
 {
     protected $fillable = [
-        'color_id', 'price', 'amount', 'sum', 'donhang_id',
+        'price', 'amount', 'sum', 'donhang_id',
     ];
 
     public function color()

@@ -714,8 +714,8 @@ background-color: #f8f8f8;
   font-size: 15px;
   font-weight: 400;
 }
-.single-product .list-text .product-option-item ul li,
-.modet-list-conter .list-text .product-option-item ul li {
+.single-product .list-text .product-option-item ul.product-option-list li,
+.modet-list-conter .list-text .product-option-item ul.product-option-list li {
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -841,8 +841,7 @@ background-color: #f8f8f8;
 }
 .pointer-even {
   background-color: #f7f6f6;
-  padding: 45
-  px 0;
+  padding: 45px 0;
   text-align: center;
 }
 .pointer-even .comp-j6 h4.font_4 {
