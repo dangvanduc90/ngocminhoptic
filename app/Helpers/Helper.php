@@ -46,6 +46,20 @@ if (!function_exists('getName')) {
     }
 }
 
+if (!function_exists('getColor')) {
+    function getColor($obj)
+    {
+        return \App::isLocale('vi') ? $obj->color_name : $obj->color_name_en;
+    }
+}
+
+if (!function_exists('getColorCart')) {
+    function getColorCart($obj)
+    {
+        return \App::isLocale('vi') ? $obj->attributes['color_name'] : $obj->attributes['color_name_en'];
+    }
+}
+
 if (!function_exists('getContent')) {
 
     /**

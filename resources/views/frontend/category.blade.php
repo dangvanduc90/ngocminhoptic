@@ -18,12 +18,12 @@
           </div>
         </div> -->
         <div class="category-header">
-          <h1 class="entry-title">{{ trans('menu.baiviet') }}</h1>
+          <h1 class="entry-title">{{ isset($title) ? trans('menu.' . $title) : trans('menu.baiviet') }}</h1>
         </div>
         <div class="category-archive clearfix">
           <div class="row">
             @foreach($posts as $post)
-            <div class="col-md-4 col-sm-6 col-xs-6 post-listing">
+            <div class="col-md-3 col-sm-6 col-xs-6 post-listing">
               <div class="news_focus">
                 <div class="post-thumbnail1">
                   <a href="{{route('post.detail',['slug'=>$post->slug])}}"><img src="{{$post->thumb}}" alt=""></a>

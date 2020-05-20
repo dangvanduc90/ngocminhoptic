@@ -22,7 +22,7 @@ Trang chủ
                 </div> <!-- end slider -->
                 <div class="category-archive clearfix category-home">
                     <div class="home-post clearfix">
-                        <h2 class="text-post-gig">{{ trans('menu.baiviet') }}</h2>
+{{--                        <h2 class="text-post-gig">{{ trans('menu.baiviet') }}</h2>--}}
                         <div class="connten-post">
                             @foreach($posts as $post)
                             <div class="col-md-3 col-sm-6 col-xs-6 post-listing">

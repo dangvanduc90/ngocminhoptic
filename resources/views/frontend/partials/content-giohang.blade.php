@@ -54,7 +54,7 @@
                                     </td>
 
                                     <td class="product-tt" data-title="{{ trans('menu.thongtin') }}">
-                                        <span class=""></span>
+                                        <span class="info">{{getColorCart($item)}}</span>
                                     </td>
                                     <td class="product-price" data-title="Giá">
                                         <span class="amount">{{number_format($item->price)}}</span>

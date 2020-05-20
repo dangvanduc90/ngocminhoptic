@@ -291,6 +291,7 @@ class BenhanController extends Controller
         if($obj == null) abort(404);
         $tongtien = $obj->tongtien;
         $khuyenmai = floatval($obj->khieunai);
+        $tongthanhtien = floatval($obj->tongthanhtien);
         $congno = $obj->congno;
         $template = Storage::disk('template')->get('benh-an.php');
         $current_date = date('d/m/Y');
@@ -325,6 +326,7 @@ class BenhanController extends Controller
         $template = str_replace('_mtna', $obj->mt_nhanap, $template);
 
         $template = str_replace('_tongtien',number_format($tongtien), $template);
+        $template = str_replace('_tongthanhtien', number_format($tongthanhtien), $template);
         $template = str_replace('_khuyenmai', number_format($khuyenmai), $template);
         $template = str_replace('_congno', number_format($congno), $template);
         $template = str_replace('_datcoc', number_format($obj->datcoc), $template);

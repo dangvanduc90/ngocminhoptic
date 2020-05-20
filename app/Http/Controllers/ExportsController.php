@@ -13,7 +13,7 @@ class ExportsController extends Controller
 {
     public function exportTatCaBenhAn(Request $request)
     {
-        $benhans = Benhan::select('madon', 'ngayhen', 'hovaten', 'sdt', 'pd', 'mp_ts_moi', 'mt_ts_moi')->get()->toArray();
+        $benhans = Benhan::select(['madon', 'ngayhen', 'hovaten', 'sdt', 'pd', 'mp_ts_moi', 'mt_ts_moi', 'tongthanhtien', 'congno'])->get()->toArray();
         return Excel::download(new BenhAnExport($benhans), 'tat_ca_benh_an.xlsx');
     }
 

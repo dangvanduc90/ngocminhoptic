@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Admin\Contact;
+use Illuminate\Support\Facades\Session;
 
 class ContactController extends Controller
 {
@@ -89,6 +90,13 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $obj = Contact::find($id);
+        if($obj == null){
+            Session::flash('error-product', 'Không tìm thấy dữ liệu.');
+            return redirect()->route('contact.show');
+        }
+        $obj->delete();
+        Session::flash('success-product', 'Xóa thông tin thành công.');
+        return redirect()->route('contact.show');
     }
 }

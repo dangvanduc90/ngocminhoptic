@@ -188,21 +188,29 @@
     <br>
     <table cellspacing="0" style="width: 100%; text-align: center;">
         <tr>
-            <td style="width: 20%; text-align: left;">
-                Khuyến mại
+            <td style="width: 30%; text-align: left;">
+                Tổng thành tiền
             </td>
-            <td style="width: 40%; text-align: left; ">
-                : _khuyenmai
+            <td style="width: 30%; text-align: left; ">
+                : _tongthanhtien
             </td>
             <td style="width: 40%; text-align: center; ">
                 Kính Mắt Ngọc Minh
             </td>
         </tr>
         <tr>
-            <td style="width: 20%; text-align: left;">
-                Đặt cọc
+            <td style="width: 30%; text-align: left;">
+                Khuyến mại
             </td>
             <td style="width: 40%; text-align: left; ">
+                : _khuyenmai
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 30%; text-align: left;">
+                Đặt cọc
+            </td>
+            <td style="width: 30%; text-align: left; ">
                 : _datcoc
             </td>
             <td style="width: 40%; text-align: center; font-size: 9px;">
@@ -210,10 +218,10 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 20%; text-align: left; font-weight: bold">
+            <td style="width: 30%; text-align: left; font-weight: bold">
                 Công nợ
             </td>
-            <td style="width: 40%; text-align: left; font-weight: bold">
+            <td style="width: 30%; text-align: left; font-weight: bold">
                 : _congno
             </td>
 
@@ -222,10 +230,10 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 20%; text-align: left; font-weight: bold">
+            <td style="width: 30%; text-align: left; font-weight: bold">
                 Tổng tiền thanh toán
             </td>
-            <td style="width: 40%; text-align: left; font-weight: bold">
+            <td style="width: 30%; text-align: left; font-weight: bold">
                 : _tongtien
             </td>
         </tr>

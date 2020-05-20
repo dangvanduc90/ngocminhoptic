@@ -3,13 +3,14 @@
         <div class="col-md-3 col-sm-6 col-xs-6 product-list-wrapper">
             <div class="view-product" style="border:1px solid #f9f9f9;">
                 <div class="product-item-images">
-                    @foreach($product->images()->get() as $key => $image)
-                        @php
-                        if($key == 2) {
-                            break;
+                    @php
+                        $products = $product->images()->limit(2)->get();
+                        if (count($products) < 2) {
+                            $products->push($products->first());
                         }
-                        @endphp
-                        @if($image->is_default == 1)
+                    @endphp
+                    @foreach($products as $key => $image)
+                        @if($key == 0)
                             <div class="thumbnail-wrapper">
                                 <a href="{{route('product.detail',['slug'=>$product->slug])}}" class="product-item-root"
                                    title="{{getName($product)}}"><img src="{{$image->product_image}}"
@@ -29,7 +30,7 @@
                 </div>
                 <div class="product-item-product">
                     <a href="{{route('product.detail',['slug'=>$product->slug])}}" class="product-item-root"
-                       title="{{getName($product)}}" title="{{getName($product)}}">
+                       title="{{getName($product)}}">
                         <h3 class="product-item-name">{{getName($product)}}</h3>
                     </a>
                     <hr class="line-between">

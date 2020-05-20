@@ -8,12 +8,6 @@
                     <span class="nav-label">Hệ thống quản lý</span>
                 </a>
             </li>
-            <li class={{$flag == "report"  ? "active" : ""}}>
-                <a href="{{route('report')}}">
-                    <i class="fa fa-bar-chart-o"></i>
-                    <span class="nav-label">Thống kê</span>
-                </a>
-            </li>
             <li class={{$flag == "product" ||  $flag == "color" || $flag == "type" ? "active" : ""}}>
                 <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">Sản phẩm bán</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">

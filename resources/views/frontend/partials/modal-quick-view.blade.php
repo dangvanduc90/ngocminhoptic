@@ -31,7 +31,7 @@
                                     <ul class="product-option-list">
                                         @foreach($colors as $key => $_color)
                                             <li>
-                                                <div data-id ="{{$_color->id}}" data-type="1" class="color-label color-product @if($key == 0) active @endif" style="background-color: {{$_color->code_color}}">
+                                                <div data-id ="{{$_color->id}}" data-type="1" class="color-label color-product @if($key == 0) active @endif">
                                                     <span class="mau">{{getName($_color)}}</span>
                                                 </div>
                                             </li>

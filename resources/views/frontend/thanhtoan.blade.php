@@ -9,14 +9,6 @@
     <div class="row">
         <div id="primary" class="content-area col-md-12">
             <main id="main" class="site-main">
-
-<!--                 <div class="breadcrums ">
-                    <div id="crumbs">
-                        <span><a href="{{route('trangchu')}}">{{ trans('menu.trangchu') }}</a></span>
-                        <span >/</span>
-                        <span class="delimiter">{{ trans('menu.thtt') }}</span>
-                    </div>
-                </div> -->
                 <div class="category-header">
                     <h1 class="entry-title">{{ trans('menu.thtt') }}</h1>
                 </div>
@@ -40,6 +32,7 @@
                                         <tr class="tieu-de-bang">
                                             <th class="product-thumbnail">{{ trans('menu.anhsp') }}</th>
                                             <th class="product-name">{{ trans('menu.sanpham') }}</th>
+                                            <th class="product-price">{{ trans('menu.thongtin') }}</th>
                                             <th class="product-quantity">{{ trans('menu.soluong') }}</th>
                                             <th class="product-subtotal">{{ trans('menu.thanhtien') }}</th>
                                         </tr>
@@ -59,9 +52,12 @@
                                                </a>
                                            </td>
 
-                                            <td class="product-name" data-title="Sản phẩm">
+                                        <td class="product-name" data-title="Sản phẩm">
                                             <a href="#">{{getName($item)}}</a>
-                                            </td>
+                                        </td>
+                                        <td class="product-tt" data-title="{{ trans('menu.thongtin') }}">
+                                            <span class="info">{{getColorCart($item)}}</span>
+                                        </td>
                                         <td class="product-quantity" data-title="Số lượng">
                                             <div class="quantity buttons_added">
                                                 <span>{{$item->quantity}}</span>
@@ -96,23 +92,6 @@
                                 <span class="icon_checkout ico-noi-dung"></span>
                                 <textarea name="content" class="form-control" id="" cols="30" rows="5" placeholder="{{ trans('menu.noidung') }}" required>{{ old('content') }}</textarea>
                              </div>
-                            <div class="form-group">
-                                <span class="icon_checkout ico-stk"></span>
-                                <input type="text" class="form-control" name="stk" id="" value="{{ old('stk') }}" placeholder="{{ trans('menu.stk') }}" required>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label" for="bank_id">{{ trans('menu.chonnganhang') }}</label>
-                                <select name="bank_id" id="bank_id" class="form-control" required>
-                                    <option value="0" selected="">{{ trans('menu.chonnganhang') }}</option>
-                                    @foreach($banks as $bank)
-                                        <option value="{{ $bank->id }}">{{ $bank->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                             <div class="form-group">
-                                <label><input type="radio" name="type" checked value="1">{{ trans('menu.nhanhangthanhtoan') }}</label>
-                                <label><input type="radio" name="type" value="2">{{ trans('menu.thanhtoannhanhang') }}</label>
-                            </div>
                             <button type="submit" class="btn btn-default" data-target="">{{ trans('menu.thtt') }} *</button>
                     </div>
                 </div>

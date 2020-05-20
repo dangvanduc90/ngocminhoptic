@@ -37,7 +37,7 @@
                         <ul class="product-option-list">
                             @foreach($colors as $key => $_color)
                                 <li>
-                                    <div data-id ="{{$_color->id}}" data-type="1" class="color-label color-product @if($key == 0) active @endif" style="background-color: {{$_color->code_color}}">
+                                    <div data-id ="{{$_color->id}}" data-type="1" class="color-label color-product @if($key == 0) active @endif">
                                         <span class="mau">{{getName($_color)}}</span>
                                     </div>
                                 </li>
@@ -84,7 +84,9 @@
               @foreach($products as $product)
               <li class="item">
                 <div class="thums">
-                  <img src="{{$product->getThumb()}}" alt="">
+                    <a href="{{route('product.detail',['slug'=>$product->slug])}}">
+                        <img src="{{$product->avatar->product_image}}" alt="{{getName($product)}}" title="{{getName($product)}}">
+                    </a>
                 </div>
                 <div class="product-item-product">
                   <a href="{{route('product.detail',['slug'=>$product->slug])}}" class="product-item-root" title="{{getName($product)}}" >

@@ -39,7 +39,7 @@ class CartController extends Controller
 		}
 		Cart::add(array(
 			'id' => $product->id . '_' . $color->id,
-			'name' => $product->name." (".$color->name.")",
+			'name' => $product->name,
 			'price' => $product->price,
 			'quantity' => $qty,
 			'attributes' => array(
@@ -83,7 +83,7 @@ class CartController extends Controller
 
         Cart::add(array(
             'id' => $product->id . '_' . $color->id,
-            'name' => $product->name." (".$color->name.")",
+            'name' => $product->name,
             'price' => $product->price,
             'quantity' => $qty,
             'attributes' => array(
@@ -107,7 +107,6 @@ class CartController extends Controller
 		$id = $request->color_id;
 		Cart::remove($id);
 		return back();
-
 	}
 
 	public function thanhtoan(){
@@ -116,12 +115,6 @@ class CartController extends Controller
 	}
 
 	public function postThanhToan(Request $request){
-        $request->validate([
-            'stk' => 'required',
-            'bank_id' => 'required|integer|min:1',
-        ], [
-            'bank_id.min' => 'Must choose bank'
-        ]);
 		$total = Cart::getTotal();
 		if($total <= 0){
 			return back();
@@ -133,7 +126,8 @@ class CartController extends Controller
 		$items = Cart::getContent();
 		foreach($items as $item){
 			$_data = [];
-			$_data['color_id'] = $item->id;
+			$_data['color_id'] = $item->attributes['color_id'];
+			$_data['product_id'] = $item->attributes['product_id'];
 			$_data['price'] = $item->price;
 			$_data['amount'] = $item->quantity;
 			$_data['sum'] = $item->getPriceSum();
@@ -175,26 +169,20 @@ class CartController extends Controller
 		$_html = "";
 		foreach ($obj->giohangs()->get() as $giohang) {
 			$color = $giohang->color;
-			if($color != null){
-				$product = $color->product;
-				if($product != null){
-					$_html  .= "<tr><td style='text-align:center; font-size: 9px;''>";
-					$_html .= $j;
-					$_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
-					$_html .= $product->name." (".$color->name.")";
-					$_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
-					$_html .= $giohang->amount;
-					$_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
-					$_html .= number_format($giohang->price);
-					$_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
-					$_html .= number_format($giohang->sum);
-					$_html  .= "</td></tr>";
-					$j++;
-				}
+            $product = $giohang->product;
 
-			}
-
-
+            $_html  .= "<tr><td style='text-align:center; font-size: 9px;''>";
+            $_html .= $j;
+            $_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
+            $_html .= $product->name;
+            $_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
+            $_html .= $giohang->amount;
+            $_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
+            $_html .= number_format($giohang->price);
+            $_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
+            $_html .= number_format($giohang->sum);
+            $_html  .= "</td></tr>";
+            $j++;
 		}
 		$template = str_replace('_dataSanPham', $_html, $template);
 		$html2pdf = new HTML2PDF('P', 'A4', 'fr');

@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'name' , 'is_display', 'name_en', 'type_id', 'slug', 'sku' , 'price' , 'saleoff', 'chatlieu', 'chatlieu_en', 'description', 'description_en', 'content_en', 'note_en', 'content', 'note', 'status', 'meta_title', 'meta_des', 'meta_key'
+        'name',
+        'is_display',
+        'name_en', 'type_id', 'slug', 'sku' , 'price' , 'saleoff', 'chatlieu', 'chatlieu_en', 'description', 'description_en', 'content_en', 'note_en', 'content', 'note', 'status', 'meta_title', 'meta_des', 'meta_key'
     ];
 
     protected $with = ['type'];
@@ -20,6 +22,11 @@ class Product extends Model
     public function images()
     {
         return $this->hasMany('App\Admin\ImageProduct')->orderBy('is_default', 'desc');
+    }
+
+    public function avatar()
+    {
+        return $this->hasOne('App\Admin\ImageProduct')->where('is_default', true)->first()->withDefault();
     }
 
     public function type()

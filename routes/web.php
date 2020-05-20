@@ -40,6 +40,7 @@ Route::group(['middleware' => 'locale'], function() {
 	Route::get('/scan/benhan/{id}', 'HomeController@ajaxscanBenhAn')->name('benhan.scan');
 	Auth::routes();
 	Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/tim-kiem', 'HomeController@search')->name('search');
 	Route::get('change-language/{language}', 'HomeController@changeLanguage')->name('user.change-language');
 });
 

@@ -32,7 +32,7 @@
     <div class="container">
       <div class="row">
         <div class="Content-gridWrapper col-md-12">
-          <span>© 2020 Design by <a href="{{route('home')}}">Ngoc Minh Optic</a></span>
+          <span>Design by <a href="{{route('home')}}">Ngoc Minh Optic</a></span>
         </div>
       </div>
     </div>

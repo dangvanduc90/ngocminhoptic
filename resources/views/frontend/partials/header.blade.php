@@ -12,10 +12,10 @@
     					</div>
                         <div class="search-header desktop-search clearfix">
                             <div class="form-search">
-                                <form role="search" method="get" class="search-form" action="" title="Tìm kiếm">
+                                <form role="search" method="get" class="search-form" action="{{ route('search') }}" title="Tìm kiếm">
                                     <button  type="button" id="btn_search" class="search-submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                     <label class="ip-form" title="Tìm kiếm">
-                                        <input type="text" id="text_search" class="search-field" placeholder="Nhập từ khóa" value="" name=""title="" />
+                                        <input type="text" id="text_search" class="search-field" placeholder="Nhập từ khóa" value="" name="q" />
                                     </label>
                                 </form>
                             </div>
@@ -84,10 +84,10 @@
         </nav>
         <div class="search-header search-mobi  clearfix">
         	<div class="form-search">
-        		<form role="search" method="get" class="search-form" action="" title="Tìm kiếm">
+        		<form role="search" method="get" class="search-form" action="{{ route('search') }}" title="Tìm kiếm">
         			<button  type="submit" class="search-submit"><i class="fa fa-search" aria-hidden="true"></i></button>
         			<label class="ip-form" title="Tìm kiếm">
-        				<input  type="search" class="search-field" placeholder="Nhập từ khóa"value="" name=""title="" />
+        				<input  type="search" class="search-field" placeholder="Nhập từ khóa" value="" name="q" />
         			</label>
         			<input type="hidden" name="" value="" />
         		</form>

@@ -40,9 +40,6 @@ class ComposerServiceProvider extends ServiceProvider
                         'route_update'=>route('mutileUpdate.product')]);
         });
         //END CONTENT
-        View::composer('back-end.pages.report', function ($view) {
-            $view->with(['flag'=>'report','page_name'=>'THỐNG KÊ', 'name_session'=>'report']);
-        });
 
         //START CONTENT
         View::composer('back-end.types.*', function ($view) {

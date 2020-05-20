@@ -60,7 +60,7 @@ class HomeController extends Controller
 
     public function listOff(){
         $posts = Post::where('status',1)->where('type',3)->orderby('created_at', 'desc')->paginate(10);
-        return view('frontend.category', ['posts'=>$posts]);
+        return view('frontend.category', ['posts'=>$posts, 'title' => 'khuyenmai']);
     }
 
     public function productList(){
@@ -76,7 +76,7 @@ class HomeController extends Controller
     public function detailProduct($slug){
         $obj = Product::where('slug',$slug)->where('status',1)->first();
         if($obj == null) abort(404);
-        $products = Product::where('type_id',$obj->type)->where('id','<>',$obj->id)->where('status',1)->get();
+        $products = Product::where('type_id',$obj->type_id)->where('id','<>',$obj->id)->where('status',1)->get();
         $colors = Color::where('status', 1)->get();
         return view('frontend.single-product', compact('obj', 'products', 'colors'));
     }
@@ -232,5 +232,11 @@ class HomeController extends Controller
 
     public function getThongBao(){
         return view('frontend.thongbao');
+    }
+
+    public function search(Request $request) {
+        $keyword = trim($request->get('q'));
+        $products = Product::where('name', 'like', "%$keyword%")->where('status',1)->get();
+        return view('frontend.tim-kiem-san-pham',['products' => $products]);
     }
 }

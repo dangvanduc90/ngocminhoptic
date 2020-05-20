@@ -123,7 +123,7 @@
 							</div>
 						</div>
                         <div class="form-group">
-                            <label class="control-label" for="tongtien-admin">Tổng tiền</label>
+                            <label class="control-label" for="tongtien-admin">Tổng tiền thanh toán</label>
                             <div class="input-contenr">
                                 <input type="text" class="form-control" id="tongtien-admin" readonly name="tongtien" value="{{isset($obj) ? $obj->tongtien : old('tongtien')}}">
                             </div>
