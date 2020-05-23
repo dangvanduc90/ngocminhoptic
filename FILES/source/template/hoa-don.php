@@ -25,54 +25,66 @@
 </style>
 <page backcolor="#fff" backimgx="center" backimgy="bottom" backimgw="100%" backtop="42px" backleft="16px" backright="16px" backbottom="42px" footer="page" style="font-family: freeserif;font-size: 12pt">
     <bookmark title="Lettre" level="0" ></bookmark>
-    <table cellspacing="0" style="width: 100%; text-align: center;">
+    <table cellspacing="0" style="width: 100%;">
         <tr>
-        	<td style="width: 40%; text-align: left; font-size: 14px;">
-			<b>Mã đơn : _madon</b>
+            <td style="text-align: center; width: 40%">
+                <table cellspacing="0" style="width: 100%; text-align: center;">
+                    <tr>
+                        <td>
+                            <img src="_logo" alt="Trang chủ" title="Trang chủ" width="160">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Mã đơn : _madon</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Hà Nội, Ngày _ngayhomnay
+                        </td>
+                    </tr>
+                </table>
             </td>
-			<td style="width: 10%;">
-            </td>
-            <td style="width: 40%; text-align: right; font-size: 14px;">
-                KÍNH MẮT NGỌC MINH
+            <td style="width: 20%;"></td>
+            <td style="text-align: right; width: 40%">
+                <table cellspacing="0" style="width: 100%; text-align: right;">
+                    <tr>
+                        <td style="text-align: center; font-size: 16px; font-weight: bold">
+                            _name_company
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            _address_company
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            _hotline_company
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            Email: <a target="_blank" href="mailto:_email">_email</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            Website: <a target="_blank" href="_website">_website</a>
+                        </td>
+                    </tr>
+                </table>
             </td>
         </tr>
-		<tr>
-			<td rowspan="4" style="width: 40%; text-align: left;">
-			Hà Nội, Ngày _ngayhomnay
-            </td>
-			<td style="width: 10%;">
-            </td>
-		</tr>
-		<tr>
-			<td style="width: 10%;">
-			<p style="text-align: right; font-size: 11px;"></p>
-            </td>
-            <td style="width: 40%;">
-			<p style="text-align: right; font-size: 11px;">Hotline : 0915.959.980 - 0243.205.5979</p>
-			</td>
-		</tr>
-		<tr>
-			<td style="width: 20%;">
-            </td>
-            <td style="width: 40%;">
-			<p style="text-align: right; font-size: 11px;">Email: ngocminhoptic@gmail.com</p>
-			</td>
-		</tr>
-		<tr>
-			<td style="width: 20%;">
-            </td>
-            <td style="width: 40%;">
-			<p style="text-align: right; font-size: 11px;">Website: www.ngocminhoptic.com</p>
-			</td>
-		</tr>
     </table>
     <br>
     <table cellspacing="0" style="width: 70%; text-align: center;">
         <tr>
-        	<td style="width: 30%; text-align: left;">
+        	<td style="width: 30%; text-align: left;font-weight: bold;">
 			Khách hàng
             </td>
-            <td style="width: 40%; text-align: left; ">
+            <td style="width: 40%; text-align: left;font-weight: bold;">
             : _tenkhachhang
             </td>
         </tr>
@@ -146,16 +158,14 @@
             <th style="width: 20%; text-align:center;  text-transform: uppercase; font-size: 11px;">Thành tiền</th>
         </tr>
         _dataSanPham
-
-
     </table>
     <br>
     <table cellspacing="0" style="width: 100%; text-align: center;">
         <tr>
-        	<td style="width: 20%; text-align: left;">
+        	<td style="width: 20%; text-align: left;font-weight: bold;">
 			Tổng tiền hàng
             </td>
-            <td style="width: 40%; text-align: left; ">
+            <td style="width: 40%; text-align: left;font-weight: bold;">
             : _tongtien
             </td>
             <td style="width: 40%; text-align: center; ">
@@ -167,7 +177,7 @@
             </td>
             <td style="width: 40%; text-align: left; ">
             </td>
-            <td rowspan="2" style="width: 40%; text-align: center; font-size: 7px;">
+            <td rowspan="2" style="width: 40%; text-align: center; font-size: 9px;">
             (Ký và ghi rõ họ tên)
             </td>
         </tr>

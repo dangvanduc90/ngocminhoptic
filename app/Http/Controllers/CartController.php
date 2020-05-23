@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Admin\Bank;
+use App\Admin\Webinfo;
 use Illuminate\Http\Request;
 use Cart;
 use App\Admin\Product;
@@ -165,21 +166,39 @@ class CartController extends Controller
 		$template = str_replace('_ghichu', $obj->content, $template);
 		$template = str_replace('_tongtien',number_format($tongtien), $template);
 
+        $logo = Webinfo::where('name', 'logo')->where('status', 1)->value('image');
+        $template = str_replace('_logo', $logo ?? 'http://ngocminh.test/FILES/source/logo-images.jpg', $template);
+
+        $name_company = Webinfo::where('name', 'name_company')->where('status', 1)->value('content');
+        $template = str_replace('_name_company', $name_company ?? 'KÍNH MẮT NGỌC MINH', $template);
+
+        $address_company = Webinfo::where('name', 'address_company')->where('status', 1)->value('content');
+        $template = str_replace('_address_company', $address_company ?? 'Số 83 - Đường Bát Khối - Long Biên - Hà Nội', $template);
+
+        $hotline_company = Webinfo::where('name', 'hotline_company')->where('status', 1)->value('content');
+        $template = str_replace('_hotline_company', $hotline_company ?? 'Hotline : 0915.959.980 - 0243.205.5979', $template);
+
+        $email_company = Webinfo::where('name', 'email')->where('status', 1)->value('content');
+        $template = str_replace('_email', $email_company ?? 'ngocminhoptic@gmail.com', $template);
+
+        $template = str_replace('_website', config('app.url'), $template);
+        $template = str_replace('_ngayhomnay', date('d-m-Y'), $template);
+
 		$j = 1;
 		$_html = "";
 		foreach ($obj->giohangs()->get() as $giohang) {
 			$color = $giohang->color;
             $product = $giohang->product;
 
-            $_html  .= "<tr><td style='text-align:center; font-size: 9px;''>";
+            $_html  .= "<tr><td style='text-align:center; font-size: 13px;''>";
             $_html .= $j;
-            $_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
+            $_html  .= "</td><td style='text-align:center; font-size: 13px;''>";
             $_html .= $product->name;
-            $_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
+            $_html  .= "</td><td style='text-align:center; font-size: 13px;''>";
             $_html .= $giohang->amount;
-            $_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
+            $_html  .= "</td><td style='text-align:center; font-size: 13px;''>";
             $_html .= number_format($giohang->price);
-            $_html  .= "</td><td style='text-align:center; font-size: 9px;''>";
+            $_html  .= "</td><td style='text-align:center; font-size: 13px;''>";
             $_html .= number_format($giohang->sum);
             $_html  .= "</td></tr>";
             $j++;
