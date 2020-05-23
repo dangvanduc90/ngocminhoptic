@@ -13,7 +13,7 @@
                         <div class="search-header desktop-search clearfix">
                             <div class="form-search">
                                 <form role="search" method="get" class="search-form" action="{{ route('search') }}" title="Tìm kiếm">
-                                    <button  type="button" id="btn_search" class="search-submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                    <button type="submit" id="btn_search" class="search-submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                     <label class="ip-form" title="Tìm kiếm">
                                         <input type="text" id="text_search" class="search-field" placeholder="Nhập từ khóa" value="" name="q" />
                                     </label>

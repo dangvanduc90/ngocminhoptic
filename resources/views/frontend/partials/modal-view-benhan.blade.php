@@ -139,13 +139,13 @@ $tongcong = floatval($tongtien) - $khuyenmai;
 {{--									@endforeach--}}
 {{--								</tbody>--}}
 {{--							</table>--}}
-
 {{--						</div>--}}
-						<div class="price">
-							<p class="tong-hang"><span>{{ trans('menu.tongtienhang') }}</span>: {{$tongtien}}    VNĐ</p>
-							<p class="khuyen-mai"><span>{{ trans('menu.khuyenmai') }}    </span>: {{$khuyenmai}}    VNĐ</p>
-							<p class="tong-gia"><span><strong>Tổng cộng </strong></span>: {{$tongcong}}    VNĐ</p>
-						</div>
+
+{{--						<div class="price">--}}
+{{--							<p class="tong-hang"><span>{{ trans('menu.tongtienhang') }}</span>: {{$tongtien}}    VNĐ</p>--}}
+{{--							<p class="khuyen-mai"><span>{{ trans('menu.khuyenmai') }}    </span>: {{$khuyenmai}}    VNĐ</p>--}}
+{{--							<p class="tong-gia"><span><strong>Tổng cộng </strong></span>: {{$tongcong}}    VNĐ</p>--}}
+{{--						</div>--}}
 					</div>
 				</div>
 			</div>
