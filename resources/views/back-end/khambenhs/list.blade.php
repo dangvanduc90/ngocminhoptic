@@ -23,6 +23,14 @@ Danh sách sản phẩm
 				<div class="ibox-content">
 					@include('back-end.partials.alert-msg')
 					@include('back-end.partials.select-box-update')
+
+                    <form action="{{ route('san-pham.import') }}" method="post" enctype="multipart/form-data" class="form-inline">
+                        @csrf
+                        <div class="form-group">
+                            <input type="file" name="file-excel" accept=".xlsx, .xls, .csv" class="form-control">
+                        </div>
+                        <button class="btn btn-primary">Nhập excel</button>
+                    </form>
 					<div class="table-responsive">
 						@include('back-end.khambenhs.table')
 					</div>

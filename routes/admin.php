@@ -35,6 +35,8 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
 	Route::resource('san-pham', 'Admin\KhambenhController');
 	Route::post('/mutile-update/san-pham', 'Admin\KhambenhController@mutileUpdate')
 	->name('mutileUpdate.san-pham');
+	Route::post('import', 'Admin\KhambenhController@import')
+	->name('san-pham.import');
 
 	//Product
 	Route::resource('color', 'Admin\ColorController');

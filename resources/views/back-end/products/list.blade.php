@@ -48,7 +48,7 @@ Danh sách sản phẩm
 			responsive: true,
 			dom: '<"html5buttons"B>lTfgitp',
 			buttons: [
-			{extend: 'excel', title: 'ExampleFile'},			
+			{extend: 'excel', title: 'ExampleFile'},
 		]
 	});
 	});

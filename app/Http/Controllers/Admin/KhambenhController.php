@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Imports\KhambenhImport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Admin\Khambenh;
+use Maatwebsite\Excel\Facades\Excel;
 use Session;
 
 class KhambenhController extends Controller
@@ -146,5 +148,12 @@ class KhambenhController extends Controller
         $masp = $request->get('masp');
         $products = Khambenh::where('masp', $masp)->first();
         return response()->json($products);
+    }
+
+    public function import()
+    {
+        Excel::import(new KhambenhImport(), request()->file('file-excel'));
+
+        return redirect(route('san-pham.index'))->with('success-khambenh', 'Nhập excel thành công');
     }
 }
