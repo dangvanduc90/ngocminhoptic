@@ -190,15 +190,15 @@ class CartController extends Controller
 			$color = $giohang->color;
             $product = $giohang->product;
 
-            $_html  .= "<tr><td style='text-align:center; font-size: 13px;''>";
+            $_html  .= "<tr><td style='text-align:center; font-size: 13px;'>";
             $_html .= $j;
-            $_html  .= "</td><td style='text-align:center; font-size: 13px;''>";
+            $_html  .= "</td><td style='text-align:center; font-size: 13px;width:220px;'>";
             $_html .= $product->name;
-            $_html  .= "</td><td style='text-align:center; font-size: 13px;''>";
+            $_html  .= "</td><td style='text-align:center; font-size: 13px;'>";
             $_html .= $giohang->amount;
-            $_html  .= "</td><td style='text-align:center; font-size: 13px;''>";
+            $_html  .= "</td><td style='text-align:center; font-size: 13px;'>";
             $_html .= number_format($giohang->price);
-            $_html  .= "</td><td style='text-align:center; font-size: 13px;''>";
+            $_html  .= "</td><td style='text-align:center; font-size: 13px;'>";
             $_html .= number_format($giohang->sum);
             $_html  .= "</td></tr>";
             $j++;
