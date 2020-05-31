@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Admin\ImageProduct;
+use App\Imports\ProductImport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest as ProductRequest;
 use App\Admin\Product;
 use App\Admin\Type;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
 use Session;
 
 class ProductController extends Controller
@@ -238,5 +240,12 @@ class ProductController extends Controller
                 'success' => 0,
             ]);
         }
+    }
+
+    public function import()
+    {
+        Excel::import(new ProductImport(), request()->file('file-excel'));
+
+        return redirect(route('product.index'))->with('success-product', 'Nhập excel thành công');
     }
 }

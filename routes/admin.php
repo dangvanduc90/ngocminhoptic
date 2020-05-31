@@ -26,8 +26,10 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
 	->name('mutileUpdate.product');
 	Route::post('/upload/product', 'Admin\ProductController@upload')
 	->name('upload.product');
+    Route::post('import/product', 'Admin\ProductController@import')
+    ->name('product.import');
 
-	//Product
+	//Type
 	Route::resource('type', 'Admin\TypeController');
 	Route::post('/mutile-update/type', 'Admin\TypeController@mutileUpdate')
 	->name('mutileUpdate.type');
@@ -35,7 +37,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
 	Route::resource('san-pham', 'Admin\KhambenhController');
 	Route::post('/mutile-update/san-pham', 'Admin\KhambenhController@mutileUpdate')
 	->name('mutileUpdate.san-pham');
-	Route::post('import', 'Admin\KhambenhController@import')
+	Route::post('import/san-pham', 'Admin\KhambenhController@import')
 	->name('san-pham.import');
 
 	//Product
