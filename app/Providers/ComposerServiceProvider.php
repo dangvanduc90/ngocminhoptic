@@ -281,6 +281,10 @@ class ComposerServiceProvider extends ServiceProvider
             $cats = Type::where('status',1)->orderby('name')->get();
             $view->with(['cats'=>$cats, 'logo' => $logo]);
         });
+        View::composer('frontend.layouts.deafault', function ($view) {
+            $logo = Webinfo::where('name', 'logo')->first();
+            $view->with(['logo' => $logo]);
+        });
 
         View::composer('back-end.coso.*', function ($view) {
             $view->with([

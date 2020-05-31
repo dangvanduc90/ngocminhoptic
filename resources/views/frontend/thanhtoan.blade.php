@@ -82,15 +82,15 @@
                             </div>
                             <div class="form-group">
                                 <span class="icon_checkout ico-diachi"></span>
-                                <input type="text" class="form-control" name="address" value="{{ old('address') }}" placeholder="{{ trans('menu.nhapdiachi') }}" required>
+                                <input type="text" class="form-control" name="address" value="{{ old('address') }}" placeholder="{{ trans('menu.nhapdiachi') }}" maxlength="191" required>
                             </div>
                             <div class="form-group">
                                 <span class="icon_checkout ico-email"></span>
-                                <input type="email" class="form-control" name="email" id="" value="{{ old('email') }}" placeholder="{{ trans('menu.nhapemail') }}" required>
+                                <input type="email" class="form-control" name="email" id="" value="{{ old('email') }}" placeholder="{{ trans('menu.nhapemail') }}" >
                             </div>
                             <div class="form-group">
                                 <span class="icon_checkout ico-noi-dung"></span>
-                                <textarea name="content" class="form-control" id="" cols="30" rows="5" placeholder="{{ trans('menu.noidung') }}" required>{{ old('content') }}</textarea>
+                                <textarea name="content" class="form-control" id="" cols="30" rows="5" placeholder="{{ trans('menu.noidung') }}" >{{ old('content') }}</textarea>
                              </div>
                             <button type="submit" class="btn btn-default" data-target="">{{ trans('menu.thtt') }} *</button>
                     </div>

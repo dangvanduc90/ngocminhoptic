@@ -79,12 +79,12 @@
         </tr>
     </table>
     <br>
-    <table cellspacing="0" style="width: 70%; text-align: center;">
+    <table cellspacing="0" style="width: 100%; text-align: center;">
         <tr>
         	<td style="width: 30%; text-align: left;font-weight: bold;">
 			Khách hàng
             </td>
-            <td style="width: 40%; text-align: left;font-weight: bold;">
+            <td style="width: 70%; text-align: left;font-weight: bold;">
             : _tenkhachhang
             </td>
         </tr>
@@ -92,7 +92,7 @@
         	<td style="width: 30%; text-align: left;">
 			Địa chỉ
             </td>
-            <td style="width: 40%; text-align: left; ">
+            <td style="width: 70%; text-align: left; ">
             : _diachikhachhang
             </td>
         </tr>
@@ -100,7 +100,7 @@
         	<td style="width: 30%; text-align: left;">
 			Điện thoại
             </td>
-            <td style="width: 40%; text-align: left; ">
+            <td style="width: 70%; text-align: left; ">
             : _sdtkhachhang
             </td>
         </tr>
@@ -108,7 +108,7 @@
             <td style="width: 30%; text-align: left;">
             Email
             </td>
-            <td style="width: 40%; text-align: left; ">
+            <td style="width: 70%; text-align: left; ">
             : _emailkhachhang
             </td>
         </tr>
@@ -186,9 +186,11 @@
     <br>
     <br>
     <br>
+    Bảo hành 06 tháng áp dụng cho các lỗi do nhà sản xuất đối với sản phẩm. Không bảo hành đối với các sản phẩm đã bị trầy, xước, cháy, nổ, bong sơn, lão hóa, thay đổi hình dáng sản phẩm... trong quá trình sử dụng. Bảo trì trọn đời sản phẩm trên tất cả các chi nhánh của NgocMinh Optic.
     <br>
     <br>
-	Bảo hành 12 tháng các lỗi xảy ra trên gọng kinh của nhà sản xuất
-	<br>
-	Bán buôn liên hệ: Mr. Hiệp - 0915.441.113
+    Chi tiết trong Website <a target="_blank" href="http://www.ngocminhoptic.com/">www.ngocminhoptic.com/</a>
+    <br>
+    <br>
+    Bán buôn liên hệ hotline: <b>Mr. Hiệp - 0915.441.113</b> (zalo - viber)
 </page>

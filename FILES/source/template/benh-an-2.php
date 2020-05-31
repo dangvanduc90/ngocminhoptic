@@ -79,12 +79,12 @@
         </tr>
     </table>
     <br>
-    <table cellspacing="0" style="width: 70%; text-align: center;">
+    <table cellspacing="0" style="width: 100%; text-align: center;">
         <tr>
         	<td style="width: 30%; text-align: left;font-weight: bold;">
 			Khách hàng
             </td>
-            <td style="width: 40%; text-align: left;font-weight: bold;">
+            <td style="width: 70%; text-align: left;font-weight: bold;">
             : _tenkhachhang
             </td>
         </tr>
@@ -92,7 +92,7 @@
         	<td style="width: 30%; text-align: left;">
 			Địa chỉ
             </td>
-            <td style="width: 40%; text-align: left; ">
+            <td style="width: 70%; text-align: left; ">
             : _diachikhachhang
             </td>
         </tr>
@@ -100,7 +100,7 @@
         	<td style="width: 30%; text-align: left;">
 			Điện thoại
             </td>
-            <td style="width: 40%; text-align: left; ">
+            <td style="width: 70%; text-align: left; ">
             : _sdtkhachhang
             </td>
         </tr>
@@ -108,7 +108,7 @@
         	<td style="width: 30%; text-align: left;">
 			Ngày khám lại
             </td>
-            <td style="width: 40%; text-align: left; ">
+            <td style="width: 70%; text-align: left; ">
             : _ngaykhamlai
             </td>
         </tr>
@@ -176,41 +176,28 @@
 		</tr>
 
     </table>
-    <br>
-    <p style="text-align: center;padding: 10px;  font-size: 17px; font-weight: bold"><b>HÓA ĐƠN BÁN HÀNG</b></p>
-
-	<table id="table-3" cellspacing="0" style="width: 100%;">
-
-        <tr id="th-header">
-        	<th style="width: 10%; text-align:center;  text-transform: uppercase; font-size: 11px;">TT</th>
-            <th style="width: 40%; text-align:center;  text-transform: uppercase; font-size: 11px;">Sản phẩm</th>
-            <th style="width: 10%; text-align:center;  text-transform: uppercase; font-size: 11px;">SL</th>
-            <th style="width: 20%; text-align:center;  text-transform: uppercase; font-size: 11px;">Đơn giá</th>
-            <th style="width: 20%; text-align:center;  text-transform: uppercase; font-size: 11px;">Thành tiền</th>
-        </tr>
-        _dataSanPham
-    </table>
-    <br>
-    <br>
-    <br>
-    <br>
-	<br>
+<!--    <br>-->
+<!--    <p style="text-align: center;padding: 10px;  font-size: 17px; font-weight: bold"><b>HÓA ĐƠN BÁN HÀNG</b></p>-->
+<!---->
+<!--	<table id="table-3" cellspacing="0" style="width: 100%;">-->
+<!---->
+<!--        <tr id="th-header">-->
+<!--        	<th style="width: 10%; text-align:center;  text-transform: uppercase; font-size: 11px;">TT</th>-->
+<!--            <th style="width: 40%; text-align:center;  text-transform: uppercase; font-size: 11px;">Sản phẩm</th>-->
+<!--            <th style="width: 10%; text-align:center;  text-transform: uppercase; font-size: 11px;">SL</th>-->
+<!--            <th style="width: 20%; text-align:center;  text-transform: uppercase; font-size: 11px;">Đơn giá</th>-->
+<!--            <th style="width: 20%; text-align:center;  text-transform: uppercase; font-size: 11px;">Thành tiền</th>-->
+<!--        </tr>-->
+<!--        _dataSanPham-->
+<!--    </table>-->
     <br>
     <br>
     <br>
+    Bảo hành 06 tháng áp dụng cho các lỗi do nhà sản xuất đối với sản phẩm. Không bảo hành đối với các sản phẩm đã bị trầy, xước, cháy, nổ, bong sơn, lão hóa, thay đổi hình dáng sản phẩm... trong quá trình sử dụng. Bảo trì trọn đời sản phẩm trên tất cả các chi nhánh của NgocMinh Optic.
     <br>
     <br>
+    Chi tiết trong Website <a target="_blank" href="http://www.ngocminhoptic.com/">www.ngocminhoptic.com/</a>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-	<br>
-    <br>
-    <br>
-    <br>
-    <br>
-	Bảo hành 12 tháng các lỗi xảy ra trên gọng kinh của nhà sản xuất
-	<br>
-	Bán buôn liên hệ: Mr. Hiệp - 0915.441.113
+    Bán buôn liên hệ hotline: <b>Mr. Hiệp - 0915.441.113</b> (zalo - viber)
 </page>
