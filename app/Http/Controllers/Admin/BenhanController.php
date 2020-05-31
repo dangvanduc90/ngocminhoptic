@@ -10,6 +10,7 @@ use App\Admin\Khambenh;
 use App\Admin\Donhangkham;
 use App\Admin\Order;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Spipu\Html2Pdf\Html2Pdf;
 use Illuminate\Support\Facades\Storage;
@@ -232,11 +233,11 @@ class BenhanController extends Controller
 
     public function ajaxsearchBenhAn(Request $request)
     {
-
         $str = $request->input('str');
         $from_date = $request->input('from_date');
         $end_date = $request->input('end_date');
         $benhans = Benhan::orderby('created_at','desc');
+
         if($str != null && $str != ''){
             $str = mb_strtolower($str, 'UTF-8');
             $benhans = $benhans->where(function ($query) use ($str) {
@@ -248,11 +249,11 @@ class BenhanController extends Controller
         }
         if($from_date != null && $from_date != ''){
             $from_date = convert_format_ymd($from_date);
-            $benhans = $benhans->whereRaw("STR_TO_DATE(ngaykham,'%d/%m/%Y') >= '".$from_date."'");
+            $benhans = $benhans->whereRaw("STR_TO_DATE(REPLACE(ngaykham, '-', '/'), '%d/%m/%Y') >= '".$from_date."'");
         }
         if($end_date != null && $end_date != ''){
             $end_date = convert_format_ymd($end_date);
-            $benhans = $benhans->whereRaw("STR_TO_DATE(ngaykham,'%d/%m/%Y') <= '".$end_date."'");
+            $benhans = $benhans->whereRaw("STR_TO_DATE(REPLACE(ngaykham, '-', '/'), '%d/%m/%Y') <= '".$end_date."'");
         }
         $benhans = $benhans->get();
         return view('back-end.crm.table-benh-an',['benhans'=>$benhans]);
@@ -276,11 +277,11 @@ class BenhanController extends Controller
         }
         if($from_date != null && $from_date != ''){
             $from_date = convert_format_ymd($from_date);
-            $benhans = $benhans->whereRaw("STR_TO_DATE(ngay,'%d/%m/%Y') >= '".$from_date."'");
+            $benhans = $benhans->whereRaw("STR_TO_DATE(REPLACE(ngay, '-', '/'),'%d/%m/%Y') >= '".$from_date."'");
         }
         if($end_date != null && $end_date != ''){
             $end_date = convert_format_ymd($end_date);
-            $benhans = $benhans->whereRaw("STR_TO_DATE(ngay,'%d/%m/%Y') <= '".$end_date."'");
+            $benhans = $benhans->whereRaw("STR_TO_DATE(REPLACE(ngay, '-', '/'),'%d/%m/%Y') <= '".$end_date."'");
         }
         $benhans = $benhans->get();
         return view('back-end.crm.table-order',['orders'=>$benhans]);

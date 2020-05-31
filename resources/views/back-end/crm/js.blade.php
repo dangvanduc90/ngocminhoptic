@@ -140,12 +140,7 @@
         });
 	});
     $('.datepicker').datepicker({
-        todayBtn: "linked",
-        keyboardNavigation: false,
-        forceParse: false,
-        calendarWeeks: true,
-        autoclose: true,
-        format: "dd/mm/yyyy"
+        dateFormat: "dd/mm/yy"
     });
 
     function confirmFormDelete(id) {
