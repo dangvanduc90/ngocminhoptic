@@ -31,7 +31,7 @@
                 <div class="entry">
                   <h3 class="post-box-title"><a href="{{route('post.detail',['slug'=>$post->slug])}}">{{getName($post)}}</a></h3>
                   <p class="post-meta">{{date('d/m/Y', strtotime($post->created_at))}}</p>
-                  <p class="noi-dung">{{(strlen(getDes($post)) > 200) ? substr(getDes($post), 0, 200) . '...' : getDes($post)}}</p>
+                  <p class="noi-dung">{{(strlen(getDes($post)) > 200) ? mb_convert_encoding(substr(getDes($post), 0, 200), 'utf8') . '...' : mb_convert_encoding(getDes($post), 'utf8')}}</p>
                 </div>
               </div>
             </div>
