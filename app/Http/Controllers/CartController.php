@@ -160,14 +160,14 @@ class CartController extends Controller
 		$template = str_replace('_sdtkhachhang', $obj->phone, $template);
 		$template = str_replace('_diachikhachhang', $obj->address, $template);
 		$template = str_replace('_emailkhachhang', $obj->email, $template);
-		$template = str_replace('stk', $obj->stk, $template);
-		$template = str_replace('bank', $obj->bank_name, $template);
+//		$template = str_replace('stk', $obj->stk, $template);
+//		$template = str_replace('bank', $obj->bank_name, $template);
 		$template = str_replace('_httt', $ht, $template);
 		$template = str_replace('_ghichu', $obj->content, $template);
 		$template = str_replace('_tongtien',number_format($tongtien), $template);
 
         $logo = Webinfo::where('name', 'logo')->where('status', 1)->value('image');
-        $template = str_replace('_logo', $logo ?? 'http://ngocminh.test/FILES/source/logo-images.jpg', $template);
+        $template = str_replace('_logo', $logo ?? config('app.url') . 'FILES/source/logo-images.jpg', $template);
 
         $name_company = Webinfo::where('name', 'name_company')->where('status', 1)->value('content');
         $template = str_replace('_name_company', $name_company ?? 'KÍNH MẮT NGỌC MINH', $template);

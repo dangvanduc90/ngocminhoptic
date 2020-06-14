@@ -12,7 +12,8 @@
 			<th class="text-center">Ngân hàng</th>
 			<th class="text-center">Ngày tạo</th>
 			<th class="text-center">Trạng thái</th>
-		</tr>
+            <th class="text-center">Action</th>
+        </tr>
 	</thead>
 	<tbody>
 		@foreach($donhangs as $obj)
@@ -28,6 +29,12 @@
 			<td class="text-center">{{$obj->bank->name}}</td>
 			<td class="text-center">{{$obj->created_at}}</td>
 			<td class="text-center">{{$obj->status == 0 ? 'Đang chờ' : 'Đã xử lý'}}</td>
+            <td class="text-center">
+                <a 	class="btn btn-danger btn-circle btn-sm delete-button"
+                      data-action ="{{ route('donhang.destroy',$obj->id) }}" type="button">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </td>
 		</tr>
 		@endforeach
 	</tbody>

@@ -112,22 +112,22 @@
             : _emailkhachhang
             </td>
         </tr>
-        <tr>
-            <td style="width: 30%; text-align: left;">
-            Số tài khoản
-            </td>
-            <td style="width: 40%; text-align: left; ">
-            : stk
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 30%; text-align: left;">
-            Ngân hàng
-            </td>
-            <td style="width: 40%; text-align: left; ">
-            : bank
-            </td>
-        </tr>
+<!--        <tr>-->
+<!--            <td style="width: 30%; text-align: left;">-->
+<!--            Số tài khoản-->
+<!--            </td>-->
+<!--            <td style="width: 40%; text-align: left; ">-->
+<!--            : stk-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td style="width: 30%; text-align: left;">-->
+<!--            Ngân hàng-->
+<!--            </td>-->
+<!--            <td style="width: 40%; text-align: left; ">-->
+<!--            : bank-->
+<!--            </td>-->
+<!--        </tr>-->
         <tr>
             <td style="width: 30%; text-align: left;">
             Hình thức thanh toán

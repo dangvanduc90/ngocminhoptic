@@ -10,6 +10,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
 	Route::get('/ajax/searchKhamBenh', 'Admin\KhambenhController@searchAjax');
 	Route::post('/ajax/deleteOrder/{id}', 'Admin\OrderController@ajaxDestroyOrder')->name('destroy.order');
 	Route::get('/download/Benhan/{id}', 'Admin\BenhanController@download')->name('download.benhan');
+	Route::get('/download-in-nhiet/Benhan/{id}', 'Admin\BenhanController@downloadInNhiet')->name('download.innhiet.benhan');
 	Route::get('/', 'Admin\PostController@index')
 	->name('admin.home');
 
@@ -19,6 +20,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
     Route::get('/contacts/', 'Admin\LienHeController@index')->name('lienhe.index');
 	Route::delete('/contacts/{id}', 'Admin\LienHeController@destroy')->name('lienhe.destroy');
 	Route::get('/donhang/', 'Admin\DonhangController@index')->name('donhang.show');
+	Route::delete('/donhang/{id}', 'Admin\DonhangController@destroy')->name('donhang.destroy');
 
 	//Product
 	Route::resource('product', 'Admin\ProductController');

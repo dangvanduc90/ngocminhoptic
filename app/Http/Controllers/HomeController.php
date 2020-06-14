@@ -192,7 +192,7 @@ class HomeController extends Controller
         $template = str_replace('_mpna', $obj->mp_nhanap, $template);
 
         $logo = Webinfo::where('name', 'logo')->where('status', 1)->value('image');
-        $template = str_replace('_logo', $logo ?? 'http://ngocminh.test/FILES/source/logo-images.jpg', $template);
+        $template = str_replace('_logo', $logo ?? config('app.url') . 'FILES/source/logo-images.jpg', $template);
 
         $name_company = Webinfo::where('name', 'name_company')->where('status', 1)->value('content');
         $template = str_replace('_name_company', $name_company ?? 'KÍNH MẮT NGỌC MINH', $template);

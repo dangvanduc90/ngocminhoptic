@@ -335,7 +335,7 @@ class BenhanController extends Controller
         $template = str_replace('_authuser', Auth::user()->fullname, $template);
 
         $logo = Webinfo::where('name', 'logo')->where('status', 1)->value('image');
-        $template = str_replace('_logo', $logo ?? 'http://ngocminh.test/FILES/source/logo-images.jpg', $template);
+        $template = str_replace('_logo', $logo ?? config('app.url') .  'FILES/source/logo-images.jpg', $template);
 
         $name_company = Webinfo::where('name', 'name_company')->where('status', 1)->value('content');
         $template = str_replace('_name_company', $name_company ?? 'KÍNH MẮT NGỌC MINH', $template);
@@ -367,6 +367,86 @@ class BenhanController extends Controller
             $_html .= number_format($donhang->gia);
             $_html  .= "</td><td style='text-align:center; font-size: 13px;''>";
             $_html .= number_format($donhang->thanhtien);
+            $_html  .= "</td></tr>";
+            $j++;
+        }
+        $template = str_replace('_dataSanPham', $_html, $template);
+
+        $html2pdf = new HTML2PDF('P', 'A4', 'en');
+        $html2pdf->pdf->SetDisplayMode('fullpage');
+        $html2pdf->writeHTML($template, true);
+
+        $hovaten = stripVN($obj->hovaten);
+
+        $html2pdf->output("$hovaten.pdf",'D');
+        return 'done';
+    }
+
+    public function downloadInNhiet($id){
+        $obj = Benhan::find($id);
+        if($obj == null) abort(404);
+        $tongtien = $obj->tongtien;
+        $khuyenmai = floatval($obj->khieunai);
+        $tongthanhtien = floatval($obj->tongthanhtien);
+        $congno = $obj->congno;
+        $template = Storage::disk('template')->get('benh-an-in-nhiet.php');
+        $current_date = date('d/m/Y');
+        $template = str_replace('_madon', $obj->madon, $template);
+        $template = str_replace('_ngaydenkham', $obj->ngaykham, $template);
+        $template = str_replace('_tenkhachhang', $obj->hovaten, $template);
+        $template = str_replace('_sdtkhachhang', $obj->sdt, $template);
+        $template = str_replace('_ngaykhamlai', $obj->ngayhen, $template);
+        $template = str_replace('_ngayhomnay', 'Ngày: ' . $current_date, $template);
+        $template = str_replace('_tspd', $obj->pd, $template);
+        $template = str_replace('_mpthiluc', $obj->mp_thiluc, $template);
+        $template = str_replace('_mptskinh', $obj->mp_ts_moi, $template);
+        $template = str_replace('_mptlcokinh', $obj->mp_tl_kich, $template);
+        $template = str_replace('_mpna', $obj->mp_nhanap, $template);
+
+        $template = str_replace('_mtthiluc', $obj->mt_thiluc, $template);
+        $template = str_replace('_mttskinh', $obj->mt_ts_moi, $template);
+        $template = str_replace('_mttlcokinh', $obj->mt_tl_kich, $template);
+        $template = str_replace('_mtna', $obj->mt_nhanap, $template);
+
+        $template = str_replace('_tongtien',number_format($tongtien), $template);
+        $template = str_replace('_tongthanhtien', number_format($tongthanhtien), $template);
+        $template = str_replace('_khuyenmai', number_format($khuyenmai), $template);
+        $template = str_replace('_congno', number_format($congno), $template);
+        $template = str_replace('_datcoc', number_format($obj->datcoc), $template);
+
+        $template = str_replace('_authuser', Auth::user()->fullname, $template);
+
+        $logo = Webinfo::where('name', 'logo')->where('status', 1)->value('image');
+        $template = str_replace('_logo', $logo ?? config('app.url') . 'FILES/source/logo-images.jpg', $template);
+
+        $name_company = Webinfo::where('name', 'name_company')->where('status', 1)->value('content');
+        $template = str_replace('_name_company', $name_company ?? 'KÍNH MẮT NGỌC MINH', $template);
+
+        $address_company = Webinfo::where('name', 'address_company')->where('status', 1)->value('content');
+        $template = str_replace('_address_company', $address_company ?? 'Số 83 - Đường Bát Khối - Long Biên - Hà Nội', $template);
+
+        $hotline_company = Webinfo::where('name', 'hotline_company')->where('status', 1)->value('content');
+        $template = str_replace('_hotline_company', $hotline_company ? 'Phone: ' . $hotline_company : 'Phone: 096.6979.615', $template);
+
+        $email_company = Webinfo::where('name', 'email')->where('status', 1)->value('content');
+        $template = str_replace('_email', $email_company ?? 'ngocminhoptic@gmail.com', $template);
+
+        $template = str_replace('_website', config('app.url'), $template);
+
+        $j = 1;
+        $_html = "";
+        foreach ($obj->donhangkhams()->get() as $donhang) {
+            $sp = $donhang->khambenh;
+            if($sp == null) $sp = "";
+            else $sp = $sp->name;
+            $_html  .= "<tr><td style='text-align:center; font-size: 13px;''>";
+            $_html .= $j;
+            $_html  .= "</td><td style='text-align:center; font-size: 13px;width: 200px''>";
+            $_html .= $sp;
+            $_html  .= "</td><td style='text-align:center; font-size: 13px;''>";
+            $_html .= $donhang->soluong;
+            $_html  .= "</td><td style='text-align:center; font-size: 13px;''>";
+            $_html .= number_format($donhang->gia);
             $_html  .= "</td></tr>";
             $j++;
         }

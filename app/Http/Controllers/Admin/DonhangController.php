@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Admin\Donhang;
+use Illuminate\Support\Facades\Session;
 
 class DonhangController extends Controller
 {
@@ -82,6 +83,13 @@ class DonhangController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $obj = Donhang::find($id);
+        if($obj == null){
+            Session::flash('error-coso', 'Không tìm thấy dữ liệu.');
+            return redirect()->route('donhang.show');
+        }
+        $obj->delete();
+        Session::flash('success-coso', 'Xóa đơn hàng thành công.');
+        return redirect()->route('donhang.show');
     }
 }

@@ -2,7 +2,7 @@
   <div class="footer-top">
     <div class="container">
       <div class="row">
-        <div class="col-md-12 footer-sidebar text-center">
+        <div class="col-md-12 footer-sidebar">
           @if($footer_content != null)
           <div class="widget-footer">
                 @if($footer_content->image != null)
